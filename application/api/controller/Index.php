@@ -15,4 +15,17 @@ class Index extends Base {
 		parent::__construct();
 	}
 
+	public function index(){
+		// 获取最新资讯
+		$info = DB::name('article')
+			->where('cat_id', 1)
+			->where('is_open', 1)
+			->order('article_id desc')
+			->field('article_id, title')
+			->find();
+		$result['info'] = $info;
+
+		response_success($result);
+	}
+
 }

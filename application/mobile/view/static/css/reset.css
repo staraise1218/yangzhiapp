@@ -1,0 +1,167 @@
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+    margin: 0;
+}
+
+ol,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var,
+optgroup {
+    font-style: normal;
+}
+
+input,
+button,
+textarea,
+select,
+optgroup,
+option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    *font-size: 100%;
+}
+
+fieldset,
+img,
+a img,
+:link img,
+:visited img {
+    border: 0;
+}
+
+:focus {
+    outline: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+caption,
+th {
+    text-align: left;
+}
+
+sup,
+sub {
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+.clearfix:after {
+    content: '';
+    display: table-cell;
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+img {
+    display: inline-block;
+    /* 火狐浏览器下  没有src的img  是类似于span的内联元素 */
+}
+
+input,
+textarea,
+img,
+video,
+object {
+    box-sizing: border-box;
+    /* 这几个替换元素设为border-box */
+}
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+/*自定义*/
+
+
+/*让页面滚动条不发生晃动*/
+
+
+/* html {
+	overflow-y: scroll;
+}
+:root {
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+:root body {
+	position: absolute;
+}
+body {
+	width: 100vw;
+	overflow: hidden;
+} */
+
+
+/*设置一些 字号 字体 字颜色*/
+
+
+/* body {
+    font-size: 14px;
+    font-family: "微软雅黑";
+}
+
+a {
+    color: #6a6767;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+} */
+
+
+/*自定义 end*/
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////*/
+qqqceshi{
+  align-items: flex-start;
+  justify-content: center;
+  align-items: center
+  /* background: red url(图片路径) center center no-repeat */
+}

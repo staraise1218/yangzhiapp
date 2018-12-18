@@ -20,12 +20,12 @@ return	array(
 
 				array('name' => '会员','child'=>array(
 						array('name'=>'会员列表','act'=>'index','op'=>'User'),
-						array('name'=>'会. 员等级','act'=>'levelList','op'=>'User'),
-						array('name'=>'充值记录','act'=>'recharge','op'=>'User'),
-						array('name'=>'提现申请','act'=>'withdrawals','op'=>'User'),
-						array('name'=>'汇款记录','act'=>'remittance','op'=>'User'),
+						// array('name'=>'会员等级','act'=>'levelList','op'=>'User'),
+						// array('name'=>'充值记录','act'=>'recharge','op'=>'User'),
+						// array('name'=>'提现申请','act'=>'withdrawals','op'=>'User'),
+						// array('name'=>'汇款记录','act'=>'remittance','op'=>'User'),
 						//array('name'=>'会员整合','act'=>'integrate','op'=>'User'),
-						array('name'=>'会员签到','act'=>'signList','op'=>'User'),
+						// array('name'=>'会员签到','act'=>'signList','op'=>'User'),
 				)),
 				array('name' => '广告','child' => array(
 						array('name'=>'广告列表','act'=>'adList','op'=>'Ad'),
@@ -34,10 +34,7 @@ return	array(
 				array('name' => '文章','child'=>array(
 						array('name' => '文章列表', 'act'=>'articleList', 'op'=>'Article'),
 						array('name' => '文章分类', 'act'=>'categoryList', 'op'=>'Article'),
-						//array('name' => '帮助管理', 'act'=>'help_list', 'op'=>'Article'),
-						//array('name'=>'友情链接','act'=>'linkList','op'=>'Article'),
-						//array('name' => '公告管理', 'act'=>'notice_list', 'op'=>'Article'),
-						array('name' => '专题列表', 'act'=>'topicList', 'op'=>'Topic'),
+						// array('name' => '专题列表', 'act'=>'topicList', 'op'=>'Topic'),
 				)),
 	)),
 		

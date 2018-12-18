@@ -22,28 +22,7 @@
 		  <span class="err" id="err_ad_name" style="color:#F00; display:none;">广告名称不能为空</span>                                                  
           <p class="notic"></p>
         </dd>
-      </dl>	   
-	  <dl class="row">
-        <dt class="tit" colspan="2">
-          <label>广告类型：</label>
-        </dt>
-        <dd class="opt">
-          <if condition='$Request.param.is_app_ad eq 1'>
-          			<select name="media_type" id="media_type" class="input-sm" class="form-control">
-		                 <option value="3" <if condition="$info.media_type eq 3 ">selected</if>>商品</option>                                             
-		                 <option value="4" <if condition="$info.media_type eq 4 ">selected</if>>分类</option>
-		                 <option value="5" <if condition="$info.media_type eq 5 ">selected</if>>Web链接</option>
-		            </select>
-          <else/>
-	          	 <div id="gcategory">
-		            <select name="media_type" class="input-sm" class="form-control">
-		                 <option value="0">图片</option>                                             
-		                 <option value="1">flash</option>
-		            </select>                   
-		          </div>  
-          </if>	 
-        </dd>
-      </dl> 
+      </dl>
       <dl class="row">
         <dt class="tit">
           <label><em>*</em>广告链接：</label>
@@ -54,33 +33,8 @@
 				  <span class="err" id="err_ad_link" style="color:#F00; display:none;"></span>
 		          <p class="notic"></p>
         	</div>
-        	<div id="link_category"> <!-- 分类链接 -->
-        		  <select name="cat_id1" id="cat_id1" onblur="get_category(this.value,'cat_id2','0');"  class="class-select valid">
-	                <option value="0">请选择商品分类</option>                                      
-	                     <foreach name="cat_list" item="v" key="k" >                                                                           
-	                       <option value="{$v['id']}" <if condition="$v['id'] eq $info[cat_id1]">selected="selected"</if> >
-	                            {$v['name']}
-	                       </option>
-	                     </foreach>
-	              </select>
-	              <select name="cat_id2" id="cat_id2" onblur="get_category(this.value,'cat_id3','0');" class="class-select valid">
-	                <option value="0">请选择商品分类</option>
-	              </select>    
-	              <select name="cat_id3" id="cat_id3" class="class-select valid">
-	                <option value="0">请选择商品分类</option>
-	              </select> 
-        	</div>
-        	<div id="link_goods"> <!-- 商品链接 -->
-        		  <a id="add_type" class="ncap-btn" onclick="select_goods_dialog()">选择商品</a> 
-        		  <span id="goods_name">{$info.goods_name}</span>
-        		  <input name="goods_id" id="goods_id" type="hidden" value="{$info.ad_link}">
-        	</div> 
         </dd>
       </dl>
- 	
-      <if condition='$Request.param.is_app_ad eq 1'>
-     		<input name="pid" type="hidden" value="{$info.pid}">
-      <else/>
 	  <dl class="row">
         <dt class="tit" colspan="2">
           <label>广告位置：</label>
@@ -94,27 +48,8 @@
 	            </select> 
           </div>          
         </dd>
-      </dl>    
-       </if>       
-	  <dl class="row">
-        <dt class="tit">
-          <label>开始日期：</label>
-        </dt>
-        <dd class="opt">
-            <input type="text" class="input-txt" id="start_time" name="begin"  value="{$info.start_time|default='2016-01-01'}"/>
-          <span class="err"></span>
-        </dd>
-      </dl>    
-	  <dl class="row">
-        <dt class="tit">
-          <label>结束时间：</label>
-        </dt>
-        <dd class="opt">
-            <input type="text" class="input-txt" id="end_time" name="end"  value="{$info.end_time|default='2019-01-01'}"/>
-          <span class="err"></span>
-        </dd>
-      </dl>        
-      
+      </dl>      
+
       <dl class="row">
         <dt class="tit">
           <label>广告图片</label>
@@ -136,19 +71,7 @@
           <p class="notic">请上传图片格式文件,建议图片尺寸{$Request.param.suggestion}(宽*高, 如果不按要求上传图片将会导致前端广告显示不友好)</p>
         </dd>
       </dl>
-      <if condition='$Request.param.is_app_ad eq 0'>
-      <dl class="row">
-        <dt class="tit">
-          <label><em>*</em>背景颜色：</label>
-        </dt>
-        <dd class="opt">
-          <input type="color" placeholder="背景颜色：" class="input-txt" name="bgcolor" value="{$info.bgcolor}"  />
-		  <span class="err" id="err_bgcolor" style="color:#F00; display:none;"></span>
-          <p class="notic"></p>
-        </dd>
-      </dl>   
-      </if>           
-      <if condition='$Request.param.is_app_ad eq 0'>   		 		       
+		 		       
       <dl class="row">
         <dt class="tit">
           <label>默认排序：</label>
@@ -159,7 +82,7 @@
           <p class="notic"></p>
         </dd>
       </dl>
-      </if>
+
       <div class="bot"><a href="JavaScript:void(0);" onclick="adsubmit()" class="ncap-btn-big ncap-btn-green" id="submitBtn">确认提交</a></div>
     </div>
        <input type="hidden" name="act" value="{$act}">

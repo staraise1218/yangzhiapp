@@ -1,0 +1,512 @@
+/* reset */
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form {
+    margin: 0;
+}
+
+ol,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var,
+optgroup {
+    font-style: normal;
+}
+
+input,
+button,
+textarea,
+select,
+optgroup,
+option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    *font-size: 100%;
+}
+
+fieldset,
+img,
+a img,
+:link img,
+:visited img {
+    border: 0;
+}
+
+:focus {
+    outline: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+caption,
+th {
+    text-align: left;
+}
+
+sup,
+sub {
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+.clearfix:after {
+    content: '';
+    display: table-cell;
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+img {
+    display: inline-block;
+    /* 火狐浏览器下  没有src的img  是类似于span的内联元素 */
+}
+
+input,
+textarea,
+img,
+video,
+object {
+    box-sizing: border-box;
+    /* 这几个替换元素设为border-box */
+}
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+/*自定义*/
+
+
+/*让页面滚动条不发生晃动*/
+
+
+/* html {
+	overflow-y: scroll;
+}
+:root {
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+:root body {
+	position: absolute;
+}
+body {
+	width: 100vw;
+	overflow: hidden;
+} */
+
+
+/*设置一些 字号 字体 字颜色*/
+
+
+/* body {
+    font-size: 14px;
+    font-family: "微软雅黑";
+}
+
+a {
+    color: #6a6767;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+} */
+
+
+/*自定义 end*/
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/* reset end */
+
+
+/* 公共css */
+[v-cloak] {
+  display: none;
+}
+
+/* 禁用元素点击事件 */
+.eventsDisabled {
+  pointer-events: none;
+  cursor: pointer;
+}
+
+
+
+/* common */
+body{
+  font-family: "HiraginoSansGB-W3";
+  font-size: 0.14rem;
+}
+a{
+  text-decoration: none;
+}
+img{
+  width: 100%;
+  height: 100%;
+}
+/* 布局 */
+.vh100{
+  height: 100vh;
+}
+.marginlr14{
+  margin-left: 0.14rem;
+  margin-right: 0.14rem;
+}
+.paddinglr14{
+  padding-left: 0.14rem;
+  padding-right: 0.14rem;
+}
+.flexCenter{
+  display: flex;
+  align-items: center;
+}
+.flexBetween{
+  justify-content: space-between;
+}
+.flexAround{
+  justify-content: space-around;
+}
+.flexJCenter{
+  justify-content: center;
+}
+.flexCenterIL{
+  display: inline-flex;
+  align-items: center;
+}
+.flexColumn{
+  display: flex;
+  align-items: center;
+  flex-direction: column
+}
+.posiRe{
+  position: relative;
+}
+.positionCenter{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+/* 按钮 */
+.mBtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(11, 78, 161, 1); */
+  background: linear-gradient(to right, rgba(30, 101, 190, 1), rgba(11, 78, 161, 1)); /* 标准的语法 */
+  border-radius: 0.05rem;
+  font-size: 0.14rem;
+  color: #fff;
+  border: none;
+  outline: none;
+}
+.mDisBtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(224, 224, 224, 1);
+  border-radius: 0.05rem;
+  font-size: 0.14rem;
+  color: #fff;
+  border: none;
+  outline: none;
+}
+/* 容器 块 */
+.container{
+  background-color: #fff;
+  box-shadow: 0 0 2px 0 rgba(214,214,214,0.50);
+  padding: 0 0.14rem;
+  margin-bottom: 0.1rem;
+}
+/* 头像名称 */
+.headpic .headbox{
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.headpic .headname{
+  color: rgba(61, 61, 61, 1);
+  font-size: 0.16rem;
+  font-weight: bold;
+  margin-left: 0.1rem;
+}
+/* 星评 */
+.stars{
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+}
+.stars>li{
+  font-size: 0;
+  height: 100%;
+}
+.stars>li>img{
+  width: auto;
+  height: 100%;
+}
+/* 评论数量 */
+.commentCount>img{
+  width: 0.12rem;
+  height: 0.12rem;
+}
+.commentCount .commentCountText{
+  color: rgba(154, 154, 154, 1);
+  font-size: 0.12rem;
+}
+/* 文章字体 */
+.articleText{
+  color: rgba(103, 103, 103, 1);
+  font-size: 0.14rem;
+}
+/* 向下箭头 */
+.downArrow{
+  display: inline-block;
+  width: 0.15rem;
+  height: 0.15rem;
+  background: url(../images/展开@2x.png) center center no-repeat;
+  background-size: 100%;
+}
+/* 向右箭头 */
+.rightArrow{
+  display: inline-block;
+  width: 0.1rem;
+  height: 0.1rem;
+  background: url(../images/箭头@2x.png) center center no-repeat;
+  background-size: 100%;
+}
+/* 限制行数 */
+.limitLine2{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.limitLine3{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.limitLine4{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+.limitLine5{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+}
+/* 省略三个点 */
+.textOmit{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+/* 日期 */
+.date{
+  font-size: 0.12rem;
+  color: rgba(154, 154, 154, 1);
+}
+/* 浅蓝背景 */
+.lightBlue{
+  background-color: #2068c8;
+}
+.darkBlue{
+  background-color: #0f54af;
+}
+.isZhuanjia{
+  display: inline-block;
+  width: 0.15rem;
+  height: 0.15rem;
+  background: url(../images/专家@2x.png) center center no-repeat;
+  background-size: 100%;
+  margin-left: 0.05rem;
+
+  margin-top: 0.03rem;
+}
+/* textarea */
+.mTextarea{
+  width: 100%;
+  height: 1.5rem;
+  border: none;
+  outline: none;
+  color: rgba(76, 76, 76, 1);
+  font-size: 0.14rem;
+}
+.mTextarea::-webkit-input-placeholder{
+  color: rgba(179, 179, 179, 1);
+  font-size: 0.14rem;
+}
+/* 添加图片+ */
+.addpicWrap .addpicBtn{
+  display: inline-block;
+  width: 1.1rem;
+  height: 1.1rem;
+  background: url(../images/添加图片@2x.png) center center no-repeat;
+  background-size: 100%;
+}
+.addpicWrap .addedPic{
+  display: flex;
+  flex-wrap: wrap;
+}
+.addpicWrap .addedPic .picWrap{
+  position: relative;
+  /* padding: 16.6666%; */
+  padding: calc(16.6666% - 0.05rem);
+  margin: 0.05rem;
+}
+.addpicWrap .addedPic .picWrap>img{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.addpicWrap .delPic{
+  display: inline-block;
+  width: 0.2rem;
+  height: 0.2rem;
+  background: url(../images/移除@2x.png) center center no-repeat;
+  background-size: 100%;
+  position: absolute;
+  top: 0.06rem;
+  right: 0.06rem;
+}
+/* 成功页面 */
+.doneIconWrap{
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}
+.doneIcon{
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 0.2rem;
+}
+.doneText{
+  color: rgba(77, 77, 77, 1);
+  font-size: 0.18rem;
+  text-align: center;
+}
+.backIndex{
+  width: 1.34rem;
+  height: 0.46rem;
+  border-radius: 0.05rem;
+  background-color: rgba(244, 244, 244, 1);
+  line-height: 0.46rem;
+  text-align: center;
+  border: none;
+  outline: none;
+  color: rgba(77, 77, 77, 1);
+  font-size: 0.14rem;
+}
+/* 成功页面 end */
+/* 图片文字 */
+.picTextItem{
+  margin-bottom: 0.2rem;
+}
+.picTextItem>img{
+  width: 1.4rem;
+  height: 1.05rem;
+}
+.picTextItem>div{
+  height: 1.05rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 0.1rem;
+}
+.picTextItem>div>h5{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+
+  font-size: 0.14rem;
+  color: rgba(75, 75, 75, 1);
+}
+.picTextItem>div>p.text{
+  font-size: 0.12rem;
+  color: rgba(176, 176, 176, 1);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+/* 图片文字 end */
+/* 效果不错 安全放心 */
+.wordTip1,.wordTip2{
+  display: inline-block;
+  width: 0.51rem;
+  height: 0.19rem;
+  line-height: 0.19rem;
+  text-align: center;
+  border-radius: 0.03rem;
+  font-size: 0.1rem;
+}
+.wordTip1{
+  background-color: rgba(214, 233, 255, 1);
+  color: rgba(30, 101, 190, 1);
+}
+.wordTip2{
+  background-color: rgba(255, 215, 216, 1);
+  color: rgba(202, 47, 49, 1);
+}

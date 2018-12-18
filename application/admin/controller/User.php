@@ -1,17 +1,4 @@
 <?php
-/**
- * tpshop
- * ============================================================================
- * 版权所有 2015-2027 深圳搜豹网络科技有限公司，并保留所有权利。
- * 网站地址: http://www.tp-shop.cn
- * ----------------------------------------------------------------------------
- * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和使用 .
- * 不允许对程序代码以任何形式任何目的的再发布。
- * 采用最新Thinkphp5助手函数特性实现单字母函数M D U等简写方式
- * ============================================================================
- * Author: 当燃      
- * Date: 2015-09-09
- */
 
 namespace app\admin\controller;
 use app\admin\logic\OrderLogic;
@@ -37,9 +24,6 @@ class User extends Base {
         I('mobile') ? $condition['mobile'] = I('mobile') : false;
         I('email') ? $condition['email'] = I('email') : false;
 
-        I('first_leader') && ($condition['first_leader'] = I('first_leader')); // 查看一级下线人有哪些
-        I('second_leader') && ($condition['second_leader'] = I('second_leader')); // 查看二级下线人有哪些
-        I('third_leader') && ($condition['third_leader'] = I('third_leader')); // 查看三级下线人有哪些
         $sort_order = I('order_by').' '.I('sort');
                
         $model = M('users');
@@ -51,22 +35,9 @@ class User extends Base {
         }
         
         $userList = $model->where($condition)->order($sort_order)->limit($Page->firstRow.','.$Page->listRows)->select();
-                
+   
         $user_id_arr = get_arr_column($userList, 'user_id');
-        if(!empty($user_id_arr))
-        {
-            $first_leader = DB::query("select first_leader,count(1) as count  from __PREFIX__users where first_leader in(".  implode(',', $user_id_arr).")  group by first_leader");
-            $first_leader = convert_arr_key($first_leader,'first_leader');
-            
-            $second_leader = DB::query("select second_leader,count(1) as count  from __PREFIX__users where second_leader in(".  implode(',', $user_id_arr).")  group by second_leader");
-            $second_leader = convert_arr_key($second_leader,'second_leader');            
-            
-            $third_leader = DB::query("select third_leader,count(1) as count  from __PREFIX__users where third_leader in(".  implode(',', $user_id_arr).")  group by third_leader");
-            $third_leader = convert_arr_key($third_leader,'third_leader');            
-        }
-        $this->assign('first_leader',$first_leader);
-        $this->assign('second_leader',$second_leader);
-        $this->assign('third_leader',$third_leader);                                
+                              
         $show = $Page->show();
         $this->assign('userList',$userList);
         $this->assign('level',M('user_level')->getField('level_id,level_name'));
@@ -113,10 +84,7 @@ class User extends Base {
                 exit($this->success('修改成功'));
             exit($this->error('未作内容修改或修改失败'));
         }
-        
-        $user['first_lower'] = M('users')->where("first_leader = {$user['user_id']}")->count();
-        $user['second_lower'] = M('users')->where("second_leader = {$user['user_id']}")->count();
-        $user['third_lower'] = M('users')->where("third_leader = {$user['user_id']}")->count();
+    
  
         $this->assign('user',$user);
         return $this->fetch();

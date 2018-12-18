@@ -1,0 +1,77 @@
+body{
+  background-color: #fff;
+}
+.register .logoWrap{
+  margin: 0.25rem 0;
+}
+.register .logo{
+  width: 0.8rem;
+  height:0.8rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.register .logo>p{
+  font-size: 0.16rem;
+}
+.register .registerItem{
+  border-bottom: 1px solid rgba(230, 230, 230, 1);
+  /* padding: 0.05rem 0;
+  margin: 0.15rem 0; */
+  padding: 0.08rem 0;
+  margin: 0.18rem 0;
+}
+.register .registerItem .itemIcon{
+   width: 0.17rem;
+   height: 0.17rem;
+}
+.register .registerItem>input{
+  flex: 1 0 0;
+  border: none;
+  outline: none;
+  padding-left: 0.08rem;
+}
+.register .btnBox-register{
+  width: 2.95rem;
+  height: 0.42rem;
+  margin: 0.35rem 0;
+}
+.register .goLogin{
+  color: rgba(102, 102, 102, 1);
+}
+.register .goLogin>span,
+.register .goLogin a{
+  color: rgba(11, 78, 161, 1);
+}
+.register .regTip{
+  margin-top: 0.3rem;
+  font-size: 0.12rem;
+  color: rgba(152, 152, 152, 1);
+}
+.register .regTip>span{
+  color: rgba(11, 78, 161, 1);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.register .showPsword{
+  display: block;
+  width: 0.17rem;
+  height: 0.17rem;
+  background: url(../images/æ˜¾ç¤º1@2x.png) center center no-repeat;
+  background-size: 100%;
+}
+.register .getCode{
+  display: inline-block;
+  border-left: 1px solid rgba(230, 230, 230, 1);
+  color: rgba(77, 77, 77, 1);
+  font-size: 0.12rem;
+  text-align: right;
+  width: 0.7rem;
+}
+.register input::-webkit-input-placeholder {
+  font-size: 0.12rem;
+}
+/* login.html */
+.logTip,
+.logTip a{
+  color: rgba(102, 102, 102, 1);
+}

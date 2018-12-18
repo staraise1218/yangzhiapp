@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:46:"./application/admin/view/system\shop_info.html";i:1545018387;s:68:"E:\PHPTools\www\yangzhiapp\application\admin\view\public\layout.html";i:1522317281;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:46:"./application/admin/view/system\shop_info.html";i:1545036770;s:68:"E:\PHPTools\www\yangzhiapp\application\admin\view\public\layout.html";i:1522317281;}*/ ?>
 <!doctype html>
 <html>
 <head>
@@ -248,7 +248,7 @@
             </dl>
             <dl class="row">
                 <dt class="tit">
-                    <label for="store_title">网站标题</label>
+                    <label for="store_title">网站标题 </label>
                 </dt>
                 <dd class="opt">
                     <input id="store_title" name="store_title" value="<?php echo $config['store_title']; ?>" class="input-txt" type="text" />

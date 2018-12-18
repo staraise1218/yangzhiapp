@@ -22,7 +22,7 @@ class Expert extends Base {
         $list = Db::name('users')->alias('u')
             ->join('expert e', 'e.user_id=u.user_id', 'left')
             ->where('is_lock', 0)
-            ->where('group', 2)
+            ->where('group_id', 2)
             ->limit(10)
             ->page($page)
             ->field('u.user_id, fullname, head_pic, description')

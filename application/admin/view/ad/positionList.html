@@ -17,10 +17,6 @@
       <h4 title="提示相关设置操作时应注意的要点">操作提示</h4>
       <span title="收起提示" id="explanationZoom" style="display: block;"></span>
     </div>
-    <ul>
-      <li>广告位置在前台模板标签里面调用.</li>
-      <li>当模板标签调用时程序会自动判断 pid 不存在则自动添加一个广告位</li>      
-    </ul>
   </div>
   <div class="flexigrid">
     <div class="mDiv">
@@ -44,18 +40,9 @@
               <th align="left" abbr="ac_id" axis="col4" class="">
                 <div style="text-align: left; width: 200px;" class="">广告位名称</div>
               </th>
-              <th align="center" abbr="article_show" axis="col5" class="">
-                <div style="text-align: center; width: 60px;" class="">广告位宽度</div>
-              </th>
-              <th align="center" abbr="article_time" axis="col6" class="">
-                <div style="text-align: center; width: 60px;" class="">广告位高度</div>
-              </th>     
               <th align="center" abbr="article_time" axis="col6" class="">
                 <div style="text-align: center; width: 100px;" class="">广告位描述</div>
-              </th>     
-              <th align="center" abbr="article_time" axis="col6" class="">
-                <div style="text-align: center; width: 50px;" class="">状态</div>
-              </th>
+              </th> 
               <th align="center" abbr="article_time" axis="col6" class="">
                 <div style="text-align: center; width: 100px;" class="">操作</div>
               </th>             
@@ -87,30 +74,13 @@
                 </td>
                 <td align="left" class="">
                   <div style="text-align: left; width: 200px;">{$vo.position_name}</div>
-                </td>                
-                <td align="left" class="">
-                  <div style="text-align: left; width: 60px;">{$vo.ad_width}</div>
-                </td>
-                <td align="left" class="">
-                  <div style="text-align: left; width: 60px;">{$vo.ad_height}</div>
-                </td>            
+                </td>  
                 <td align="left" class="">
                   <div style="text-align: left; width: 100px;">{$vo.position_desc}</div>
-                </td>               
-                <td align="center" class="">
-                  <div style="text-align: center; width: 50px;">
-                    <if condition='$vo[is_open] eq 1'>
-                      <span class="yes" onClick="changeTableVal('ad_position','position_id','{$vo.position_id}','is_open',this)" ><i class="fa fa-check-circle"></i>是</span>
-                      <else />
-                      <span class="no" onClick="changeTableVal('ad_position','position_id','{$vo.position_id}','is_open',this)" ><i class="fa fa-ban"></i>否</span>
-                    </if>
-                  </div>
-                </td>             
+                </td>    
                 <td align="center" class="handle">
                   <div style="text-align: center; width: 150px;">                    
-                    <a class="btn blue" href="{:U('Admin/Ad/adList',array('pid'=>$vo['position_id']))}"><i class="fa fa-search"></i>查看广告</a>                                                            
                     <a href="{:U('Admin/Ad/position',array('act'=>'edit','position_id'=>$vo['position_id']))}" class="btn blue"><i class="fa fa-pencil-square-o"></i>编辑</a>
-                    <a class="btn blue" href="javascript:;" onclick="copyToClipBoard({$vo['position_id']}, 1)">代码调用</a>
                   </div>
                 </td>
                 <td align="" class="" style="width: 100%;">

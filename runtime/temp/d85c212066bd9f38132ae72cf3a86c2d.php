@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:40:"./application/admin/view/user\index.html";i:1522317281;s:68:"E:\PHPTools\www\yangzhiapp\application\admin\view\public\layout.html";i:1522317281;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:40:"./application/admin/view/user\index.html";i:1545049352;s:68:"E:\PHPTools\www\yangzhiapp\application\admin\view\public\layout.html";i:1522317281;}*/ ?>
 <!doctype html>
 <html>
 <head>
@@ -197,10 +197,6 @@
             <h4 title="提示相关设置操作时应注意的要点">操作提示</h4>
             <span title="收起提示" id="explanationZoom" style="display: block;"></span>
         </div>
-        <ul>
-            <li>会员列表管理, 可以给会员群发站内信、邮件等.</li>
-            <li>分销系统可以查看会员上下级信息.</li>
-        </ul>
     </div>
     <div class="flexigrid">
         <div class="mDiv">
@@ -214,13 +210,10 @@
                 <input type="hidden" name="sort" value="desc">
                 <input type="hidden" name="mobile" value="" id="input-mobile" />
                 <input type="hidden" name="email" value="" id="input-email" />
-                <!--分销时查看下级人数都有哪些-->
-                <input type="hidden" name="first_leader" value="<?php echo $_GET['first_leader']; ?>">
-                <input type="hidden" name="second_leader" value="<?php echo $_GET['second_leader']; ?>">
-                <input type="hidden" name="third_leader" value="<?php echo $_GET['third_leader']; ?>">
+
                 <div class="sDiv">
                     <div class="sDiv2">
-                        <input type="text" id="search_key" size="30" class="qsbox" placeholder="手机或者邮箱...">
+                        <input type="text" id="search_key" size="30" class="qsbox" placeholder="手机号">
                         <input type="submit" class="btn" onclick="ajax_get_table('search-form2',1)" value="搜索">
                     </div>
                 </div>
@@ -237,35 +230,14 @@
                         <th align="left" abbr="user_id" axis="col3" class="">
                             <div style="text-align: center; width: 40px;" class="">ID</div>
                         </th>
-                        <th align="left" abbr="nickname" axis="col4" class="">
-                            <div style="text-align: center; width: 150px;" class="">会员昵称</div>
+                        <th align="left" abbr="fullname" axis="col4" class="">
+                            <div style="text-align: center; width: 150px;" class="">会员姓名</div>
                         </th>
-                        <th align="center" abbr="level" axis="col5" class="">
-                            <div style="text-align: center; width: 50px;" class="">会员等级</div>
-                        </th>
-                        <th align="center" abbr="total_amount" axis="col6" class="">
-                            <div style="text-align: center; width: 50px;" class="">累计消费</div>
-                        </th>
-                        <th align="center" abbr="email" axis="col6" class="">
-                            <div style="text-align: center; width: 150px;" class="">邮件地址</div>
-                        </th>
-                        <th align="center" axis="col6" class="">
-                            <div style="text-align: center; width: 30px;" class="">一级下线数</div>
-                        </th>
-                        <th align="center" axis="col6" class="">
-                            <div style="text-align: center; width: 30px;" class="">二级下线数</div>
-                        </th>
-                        <th align="center" axis="col6" class="">
-                            <div style="text-align: center; width: 30px;" class="">三级下线数</div>
+                        <th align="center" abbr="group_id" axis="col5" class="">
+                            <div style="text-align: center; width: 80px;" class="">会员分组</div>
                         </th>
                         <th align="center" abbr="mobile" axis="col6" class="">
-                            <div style="text-align: center; width: 80px;" class="">手机号码</div>
-                        </th>
-                        <th align="center" abbr="user_money" axis="col6" class="">
-                            <div style="text-align: center; width: 60px;" class="">余额</div>
-                        </th>
-                        <th align="center" abbr="pay_points" axis="col6" class="">
-                            <div style="text-align: center; width: 60px;" class="">积分</div>
+                            <div style="text-align: center; width: 100px;" class="">手机号码</div>
                         </th>
                         <th align="center" abbr="reg_time" axis="col6" class="">
                             <div style="text-align: center; width: 120px;" class="">注册日期</div>
@@ -290,7 +262,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="fbutton">
+                <!-- <div class="fbutton">
                     <a href="<?php echo U('User/export_user'); ?>">
                         <div class="add" title="添加会员">
                             <span><i class="fa fa-share"></i>导出会员</span>
@@ -310,7 +282,7 @@
                             <span><i class="fa fa-send-o"></i>发送邮件</span>
                         </div>
                     </a>
-                </div>
+                </div> -->
             </div>
             <div style="clear:both"></div>
         </div>
