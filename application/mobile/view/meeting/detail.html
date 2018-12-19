@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>会议培训详情</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script type="text/javascript">
+    document.documentElement.style.fontSize = document.documentElement.clientWidth / 375 * 100 + 'px';
+  </script>
+
+  <link rel="stylesheet" href="../static/css/common.css">
+  <link rel="stylesheet" href="../static/css/meeting_detail.css">
+
+  <script src="../static/js/js-build/jquery-3.1.1.min.js"></script>
+  <script src="../static/js/Global.js"></script>
+  <script src="../static/js/meeting_detail.js"></script>
+  <style>
+    .picTextItem {
+      padding: 0.15rem 0;
+      margin-bottom: 0;
+    }
+
+    .titleTop {
+      font-size: 0.14rem;
+    }
+
+    .wordTip2 {
+      margin-left: 0.05rem;
+    }
+
+    /* 文档说明 文档详情 */
+    .titleWrap {
+      height: 0.4rem;
+    }
+
+    .askItemWrap:last-of-type .askItem {
+      border-bottom: none;
+    }
+
+    .askItem,
+    .askItem:last-of-type {
+      border-bottom: 1px solid rgba(245, 245, 245, 1);
+    }
+
+    .mBtn,
+    .mDisBtn {
+      font-size: 0.12rem;
+    }
+
+    /* 会议培训详情 */
+    span.icon>img{
+      width: 0.22rem;
+      height: 0.22rem;
+    }
+    .askItem img{
+      border-radius: 0.05rem;
+      margin-top: 0.1rem;
+    }
+    /* 提问 收藏 */
+    .downBtnWrap {
+      display: flex;
+      height: 0.49rem;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+    }
+
+    .imgBtn {
+      height: 100%;
+      flex: 1 0 0;
+      color: #fff;
+      font-size: 0.16rem;
+    }
+
+    .imgBtn>img {
+      width: 0.17rem;
+      height: 0.17rem;
+      margin-right: 0.05rem;
+    }
+  </style>
+</head>
+
+<body class="zaixianDetail">
+  <div class="container container1" style="padding-bottom: 0.15rem;">
+    <div class="flexCenter flexBetween titleWrap">
+      <h4 class="title">养殖技术解析</h4>
+
+      <span class="icon"><img src="../static/images/收藏（线@2x.png" alt="icon"></span>
+    </div>
+    <div class="askItemWrap">
+      <p class="date createdate">2018-11-99</p>
+      <p class="date address">北京市中区街106号友好大厦2208室</p>
+    </div>
+  </div>
+
+  <!-- 文档说明 文档详情 -->
+  <div class="container">
+    <div class="flexCenter flexBetween titleWrap">
+      <h4 class="title">会议简介说明</h4>
+    </div>
+    <div class="askItemWrap">
+      <div class="askItem">
+        <p class="articleText description">该项目是国家4A国家级旅游景区、新北京十六景北京文化创意产业基地，有华侨城集团川办，是集国际化、现代化的主题公园遗产，展现所有得成果</p>
+      </div>
+    </div>
+    <div class="flexCenter flexBetween titleWrap">
+      <h4 class="title">会议内容展示</h4>
+    </div>
+    <div class="askItemWrap">
+      <div class="askItem">
+        <p class="articleText articleContent">该项目是国家4A国家级旅游景区、新北京十六景北京文化创意产业基地，有华侨城集团川办，是集国际化、现代化的主题公园遗产，展现所有得成果该项目是国家4A国家级旅游景区、新北京十六景北京文化创意产业基地，有华侨城集团川办，是集国际化、现代化的主题公园遗产，展现所有得成果</p>
+        <img src="../static/images/timg.jpg" alt="图片">
+      </div>
+    </div>
+  </div>
+
+  <!-- 提问 收藏 -->
+  <div class="downBtnWrap">
+    <div class="flexCenter flexJCenter imgBtn lightBlue gotoSign">
+      <img src="../static/images/矢量智能对象@2x (2).png" alt="icon">报名
+    </div>
+    <div class="flexCenter flexJCenter imgBtn darkBlue collection">
+      <img src="../static/images/收藏@2x.png" alt="icon">收藏
+    </div>
+  </div>
+</body>
+
+</html>
