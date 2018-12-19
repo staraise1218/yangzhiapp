@@ -4,9 +4,9 @@ namespace app\mobile\controller;
 
 use think\Controller;
 
-class Document extends Controller{
+class User extends Controller{
     
-    public function detail(){
+    public function about(){
     	return $this->fetch();
     }
 }
