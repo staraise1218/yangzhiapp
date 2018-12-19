@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:46:"./application/admin/view/uploadify\upload.html";i:1522317281;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:46:"./application/admin/view/uploadify\upload.html";i:1545225555;}*/ ?>
 <html lang="zh-cn">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
@@ -11,7 +11,6 @@
 	<ul class="tabs">
 		<li class="checked" id="upload_tab">本地上传</li>
 		<li id="manage_tab">在线管理</li>
-		<li id="search_tab">文件搜索</li>
 	</ul>
 	<div class="container">
 		<div class="area upload-area area-checked" id="upload_area">
@@ -29,7 +28,7 @@
 				<div class="queueList">
 					<div id="dndArea" class="placeholder">
 						<div id="filePicker"></div>
-						<p>或将文件拖到这里，本次最多可选<?php echo (isset($info['num']) && ($info['num'] !== '')?$info['num']:1); ?>个</p>
+						<!-- <p>或将文件拖到这里，本次最多可选<?php echo (isset($info['num']) && ($info['num'] !== '')?$info['num']:1); ?>个</p> -->
 					</div>
 				</div>
 			</div>
