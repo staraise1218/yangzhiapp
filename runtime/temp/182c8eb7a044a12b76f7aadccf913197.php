@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:41:"./application/admin/view/index\index.html";i:1545015903;s:66:"E:\PHPTools\www\yangzhiapp\application\admin\view\public\left.html";i:1545014733;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:41:"./application/admin/view/index\index.html";i:1545186964;s:66:"E:\PHPTools\www\yangzhiapp\application\admin\view\public\left.html";i:1545014733;}*/ ?>
 <!doctype html>
 <html>
 <head>
@@ -11,7 +11,7 @@
 <!-- Apple devices fullscreen -->
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo (isset($tpshop_config['shop_info_store_ico']) && ($tpshop_config['shop_info_store_ico'] !== '')?$tpshop_config['shop_info_store_ico']:'/public/static/images/logo/storeico_default.png'); ?>" media="screen"/>
-<title>TPshop2.5.0</title>
+<title>养殖平台APP后台管理</title>
 <script type="text/javascript">
   var SITEURL = window.location.host +'/index.php/admin';
 </script>

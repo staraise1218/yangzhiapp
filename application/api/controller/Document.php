@@ -96,9 +96,9 @@ class Document extends Base {
                 $new_comments[$item['comment_id']] = $item;
             }
         }
-        if(!empty($new_comments)){
-            $new_comments = $this->_tree($new_comments);
-        }
+        // if(!empty($new_comments)){
+        //     $new_comments = $this->_tree($new_comments);
+        // }
 
         response_success($new_comments);
     }

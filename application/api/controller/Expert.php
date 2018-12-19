@@ -50,7 +50,7 @@ class Expert extends Base {
         $askList = Db::name('ask')->alias('a')
             ->join('users u', 'a.user_id=u.user_id', 'left')
             ->where('expert_id', $expert_id)
-            ->field('u.head_pic, u.fullname, a.createtime, a.content')
+            ->field('u.head_pic, u.fullname, a.id ask_id, a.createtime, a.content')
             ->order('id desc')
             ->limit(2)
             ->select();

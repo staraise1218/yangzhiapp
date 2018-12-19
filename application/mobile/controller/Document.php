@@ -3,7 +3,8 @@
 namespace app\mobile\controller;
 
 use think\Controller;
-class Meeting extends Controller{
+
+class Document extends Controller{
     
     public function detal(){
     	return $this->fetch();

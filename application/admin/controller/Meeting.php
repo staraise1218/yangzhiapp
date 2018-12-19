@@ -10,7 +10,7 @@ class Meeting extends Base {
         $page = empty($_REQUEST['p']) ? 1 : $_REQUEST['p'];
         $size = empty($_REQUEST['size']) ? 20 : $_REQUEST['size'];
         
-        $where = " 1 = 1 ";
+        $where = " is_delete = 0 ";
         $keywords = trim(I('keywords'));
         $keywords && $where.=" and title like '%$keywords%' ";
        
@@ -59,6 +59,16 @@ class Meeting extends Base {
         $info = M('meeting')->where('id', $id)->find();
         $this->assign('info', $info);
         return $this->fetch();
+    }
+
+    public function del(){
+        $id = I('id');
+
+        if(false !== M('meeting')->where('id', $id)->update(array('is_delete'=>1))){
+            $this->ajaxReturn(['status' => 1, 'msg' => '操作成功']);
+        } else {
+            $this->ajaxReturn(['status' => 0, 'msg' => '操作失败']);
+        }
     }
     
     public function enrollList(){
