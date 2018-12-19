@@ -57,6 +57,25 @@ class Ask extends Base {
             response_error('', '操作失敗');
         }
     }
+    // 回答/追问
+    public function answer(){
+        $ask_id = I('ask_id');
+        $user_id = I('user_id');
+        $content = I('content');
+
+        $data = array(
+            'ask_id' => $ask_id,
+            'user_id' => $user_id,
+            'content' => $content,
+            'createtime' => time(),
+        );
+
+        if(Db::name('ask_answer')->insert($data)){
+            response_success('', '操作成功');
+        } else {
+            response_error('', '操作失败');
+        }
+    }
 
     public function detail(){
         $id = I('id');
@@ -76,6 +95,7 @@ class Ask extends Base {
             ->join('users u', 'aa.user_id=u.user_id', 'left')
             ->where('ask_id', $id)
             ->field('u.head_pic, u.fullname, aa.content, aa.createtime')
+            ->order('aa.id desc')
             ->select();
 
         $result['answerList'] = $answerList;

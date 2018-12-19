@@ -1,14 +1,11 @@
 <?php
 
 namespace app\api\controller;
+
 use think\Db;
 use app\api\logic\SmsLogic;
 use app\api\logic\FileLogic;
-use app\api\logic\GeographyLogic;
-use app\api\logic\DynamicLogic;
 use think\Image;
-use app\api\logic\MessageLogic;
-use app\api\logic\RongyunLogic;
 
 class User extends Base {
 
@@ -200,5 +197,44 @@ class User extends Base {
             }
         }
         return $list;
+    }
+
+    // 我的问答
+    public function myAsk(){
+        $user_id = I('user_id');
+        $page = I('page', 1);
+
+        $list = Db::name('ask')->alias('a')
+            ->join('users u', 'a.expert_id=u.user_id')
+            ->where('a.user_id', $user_id)
+            ->field('a.title, a.content, a.createtime, u.fullname')
+            ->page($page)
+            ->limit(10)
+            ->order('a.id desc')
+            ->select();
+
+        response_success($list);
+    }
+
+    // 问答评价
+    public function askComment(){
+        $ask_id = I('ask_id');
+        $expert_id = I('expert_id');
+        $content = I('content');
+        $score = I('score');
+
+        $data = array(
+            'ask_id' => $ask_id,
+            'expert_id' => $expert_id,
+            'content' => $content,
+            'score' => $score,
+            'add_time' => time(),
+        );
+
+        if(Db::name('ask_comment')->insert($data)){
+            response_success('', '操作成功');
+        } else {
+            response_error('', '操作失败');
+        }
     }
 }

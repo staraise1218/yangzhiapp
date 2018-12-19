@@ -21,6 +21,7 @@ class Meeting extends Base {
 		if($keyword) $where['keyword'] = array('title', array('like', "'%$keyword%'"));
 
 		$where['is_delete'] = 0;
+		$where['is_open'] = 1;
 		$list = Db::name('meeting')
 			->where($where)
 			->limit(10)

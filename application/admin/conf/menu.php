@@ -36,6 +36,11 @@ return	array(
 						array('name' => '文章分类', 'act'=>'categoryList', 'op'=>'Article'),
 						// array('name' => '专题列表', 'act'=>'topicList', 'op'=>'Topic'),
 				)),
+				array('name' => '会议','child'=>array(
+						array('name' => '会议列表', 'act'=>'index', 'op'=>'meeting'),
+						array('name' => '报名管理', 'act'=>'enrollList', 'op'=>'meeting'),
+						// array('name' => '专题列表', 'act'=>'topicList', 'op'=>'Topic'),
+				)),
 	)),
 		
 	'shop'=>array('name'=>'商城','child'=>array(
