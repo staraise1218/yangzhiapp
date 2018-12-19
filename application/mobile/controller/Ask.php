@@ -3,13 +3,14 @@
 namespace app\mobile\controller;
 
 use think\Controller;
-class Meeting extends Controller{
+
+class Ask extends Controller{
     
-    public function detal(){
+    public function about(){
     	return $this->fetch();
     }
-    
-    public function enroll(){
+
+    public function comment(){
     	return $this->fetch();
     }
 }

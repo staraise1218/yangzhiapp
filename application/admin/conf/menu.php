@@ -34,12 +34,18 @@ return	array(
 				array('name' => '文章','child'=>array(
 						array('name' => '文章列表', 'act'=>'articleList', 'op'=>'Article'),
 						array('name' => '文章分类', 'act'=>'categoryList', 'op'=>'Article'),
-						// array('name' => '专题列表', 'act'=>'topicList', 'op'=>'Topic'),
 				)),
 				array('name' => '会议','child'=>array(
 						array('name' => '会议列表', 'act'=>'index', 'op'=>'meeting'),
 						array('name' => '报名管理', 'act'=>'enrollList', 'op'=>'meeting'),
-						// array('name' => '专题列表', 'act'=>'topicList', 'op'=>'Topic'),
+				)),
+				array('name' => '猪场风云','child'=>array(
+						array('name' => '风云列表', 'act'=>'index', 'op'=>'pig'),
+						array('name' => '分类管理', 'act'=>'categoryList', 'op'=>'pig'),
+				)),
+				array('name' => '在线资讯','child'=>array(
+						array('name' => '文档管理', 'act'=>'index', 'op'=>'document'),
+						array('name' => '视频管理', 'act'=>'index', 'op'=>'video'),
 				)),
 	)),
 		
