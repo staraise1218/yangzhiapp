@@ -148,8 +148,8 @@ var Global = (function () {
                 <div class="msg">
                     <p class="msgText">${msg}</p>
                     <p class="msgCtrl">
-                        <span class="closeMsg">取消</span>
-                        <span class="gotoCallback">确定</span>
+                        <span class="gotoCallback">取消</span>
+                        <span class="closeMsg">确定</span>
                     </p>
                 </div>
             </div>
@@ -158,10 +158,10 @@ var Global = (function () {
         e.stopPropagation();
         e.preventDefault();
       }, false);
-      $msgDiv.find(".closeMsg").click(function () {
+      $msgDiv.find(".gotoCallback").click(function () {
         $msgDiv.remove();
       });
-      $msgDiv.find(".gotoCallback").click(function () {
+      $msgDiv.find(".closeMsg").click(function () {
         callback();
         $msgDiv.remove();
       });
