@@ -83,7 +83,7 @@ class Ask extends Base {
         $info = Db::name('ask')->alias('a')
             ->join('users u', 'a.user_id=u.user_id', 'left')
             ->where('id', $id)
-            ->field('u.user_id, u.head_pic, u.fullname, a.content, a.images, a.createtime')
+            ->field('u.user_id, u.head_pic, u.fullname, a.expert_id, a.content, a.images, a.createtime')
             ->find();
 
         if($info && $info['images'] != '') $info['images'] = json_decode($info['images']);
@@ -94,7 +94,7 @@ class Ask extends Base {
         $answerList = Db::name('ask_answer')->alias('aa')
             ->join('users u', 'aa.user_id=u.user_id', 'left')
             ->where('ask_id', $id)
-            ->field('u.head_pic, u.fullname, aa.expert_id, aa.content, aa.createtime')
+            ->field('u.head_pic, u.fullname, aa.content, aa.createtime')
             ->order('aa.id desc')
             ->select();
 
