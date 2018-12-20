@@ -1,0 +1,65 @@
+.picTextItem {
+  padding: 0.15rem 0;
+  margin-bottom: 0;
+}
+
+.titleTop {
+  font-size: 0.14rem;
+}
+
+.wordTip2 {
+  margin-left: 0.05rem;
+}
+
+/* 文档说明 文档详情 */
+.titleWrap {
+  height: 0.4rem;
+}
+
+.askItemWrap:last-of-type .askItem {
+  border-bottom: none;
+}
+
+.askItem,
+.askItem:last-of-type {
+  border-bottom: 1px solid rgba(245, 245, 245, 1);
+}
+
+.mBtn,
+.mDisBtn {
+  font-size: 0.12rem;
+}
+
+/* 会议培训详情 */
+span.icon>img {
+  width: 0.22rem;
+  height: 0.22rem;
+}
+
+.askItem img {
+  border-radius: 0.05rem;
+  margin-top: 0.1rem;
+}
+
+/* 提问 收藏 */
+.downBtnWrap {
+  display: flex;
+  height: 0.49rem;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.imgBtn {
+  height: 100%;
+  flex: 1 0 0;
+  color: #fff;
+  font-size: 0.16rem;
+}
+
+.imgBtn>img {
+  width: 0.17rem;
+  height: 0.17rem;
+  margin-right: 0.05rem;
+}

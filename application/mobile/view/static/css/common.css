@@ -189,8 +189,16 @@ a{
   text-decoration: none;
 }
 img{
+  /* width: 100%;
+  height: 100%; */
+}
+.img100{
   width: 100%;
   height: 100%;
+}
+.imgw100{
+  width: 100%;
+  height: auto;
 }
 /* 布局 */
 .vh100{
@@ -278,6 +286,10 @@ img{
   border-radius: 50%;
   overflow: hidden;
 }
+.headpic .headbox>img{
+  width: 100%;
+  height: 100%;
+}
 .headpic .headname{
   color: rgba(61, 61, 61, 1);
   font-size: 0.16rem;
@@ -294,9 +306,13 @@ img{
   font-size: 0;
   height: 100%;
 }
-.stars>li>img{
-  width: auto;
-  height: 100%;
+.stars>li.stars1{
+  background: url(../images/星星@2x.png) center center no-repeat;
+  background-size: 100% 100%;
+}
+.stars>li.stars0{
+  background: url(../images/星星\ 拷贝@2x.png) center center no-repeat;
+  background-size: 100% 100%;
 }
 /* 评论数量 */
 .commentCount>img{
@@ -509,4 +525,79 @@ img{
 .wordTip2{
   background-color: rgba(255, 215, 216, 1);
   color: rgba(202, 47, 49, 1);
+}
+/* 已关注，取消关注 */
+.mBtnBox.attend>button{
+  font-size: 0.12rem;
+}
+.mBtnBox.attend.cancelAt{
+  width: 0.65rem;
+}
+.mBtnBox.attend.cancelAt>button{
+  color: #fff;
+  background: none;
+  background-color: rgba(224, 224, 224, 1);
+}
+/* confirm模态框 */
+.msgWrap{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.msgWrap .msgMask{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.msgWrap .msg{
+  width: 2.33rem;
+  min-height: 1.26rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.msgWrap .msg .msgText{
+  margin-top: 0.29rem;
+  font-size: 0.16rem;
+  color: rgba(61, 61, 61, 1);
+  font-weight: 550;
+}
+.msgWrap .msg .msgCtrl{
+  margin-bottom: 0.2rem;
+}
+.msgWrap .msg .msgCtrl .closeMsg,
+.msgWrap .msg .msgCtrl .gotoCallback{
+  display: inline-block;
+  width: 0.71rem;
+  height: 0.34rem;
+  border-radius: 0.05rem;
+  line-height: 0.34rem;
+  text-align: center;
+  font-size: 0.14rem;
+  margin: 0 0.1rem;
+}
+.msgWrap .msg .msgCtrl .gotoCallback{
+  background-color: rgba(230, 230, 230, 1);
+  color: rgba(61, 61, 61, 1);
+}
+.msgWrap .msg .msgCtrl .closeMsg{
+  background-color: rgba(11, 78, 161, 1);
+  color: #fff;
+}
+/* jquery-weui 滚动加载 */
+.isLoading_weui{
+  height: 0.6rem;
+  border: 1px solid transparent;
+  overflow: hidden;
 }
