@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>提问</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script type="text/javascript">
+    document.documentElement.style.fontSize = document.documentElement.clientWidth / 375 * 100 + 'px';
+  </script>
+
+  <link rel="stylesheet" href="__STATIC__/css/weui.css">
+  <link rel="stylesheet" href="__STATIC__/js/js-build/jquery-weui-build/dist/css/jquery-weui.min.css">
+  <link rel="stylesheet" href="__STATIC__/css/common.css">
+
+  <script src="__STATIC__/js/js-build/jquery-3.1.1.min.js"></script>
+  <script src="__STATIC__/js/js-build/jquery-weui-build/dist/js/jquery-weui.min.js"></script>
+  <script src="__STATIC__/js/js-build/jquery-weui-build/dist/js/swiper.min.js"></script>
+  <script src="__STATIC__/js/js-build/jquery.form.js"></script>
+  <script src="__STATIC__/js/Global.js"></script>
+  <script src="__STATIC__/js/expert_ask.js"></script>
+  <style>
+    .topWrap {
+      padding-top: 20px;
+      height: calc(100% - 0.95rem);
+      overflow-y: scroll;
+    }
+
+    .downBtn {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 0.42rem;
+      margin: 0.25rem 0.15rem;
+    }
+  </style>
+</head>
+
+<body class="ask posiRe vh100">
+  <div class="topWrap paddinglr14">
+    <textarea class="mTextarea" name="" id="" placeholder="填写提问的内容"></textarea>
+    <!-- 添加图片 -->
+    <div class="addpicWrap" style="display: none;">
+      <div style="padding-left:0.05rem;">
+        <a class="addpicBtn"></a>
+      </div>
+      <div class="addedPic">
+        <!-- <div class="picWrap">
+          <img src="__STATIC__/images/timg.jpg" alt="图片">
+          <span class="delPic"></span>
+          <input type="file" style="display: none;">
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <!-- 提问 -->
+  <div class="downBtn">
+    <button class="mBtn submitAsk">提问</button>
+  </div>
+</body>
+
+</html>

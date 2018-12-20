@@ -10,11 +10,21 @@
   </script>
 
   <link rel="stylesheet" href="__STATIC__/css/common.css">
-  <link rel="stylesheet" href="__STATIC__/css/signup_new.css">
+  <link rel="stylesheet" href="__STATIC__/css/meeting_enroll.css">
 
   <script src="__STATIC__/js/js-build/jquery-3.1.1.min.js"></script>
   <script src="__STATIC__/js/Global.js"></script>
-  <script src="__STATIC__/js/signup.js"></script>
+  <script src="__STATIC__/js/meeting_enroll.js"></script>
+  <style>
+    .done{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #fff;
+    }
+  </style>
 </head>
 
 <body class="register vh100 posiRe">
@@ -56,6 +66,28 @@
 
   <div class="btnBox-register">
     <button class="mBtn submit">报名</button>
+  </div>
+
+  <!-- 报名成功 -->
+  <div class="flexColumn done" style="display:none;">
+    <div class="doneIconWrap">
+      <div class="doneIcon">
+        <img class="img100" src="__STATIC__/images/icon@2x.png" alt="成功">
+      </div>
+      <p class="doneText">报名成功</p>
+    </div>
+
+    <div>
+      <button class="backIndex">返回首页</button>
+    </div>
+    <script>
+      window.onload = function () {
+        document.getElementsByClassName("backIndex")[0].onclick = function () {
+          //去会议培训列表？
+          // window.location.href = ""
+        }
+      }
+    </script>
   </div>
 </body>
 
