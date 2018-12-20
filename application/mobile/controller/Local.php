@@ -14,7 +14,6 @@ class Local extends Controller {
 
 		$userinfo =  M('users')->where('user_id', $user_id)->find();
 		unset($userinfo['password']);
-		$userinfo['age'] = getAge($userinfo['birthday']);
 
 		$this->assign('userinfo', json_encode($userinfo));
 		return $this->fetch();
