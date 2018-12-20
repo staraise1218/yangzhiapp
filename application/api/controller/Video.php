@@ -49,11 +49,22 @@ class Video extends Base {
 
 	public function detail(){
 		$id = I('id');
+        $user_id = I('user_id');
 
 		$info = Db::name('video')
 			->where('id', $id)
 			->where('is_delete', 0)
 			->find();
+
+        // 查看是否收藏
+        $count = Db::name('user_collect')
+            ->where('user_id', $user_id)
+            ->where('table_id', $id)
+            ->where('table_name', 'video')
+            ->count();
+
+        $info['is_collect'] = $count ? 1 : 0;
+        $info['buyed_count'] = 0;
 
 		response_success($info);
 	}
