@@ -94,7 +94,7 @@ class Ask extends Base {
         $answerList = Db::name('ask_answer')->alias('aa')
             ->join('users u', 'aa.user_id=u.user_id', 'left')
             ->where('ask_id', $id)
-            ->field('u.head_pic, u.fullname, aa.content, aa.createtime')
+            ->field('u.head_pic, u.fullname, aa.expert_id, aa.content, aa.createtime')
             ->order('aa.id desc')
             ->select();
 

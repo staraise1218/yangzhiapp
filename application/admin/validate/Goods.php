@@ -8,16 +8,16 @@ class Goods extends Validate
     // 验证规则
     protected $rule = [
         'goods_id'              =>'checkGoodsId',
-        'goods_name'            => 'require|min:3|max:150|unique:goods',
-        'cat_id'                => 'number|gt:0',
+        'goods_name'            => 'require|min:1|max:150|unique:goods',
+        // 'cat_id'                => 'number|gt:0',
         'goods_sn'              =>'unique:goods|max:20',
-        'shop_price'            =>['require','regex'=>'([1-9]\d*(\.\d*[1-9])?)|(0\.\d*[1-9])'],
-        'market_price'          =>'require|regex:\d{1,10}(\.\d{1,2})?$|checkMarketPrice',
-        'weight'                =>'regex:\d{1,10}(\.\d{1,2})?$',
-        'give_integral'         =>'regex:^\d+$',
-        'is_virtual'           =>'checkVirtualIndate',
-        'exchange_integral'     =>'checkExchangeIntegral',
-        'is_free_shipping'     =>'require|checkShipping'
+        // 'shop_price'            =>['require','regex'=>'([1-9]\d*(\.\d*[1-9])?)|(0\.\d*[1-9])'],
+        // 'market_price'          =>'require|regex:\d{1,10}(\.\d{1,2})?$|checkMarketPrice',
+        // 'weight'                =>'regex:\d{1,10}(\.\d{1,2})?$',
+        // 'give_integral'         =>'regex:^\d+$',
+        // 'is_virtual'           =>'checkVirtualIndate',
+        // 'exchange_integral'     =>'checkExchangeIntegral',
+        // 'is_free_shipping'     =>'require|checkShipping'
     ];
     //错误信息
     protected $message  = [
