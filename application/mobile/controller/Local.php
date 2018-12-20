@@ -4,6 +4,7 @@ namespace app\mobile\controller;
 
 use think\Db;
 use think\Config;
+use think\Controller;
 
  
 class Local extends Controller {
