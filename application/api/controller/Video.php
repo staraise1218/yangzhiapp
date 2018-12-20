@@ -94,11 +94,11 @@ class Video extends Base {
 
         /*********** 获取评论 ************/
         $comments = M('video_comment')->alias('vc')
-            ->join('users u1', 'dc.speaker_id=u1.user_id', 'left')
-            ->join('users u2', 'dc.reply_user_id=u2.user_id', 'left')
+            ->join('users u1', 'vc.speaker_id=u1.user_id', 'left')
+            ->join('users u2', 'vc.reply_user_id=u2.user_id', 'left')
             ->where('video_id', $video_id)
-            ->field('u1.head_pic, u1.fullname, dc.id comment_id, speaker_id, dc.content, dc.add_time, u2.fullname reply_fullname, dc.parent_id')
-            ->order('dc.id desc')
+            ->field('u1.head_pic, u1.fullname, vc.id comment_id, speaker_id, vc.content, vc.add_time, u2.fullname reply_fullname, vc.parent_id')
+            ->order('vc.id desc')
             ->select();
         
         $new_comments = array();
