@@ -88,6 +88,32 @@ var Global = (function () {
       }
     })
   }
+  //取消收藏
+  function cancelCollect(ele, option, callback) { //ele点击的元素  option参数obj
+    let postData = {
+      id: option.id, //收藏的id
+      user_id: option.user_id,
+    }
+    console.log(postData)
+    // return
+    $(ele).addClass("eventsDisabled")
+    $.ajax({
+      type: "POST",
+      url: host + "/Api/common/cancelCollect",
+      data: postData,
+      success: function (res) {
+        $(ele).removeClass("eventsDisabled")
+        console.log(res)
+        if (callback) {
+          callback(res)
+        }
+      },
+      error: function (e) {
+        $(ele).removeClass("eventsDisabled")
+        console.log(e)
+      }
+    })
+  }
   function messageWin(msg, callback) {
     if ($(".msgWrap").length == 0) {
       let $msgDiv = $(`
@@ -198,6 +224,7 @@ var Global = (function () {
     stampToDate,
     mutiUpload,
     collect,
+    cancelCollect,
     messageWin,
     messageConfirWin,
     showFullPic,
