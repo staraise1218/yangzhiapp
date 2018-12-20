@@ -104,16 +104,16 @@ var mAsk = {
     $(".askItemWrap").delegate(".askItem", "click", function (event) {
       event.stopPropagation();
       let ask_id = $(this).attr("data-askid")
-      window.location.href = "../ask/detail.html?ask_id=" + ask_id //测试
-      // window.location.href = Global.host + "/mobile/ask/detail?ask_id=" + ask_id
+      // window.location.href = "../ask/detail.html?ask_id=" + ask_id //测试
+      window.location.href = Global.host + "/mobile/ask/detail?ask_id=" + ask_id
     })
   },
   init() {
     mAsk.mUserInfo = Global.getMUserInfo()
-    mAsk.mUserInfo.user_id = 1 //测试
+    // mAsk.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
     mAsk.expert_id = option.expert_id ? Number(option.expert_id) : ""
-    mAsk.expert_id = 2 //测试
+    // mAsk.expert_id = 2 //测试
     mAsk.getList()
     mAsk.eventBind()
   }

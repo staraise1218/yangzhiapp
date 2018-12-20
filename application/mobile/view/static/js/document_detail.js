@@ -159,10 +159,10 @@ var ZaiDetail = {
   },
   init() {
     ZaiDetail.mUserInfo = Global.getMUserInfo()
-    ZaiDetail.mUserInfo.user_id = 1 //测试
+    // ZaiDetail.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
     ZaiDetail.id = option.id ? Number(option.id) : ""
-    ZaiDetail.id = 1 //测试
+    // ZaiDetail.id = 1 //测试
     ZaiDetail.getInfo(function () {
       ZaiDetail.updateDom()
     })

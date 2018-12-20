@@ -56,10 +56,10 @@ var ZhuDetail = { //猪场id pig_id
   },
   init() {
     ZhuDetail.mUserInfo = Global.getMUserInfo()
-    ZhuDetail.mUserInfo.user_id = 1 //测试
+    // ZhuDetail.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
     ZhuDetail.id = option.id ? Number(option.id) : ""
-    ZhuDetail.id = 1 //测试
+    // ZhuDetail.id = 1 //测试
     ZhuDetail.getInfo(function () {
       ZhuDetail.updateDom()
     })

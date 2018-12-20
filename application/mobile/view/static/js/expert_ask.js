@@ -155,7 +155,7 @@ var Ask = {
   },
   init() {
     Ask.mUserInfo = Global.getMUserInfo()
-    Ask.mUserInfo.user_id = 1 //测试
+    // Ask.mUserInfo.user_id = 1 //测试
     var option = Global.getPageParams()
     if (option.isAgain) { //是追问页面
       Ask.isAgain = true

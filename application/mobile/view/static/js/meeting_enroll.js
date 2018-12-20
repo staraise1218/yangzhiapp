@@ -81,7 +81,7 @@ var Sign = { //会议id
   },
   init() {
     Sign.mUserInfo = Global.getMUserInfo()
-    Sign.mUserInfo.user_id = 1 //测试
+    // Sign.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
     Sign.meeting_id = option.meeting_id ? Number(option.meeting_id) : ""
     Sign.eventBind()

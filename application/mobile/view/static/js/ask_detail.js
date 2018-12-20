@@ -91,21 +91,21 @@ var Askd = { //需要ask_id
     })
     //点击追问
     $(".askAgain").click(function () {
-      window.location.href = "../expert/ask.html?isAgain=1&ask_id=" + Askd.ask_id //测试
-      // window.location.href = Global.host + "/mobile/expert/ask?isAgain=1&ask_id=" + Askd.ask_id
+      // window.location.href = "../expert/ask.html?isAgain=1&ask_id=" + Askd.ask_id //测试
+      window.location.href = Global.host + "/mobile/expert/ask?isAgain=1&ask_id=" + Askd.ask_id
     })
     //点击评论
     $(".gotoComment").click(function () {
-      window.location.href = "comment.html?ask_id=" + Askd.ask_id + "&expert_id=" + Askd.data.info.expert_id //测试
-      // window.location.href = Global.host + "/ask/comment?ask_id=" + Askd.ask_id + "&expert_id=" + Askd.data.info.expert_id
+      // window.location.href = "comment.html?ask_id=" + Askd.ask_id + "&expert_id=" + Askd.data.info.expert_id //测试
+      window.location.href = Global.host + "/ask/comment?ask_id=" + Askd.ask_id + "&expert_id=" + Askd.data.info.expert_id
     })
   },
   init() {
     Askd.mUserInfo = Global.getMUserInfo()
-    Askd.mUserInfo.user_id = 1 //测试
+    // Askd.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
     Askd.ask_id = option.ask_id ? Number(option.ask_id) : ""
-    Askd.ask_id = 1 //测试
+    // Askd.ask_id = 1 //测试
     Askd.getInfo(function () {
       Askd.updateDom()
     })

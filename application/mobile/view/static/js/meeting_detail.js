@@ -43,8 +43,8 @@ var meDetail = { //会议id
   eventBind() {
     //点击报名
     $(".gotoSign").click(function () {
-      window.location.href = "enroll.html?meeting_id=" + meDetail.id //测试
-      // window.location.href = Global.host + "/mobile/meeting/enroll?meeting_id=" + meDetail.id
+      // window.location.href = "enroll.html?meeting_id=" + meDetail.id //测试
+      window.location.href = Global.host + "/mobile/meeting/enroll?meeting_id=" + meDetail.id
     })
     //点击收藏
     $(".collection").click(function () {
@@ -63,10 +63,10 @@ var meDetail = { //会议id
   },
   init() {
     meDetail.mUserInfo = Global.getMUserInfo()
-    meDetail.mUserInfo.user_id = 1 //测试
+    // meDetail.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
     meDetail.id = option.id ? Number(option.id) : ""
-    meDetail.id = 1 //测试
+    // meDetail.id = 1 //测试
     meDetail.getInfo(function () {
       meDetail.updateDom()
     })

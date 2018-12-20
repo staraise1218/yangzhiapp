@@ -55,7 +55,7 @@ var Com = { //ask_id  expert_id
   },
   init() {
     Com.mUserInfo = Global.getMUserInfo()
-    Com.mUserInfo.user_id = 1 //测试
+    // Com.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
     Com.ask_id = option.ask_id ? Number(option.ask_id) : ""
     Com.expert_id = option.expert_id ? Number(option.expert_id) : ""

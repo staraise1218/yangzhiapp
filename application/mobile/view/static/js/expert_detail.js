@@ -94,23 +94,23 @@ var Jianjie = {
     //关注 end
     //点击查看更多问答
     $(".moreAsk").click(function () {
-      window.location.href = "moreAsk.html?expert_id=" + Jianjie.export_id //测试
-      // window.location.href = Global.host + "/mobile/expert/moreAsk?expert_id=" + Jianjie.export_id
+      // window.location.href = "moreAsk.html?expert_id=" + Jianjie.export_id //测试
+      window.location.href = Global.host + "/mobile/expert/moreAsk?expert_id=" + Jianjie.export_id
     })
     //点击查看更多评价
     $(".moreComment").click(function () {
-      window.location.href = "moreAsk.html" //测试
+      // window.location.href = "moreAsk.html" //测试
     })
     //点击问答列表item 去问答详情
     $(".askItemWrap").delegate(".askItem", "click", function () {
       let ask_id = $(this).attr("data-askid")
-      window.location.href = "../ask/detail.html?ask_id=" + ask_id //测试
-      // window.location.href = Global.host + "/mobile/ask/detail?ask_id=" + ask_id
+      // window.location.href = "../ask/detail.html?ask_id=" + ask_id //测试
+      window.location.href = Global.host + "/mobile/ask/detail?ask_id=" + ask_id
     })
     //点击提问
     $(".gotoAsk").click(function () {
-      window.location.href = "ask.html?expert_id=" + Jianjie.export_id //测试
-      // window.location.href = Global.host + "/mobile/expert/ask?expert_id=" + Jianjie.export_id
+      // window.location.href = "ask.html?expert_id=" + Jianjie.export_id //测试
+      window.location.href = Global.host + "/mobile/expert/ask?expert_id=" + Jianjie.export_id
     })
     //点击收藏
     $(".collection").click(function () {
@@ -135,10 +135,10 @@ var Jianjie = {
   },
   init() {
     Jianjie.mUserInfo = Global.getMUserInfo()
-    Jianjie.mUserInfo.user_id = 1 //测试
+    // Jianjie.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
     Jianjie.export_id = option.id ? Number(option.id) : ""
-    Jianjie.export_id = 2 //测试
+    // Jianjie.export_id = 2 //测试
     Jianjie.getInfo(function () {
       Jianjie.updateDom()
     })
