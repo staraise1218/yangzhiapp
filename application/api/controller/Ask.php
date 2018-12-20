@@ -22,7 +22,7 @@ class Ask extends Base {
             ->join('users u', 'a.user_id=u.user_id', 'left')
             ->where('expert_id', $expert_id)
             ->order('id desc')
-            ->field('u.head_pic, u.fullname, a.createtime, a.content')
+            ->field('a.id ask_id, u.head_pic, u.fullname, a.createtime, a.content')
             ->limit(10)
             ->page($page)
             ->select();
