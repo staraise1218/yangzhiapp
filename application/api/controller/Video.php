@@ -96,7 +96,7 @@ class Video extends Base {
         $comments = M('video_comment')->alias('vc')
             ->join('users u', 'vc.speaker_id=u.user_id', 'left')
             ->where('vc.video_id', $video_id)
-            ->field('u.head_pic, u.fullname, vc.id comment_id, speaker_id, vc.content, vc.add_time, u2.fullname reply_fullname, vc.parent_id')
+            ->field('u.head_pic, u.fullname, vc.id comment_id, speaker_id, vc.content, vc.add_time')
             ->order('vc.id desc')
             ->select();
         
