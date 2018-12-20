@@ -83,24 +83,14 @@ class Document extends Base {
 
         /*********** 获取评论 ************/
         $comments = M('document_comment')->alias('dc')
-            ->join('users u1', 'dc.speaker_id=u1.user_id', 'left')
-            ->join('users u2', 'dc.reply_user_id=u2.user_id', 'left')
-            ->where('document_id', $document_id)
-            ->field('u1.head_pic, u1.fullname, dc.id comment_id, speaker_id, dc.content, dc.add_time, u2.fullname reply_fullname, dc.parent_id')
+            ->join('users u', 'dc.speaker_id=u.user_id', 'left')
+            ->where('dc.document_id', $document_id)
+            ->field('u.head_pic, u.fullname, dc.id comment_id, speaker_id, dc.content, dc.add_time')
             ->order('dc.id desc')
             ->select();
         
-        $new_comments = array();
-        if(is_array($comments) && !empty($comments)){
-            foreach ($comments as $item) {
-                $new_comments[$item['comment_id']] = $item;
-            }
-        }
-        // if(!empty($new_comments)){
-        //     $new_comments = $this->_tree($new_comments);
-        // }
 
-        response_success($new_comments);
+        response_success($comments);
     }
 
     /**

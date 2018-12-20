@@ -89,4 +89,9 @@ class Common extends Base {
             response_error('', '收藏失败');
         }
     }
+
+    // 取消收藏
+    public function cancelCollect(){
+        
+    }
 }

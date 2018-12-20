@@ -100,17 +100,9 @@ class Video extends Base {
             ->order('vc.id desc')
             ->select();
         
-        $new_comments = array();
-        if(is_array($comments) && !empty($comments)){
-            foreach ($comments as $item) {
-                $new_comments[$item['comment_id']] = $item;
-            }
-        }
-        if(!empty($new_comments)){
-            $new_comments = $this->_tree($new_comments);
-        }
 
-        response_success($new_comments);
+
+        response_success($comments);
     }
 
     public function submitOrder(){
