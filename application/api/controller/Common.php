@@ -92,6 +92,16 @@ class Common extends Base {
 
     // 取消收藏
     public function cancelCollect(){
-        
+        $id = I('id');
+        $user_id = I('user_id');
+
+        if(false !== M('user_collect')
+            ->where('id', $id)
+            ->where('user_id',$user_id)
+            ->delete()){
+            response_success('', '取消成功');
+        } else {
+            response_error('', '取消失败');
+        }
     }
 }
