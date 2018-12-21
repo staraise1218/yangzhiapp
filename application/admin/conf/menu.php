@@ -47,6 +47,9 @@ return	array(
 						array('name' => '文档管理', 'act'=>'index', 'op'=>'document'),
 						array('name' => '视频管理', 'act'=>'index', 'op'=>'video'),
 				)),
+				array('name' => '合作伙伴','child'=>array(
+						array('name' => '合作伙伴', 'act'=>'index', 'op'=>'partner'),
+				)),
 	)),
 		
 	'shop'=>array('name'=>'商城','child'=>array(
