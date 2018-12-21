@@ -4,7 +4,7 @@ return [
             // 模板引擎类型 支持 php think 支持扩展
             'type'         => 'Think',
             // 模板路径
-            'view_path'    => '/application/mobile/view/',
+            'view_path'    => './application/mobile/view/',
             // 模板后缀
             'view_suffix'  => 'html',
             // 模板文件名分隔符
@@ -22,7 +22,7 @@ return [
         ],
         'view_replace_str'  =>  [
             '__PUBLIC__'=>'/public',
-            '__STATIC__' => '/application/mobile/view/static',
+            '__STATIC__' => './application/mobile/view/static',
             '__ROOT__'=>''
         ]
     ];
