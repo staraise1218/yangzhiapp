@@ -22,7 +22,7 @@ return [
         ],
         'view_replace_str'  =>  [
             '__PUBLIC__'=>'/public',
-            '__STATIC__' => './application/mobile/view/static',
+            '__STATIC__' => '/application/mobile/view/static',
             '__ROOT__'=>''
         ]
     ];
