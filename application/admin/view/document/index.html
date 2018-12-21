@@ -45,7 +45,10 @@
               </th>
               <th align="left" abbr="article_title" axis="col3" class="">
                 <div style="text-align: left; width: 240px;" class="">标题</div>
-              </th>
+              </th>                
+              <th align="center" abbr="article_time" axis="col6" class="">
+                <div style="text-align: center; width: 30px;" class="" onClick="sort('is_recommend');">推荐</div>
+              </th>  
               <th align="center" abbr="article_time" axis="col6" class="">
                 <div style="text-align: center; width: 160px;" class="">发布时间</div>
               </th>
@@ -80,7 +83,16 @@
                 </td>
                 <td align="left" class="">
                   <div style="text-align: left; width: 240px;">{$vo.title|getSubstr=0,33}</div>
-                </td>
+                </td>              
+                <td align="center" axis="col0">
+                  <div style="text-align: center; width: 30px;">
+                    <if condition='$vo[is_recommend] eq 1'>
+                      <span class="yes" onClick="changeTableVal('document','id','{$vo.id}','is_recommend',this)" ><i class="fa fa-check-circle"></i>是</span>
+                      <else />
+                      <span class="no" onClick="changeTableVal('document','id','{$vo.id}','is_recommend',this)" ><i class="fa fa-ban"></i>否</span>
+                    </if>
+                  </div>
+                </td> 
                 <td align="center" class="">
                   <div style="text-align: center; width: 160px;">{:date('Y-m-d H:i:s', $vo.createtime)}</div>
                 </td>

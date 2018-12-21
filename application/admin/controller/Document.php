@@ -16,7 +16,6 @@ class Document extends Base {
        
         $list = M('document')
             ->where($where)
-            ->field('id, title, createtime')
             ->order('id desc')
             ->paginate(20, false, ['page'=>$page, 'path'=>U('admin/document/index')]);
 

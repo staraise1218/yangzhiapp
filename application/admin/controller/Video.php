@@ -16,7 +16,6 @@ class Video extends Base {
        
         $list = M('video')
             ->where($where)
-            ->field('id, title, createtime')
             ->order('id desc')
             ->paginate(20, false, ['page'=>$page, 'path'=>U('admin/video/index')]);
 

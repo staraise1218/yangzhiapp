@@ -34,6 +34,33 @@ class Index extends Base {
 			->find();
 		$result['info'] = $info;
 
+		// 产品展示
+		$prodcut = Db::name('document')->field('id, title, thumb, tag, description, createtime, "document" as type')
+			->union(function($query){
+				$query->name('video')->field('id, title, thumb, tag, description, createtime, "video" as type');
+			})
+			->where('is_delete', 0)
+			->where('is_recommend', 1)
+			->order('createtime desc')
+			->limit(2)
+			->select();
+		if(is_array($prodcut) && !empty($prodcut)){
+			foreach ($prodcut as &$item) {
+				$item['tag'] = $item['tag'] ? explode(',', $item['tag']) : array();
+			}
+		}
+
+		$result['prodcut'] = $prodcut;
+
+		// 合作企业
+		$partner = Db::name('partner')
+			->order('id desc')
+			->limit(2)
+			->order('id desc')
+			->select();
+
+		$result['partner'] = $partner;
+
 		response_success($result);
 	}
 
