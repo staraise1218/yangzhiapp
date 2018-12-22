@@ -24,9 +24,13 @@ class Partner extends Base {
 			->order('id desc')
 			->select();
 
-		$result['partner'] = $partner;
+		if(is_array($partner) && !empty($partner)){
+			foreach ($partner as &$item) {
+				$item['tag'] = $item['tag'] ? explode(',', $item['tag']) : array();
+			}
+		}
 
-		response_success($result);
+		response_success($partner);
 	}
 
 }
