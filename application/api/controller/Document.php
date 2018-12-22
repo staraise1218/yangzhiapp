@@ -14,6 +14,7 @@ class Document extends Base {
 	}
 
 	public function index(){
+		$page = I('page');
 		$keyword = I('keyword');
 		$cat_id = I('cat_id');
 
