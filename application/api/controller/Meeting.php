@@ -20,7 +20,8 @@ class Meeting extends Base {
 		$keyword = I('keyword');
 		$page = I('page', 1);
 
-		if($keyword) $where['keyword'] = array('title', array('like', "'%$keyword%'"));
+		
+		if($keyword) $where['title'] = array('like', "%$keyword%");
 
 		$where['is_delete'] = 0;
 		$where['is_open'] = 1;

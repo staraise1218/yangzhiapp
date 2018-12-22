@@ -18,7 +18,7 @@ class Video extends Base {
 		$cat_id = I('cat_id');
 
 		$where['is_delete'] = 0;
-		if($keyword) $where['keyword'] = array('title', array('like', "'%$keyword%'"));
+        if($keyword) $where['title'] = array('like', "%$keyword%");
 		if($cat_id) $where['cat_id'] = $cat_id;
 
 		$list = Db::name('video')
