@@ -58,6 +58,11 @@ class Index extends Base {
 			->limit(2)
 			->order('id desc')
 			->select();
+		if(is_array($partner) && !empty($partner)){
+			foreach ($partner as &$item) {
+				$item['tag'] = $item['tag'] ? explode(',', $item['tag']) : array();
+			}
+		}
 
 		$result['partner'] = $partner;
 
