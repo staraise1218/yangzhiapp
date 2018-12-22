@@ -17,6 +17,7 @@ class Meeting extends Base {
 
 	public function index(){
 		$keyword = I('keyword');
+		$page = I('page', 1);
 
 		if($keyword) $where['keyword'] = array('title', array('like', "'%$keyword%'"));
 
