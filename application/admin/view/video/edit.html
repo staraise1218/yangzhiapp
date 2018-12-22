@@ -19,7 +19,7 @@ html, body {overflow: visible;}
       </div>
     </div>
   </div>
-  <form class="form-horizontal" action="{:U('document/edit')}" id="add_post" method="post">    
+  <form class="form-horizontal" action="{:U('video/edit')}" id="add_post" method="post">    
     <div class="ncap-form-default">
       <dl class="row">
         <dt class="tit">
@@ -152,7 +152,7 @@ html, body {overflow: visible;}
         $('span.err').hide();
         $.ajax({
             type: "POST",
-            url: "{:U('document/edit')}",
+            url: "{:U('video/edit')}",
             data: $('#add_post').serialize(),
             dataType: "json",
             error: function () {
@@ -161,7 +161,7 @@ html, body {overflow: visible;}
             success: function (data) {
                 if (data.status === 1) {
                     layer.msg(data.msg, {icon: 1,time: 1000}, function() {
-                        location.href = "{:U('Admin/document/index')}";
+                        location.href = "{:U('Admin/video/index')}";
                     });
                 } else if(data.status === 0) {
                     layer.msg(data.msg, {icon: 2,time: 5000});
