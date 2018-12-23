@@ -49,7 +49,7 @@ class SmsLogic {
 
         // 找回密码场景检测是否注册
         if($scene == '2'){
-            $count = Db::name('users')->where("account_mobile=$mobile")->count();
+            $count = Db::name('users')->where("mobile=$mobile")->count();
             if(!$count){
                 $error = '该手机号未注册';
                 return false;
