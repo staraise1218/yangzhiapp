@@ -139,7 +139,7 @@ var Ask = {
     if (fileList.length > 0) {
       fileList.forEach(function(file){
         let $div = $(`
-          <div class="picWrap" style="display:none;">
+          <div class="picWrap">
             <img src="" alt="图片" onload="Global.resizeImg(this)">
             <span class="delPic"></span>
           </div>
