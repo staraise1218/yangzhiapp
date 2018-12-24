@@ -113,7 +113,7 @@ var Ask = {
       <div class="picWrap" style="display:none;">
         <img src="" alt="图片" onload="Global.resizeImg(this)">
         <span class="delPic"></span>
-        <input type="file" style="display: none;" accept="image/*">
+        <input type="file" style="display: none;" accept="image/*" multiple="false">
       </div>
     `)
     $(".addedPic").append($div)
