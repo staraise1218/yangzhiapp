@@ -72,6 +72,7 @@ var Ask = {
       content: $(".mTextarea").val(),
     }
     console.log(postData)
+    Global.messageWin(JSON.stringify(postData))
     // return
     $(".submitAsk").addClass("eventsDisabled")
     $.ajax({

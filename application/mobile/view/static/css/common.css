@@ -428,6 +428,7 @@ img{
   padding: calc(16.6666% - 0.05rem);
   margin: 0.05rem;
   overflow: hidden;
+  /* background-color: #000; */
 }
 .addpicWrap .addedPic .picWrap>img{
   /* position: absolute;
