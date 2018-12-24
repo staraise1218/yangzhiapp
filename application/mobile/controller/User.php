@@ -9,4 +9,9 @@ class User extends Controller{
     public function about(){
     	return $this->fetch();
     }
+
+    public function feedback(){
+    	
+    	return $this->fetch();
+    }
 }
