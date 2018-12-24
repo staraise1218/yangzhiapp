@@ -18,18 +18,19 @@ class Common extends Base {
     /**
      * [fileUpload 上传单文件]
      * @param   $[file] [<文件名>]
-     * @param [type] $[type] [<类型 动态视频:dynamic_video 动态图片: dynamic_image, 邀约图片：invite_image>]
+     * @param [type] $[type] [<类型 
      * @return [type] [description]
      */
     public function uploadFile(){
         $type = I('type');
 
-        if( ! in_array($type, array('head_pic'))) response_error('', '不被允许的类型');
+        if( ! in_array($type, array('head_pic', 'feedback'))) response_error('', '不被允许的类型');
         if(empty($_FILES)) response_error('文件不能为空');
 
         /************* 上传路径 ***************/        
         $uploadPath = UPLOAD_PATH.'files';
         if($type == 'head_pic') $uploadPath = UPLOAD_PATH.'head_pic';
+        if($type == 'feedback') $uploadPath = UPLOAD_PATH.'feedback';
         
         $FileLogic = new FileLogic();
         $result = $FileLogic->uploadSingleFile('file', $uploadPath);
