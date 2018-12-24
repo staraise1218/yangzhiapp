@@ -68,7 +68,7 @@ var ZaiDetail = {
         let arr = res.data
         if (arr.length > 0) {
           $(".container2").show()
-          $(".askItemWrap").html("")
+          $(".commentWrap").html("")
           arr.forEach(function (obj) {
             let head_pic = "__STATIC__/images/tx.png"
             if (obj.head_pic && obj.head_pic !== "") {
@@ -90,7 +90,7 @@ var ZaiDetail = {
                 <p class="articleText">${obj.content}</p>
               </div>
             `)
-            $(".askItemWrap").append($div)
+            $(".commentWrap").append($div)
           })
         }
       },
