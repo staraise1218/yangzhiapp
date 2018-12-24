@@ -198,6 +198,8 @@ img{
 .h100scroll{
   height: 100%;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+	overflow-scrolling: touch;
   /* position: relative; */
 }
 .img100{
