@@ -202,6 +202,8 @@ img{
   position: absolute;
   left: 0;
   right: 0;
+  -webkit-overflow-scrolling: touch;
+	overflow-scrolling: touch;
 }
 .touchScroll{
   -webkit-overflow-scrolling: touch;
