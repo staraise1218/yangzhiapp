@@ -184,6 +184,9 @@ a:hover {
 body{
   font-family: "HiraginoSansGB-W3";
   font-size: 0.14rem;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
 }
 a{
   text-decoration: none;
@@ -191,6 +194,16 @@ a{
 img{
   /* width: 100%;
   height: 100%; */
+}
+.h100scroll{ /* 固定在页面下面的div不能放在这个容器中 */
+  height: 100%;
+  overflow-y: auto;
+  /* position: relative; */
+  position: absolute;
+  left: 0;
+  right: 0;
+  -webkit-overflow-scrolling: touch;
+	overflow-scrolling: touch;
 }
 .img100{
   width: 100%;
@@ -427,13 +440,19 @@ img{
   /* padding: 16.6666%; */
   padding: calc(16.6666% - 0.05rem);
   margin: 0.05rem;
+  overflow: hidden;
+  /* background-color: #000; */
 }
 .addpicWrap .addedPic .picWrap>img{
-  position: absolute;
+  /* position: absolute;
   left: 0;
   right: 0;
   top: 0;
-  bottom: 0;
+  bottom: 0; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 .addpicWrap .delPic{
   display: inline-block;

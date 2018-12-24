@@ -13,21 +13,21 @@ var Sign = { //会议id
       }
     })
     if (isEmpty) {
-      alert("报名信息请填写完整")
+      Global.messageWin("报名信息请填写完整")
       return false
     }
     //手机和固定电话
-    let reg2 = /^\d{3}-\d{8}$|^\d{4}-\d{7}$|^1[3-9]\d{9}$/;
+    let reg2 = /^\d{3}-\d{8}$|^\d{4}-\d{7}$|^\d{11}$|^1[3-9]\d{9}$/;
     let value2 = $("input[name='phone']").val()
     if (!reg2.test(value2)) {
-      alert("电话格式不正确")
+      Global.messageWin("电话格式不正确")
       return false
     }
     //邮箱
     let reg1 = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
     let value1 = $("input[name='email']").val()
     if (!reg1.test(value1)) {
-      alert("邮箱格式不正确")
+      Global.messageWin("邮箱格式不正确")
       return false
     }
     return true

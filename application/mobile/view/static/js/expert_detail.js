@@ -114,6 +114,11 @@ var Jianjie = {
     })
     //点击收藏
     $(".collection").click(function () {
+      // Global.messageWin(JSON.stringify({
+      //   user_id: Number(Jianjie.mUserInfo.user_id),
+      //   table_id: Jianjie.export_id,	// 收藏的id
+      //   table_name: "expert"
+      // }))
       Global.collect(this, {
         user_id: Number(Jianjie.mUserInfo.user_id),
         table_id: Jianjie.export_id,	// 收藏的id
@@ -128,6 +133,7 @@ var Jianjie = {
           if (res.msg !== "") {
             msg = res.msg
           }
+          console.log(msg)
           Global.messageWin(msg)
         }
       })

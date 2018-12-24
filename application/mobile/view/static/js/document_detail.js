@@ -68,7 +68,7 @@ var ZaiDetail = {
         let arr = res.data
         if (arr.length > 0) {
           $(".container2").show()
-          $(".askItemWrap").html("")
+          $(".commentWrap").html("")
           arr.forEach(function (obj) {
             let head_pic = "__STATIC__/images/tx.png"
             if (obj.head_pic && obj.head_pic !== "") {
@@ -90,7 +90,7 @@ var ZaiDetail = {
                 <p class="articleText">${obj.content}</p>
               </div>
             `)
-            $(".askItemWrap").append($div)
+            $(".commentWrap").append($div)
           })
         }
       },
@@ -136,8 +136,22 @@ var ZaiDetail = {
   eventBind() {
     //点击收藏
     $(".isCollect").click(function () {
+      let self = this
       if ($(this).hasClass("isCollect1")) { //已收藏》取消收藏
         // Global.messageWin("已收藏")
+        Global.messageConfirWin("确认取消收藏？", function () {
+          Global.cancelCollect(self, {
+            id: ZaiDetail.id, //收藏的id
+            user_id: Number(ZaiDetail.mUserInfo.user_id)
+          }, function (res) {
+            if (res && Number(res.code) == 200) {
+              alert("取消收藏")
+
+              $(".isCollect1").hide()
+              $(".isCollect0").show()
+            }
+          })
+        })
       } else { //未收藏》收藏
         Global.collect(this, {
           user_id: Number(ZaiDetail.mUserInfo.user_id),
@@ -159,10 +173,10 @@ var ZaiDetail = {
   },
   init() {
     ZaiDetail.mUserInfo = Global.getMUserInfo()
-    // ZaiDetail.mUserInfo.user_id = 1 //测试
+    ZaiDetail.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
     ZaiDetail.id = option.id ? Number(option.id) : ""
-    // ZaiDetail.id = 1 //测试
+    ZaiDetail.id = 1 //测试
     ZaiDetail.getInfo(function () {
       ZaiDetail.updateDom()
     })

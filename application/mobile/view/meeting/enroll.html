@@ -28,66 +28,68 @@
 </head>
 
 <body class="register vh100 posiRe">
-  <div class="formWrap" style="background-color: rgba(246, 246, 246, 1);">
-    <div class="itemWrap paddinglr14">
-      <div class="flexCenter flexBetween signItem">
-        <span>单位名称：</span>
-        <input type="text" name="company_name" placeholder="请输入单位名称">
+  <div class="h100scroll">
+    <div class="formWrap" style="background-color: rgba(246, 246, 246, 1);">
+      <div class="itemWrap paddinglr14">
+        <div class="flexCenter flexBetween signItem">
+          <span>单位名称：</span>
+          <input type="text" name="company_name" placeholder="请输入单位名称">
+        </div>
+        <div class="flexCenter flexBetween signItem">
+          <span>单位地址：</span>
+          <input type="text" name="company_address" placeholder="请输入单位地址">
+        </div>
       </div>
-      <div class="flexCenter flexBetween signItem">
-        <span>单位地址：</span>
-        <input type="text" name="company_address" placeholder="请输入单位地址">
+      <div class="itemWrap paddinglr14">
+        <div class="flexCenter flexBetween signItem">
+          <span>姓名：</span>
+          <input type="text" name="fullname" placeholder="请输入姓名">
+        </div>
+        <div class="flexCenter flexBetween signItem">
+          <span>电话：</span>
+          <input type="text" name="phone" placeholder="请输入电话">
+        </div>
+        <div class="flexCenter flexBetween signItem">
+          <span>邮箱：</span>
+          <input type="text" name="email" placeholder="请输入邮箱">
+        </div>
+        <div class="flexCenter flexBetween signItem">
+          <span>职位：</span>
+          <input type="text" name="position" placeholder="请输入职位">
+        </div>
+        <div class="flexCenter flexBetween signItem">
+          <span>专业：</span>
+          <input type="text" name="profession" placeholder="请输入专业">
+        </div>
       </div>
     </div>
-    <div class="itemWrap paddinglr14">
-      <div class="flexCenter flexBetween signItem">
-        <span>姓名：</span>
-        <input type="text" name="fullname" placeholder="请输入姓名">
-      </div>
-      <div class="flexCenter flexBetween signItem">
-        <span>电话：</span>
-        <input type="text" name="phone" placeholder="请输入电话">
-      </div>
-      <div class="flexCenter flexBetween signItem">
-        <span>邮箱：</span>
-        <input type="text" name="email" placeholder="请输入邮箱">
-      </div>
-      <div class="flexCenter flexBetween signItem">
-        <span>职位：</span>
-        <input type="text" name="position" placeholder="请输入职位">
-      </div>
-      <div class="flexCenter flexBetween signItem">
-        <span>专业：</span>
-        <input type="text" name="profession" placeholder="请输入专业">
-      </div>
-    </div>
-  </div>
 
 
-  <div class="btnBox-register">
-    <button class="mBtn submit">报名</button>
-  </div>
-
-  <!-- 报名成功 -->
-  <div class="flexColumn done" style="display:none;">
-    <div class="doneIconWrap">
-      <div class="doneIcon">
-        <img class="img100" src="__STATIC__/images/icon@2x.png" alt="成功">
-      </div>
-      <p class="doneText">报名成功</p>
+    <div class="btnBox-register">
+      <button class="mBtn submit">报名</button>
     </div>
 
-    <div>
-      <button class="backIndex">返回首页</button>
-    </div>
-    <script>
-      window.onload = function () {
-        document.getElementsByClassName("backIndex")[0].onclick = function () {
-          //去会议培训列表？
-          // window.location.href = ""
+    <!-- 报名成功 -->
+    <div class="flexColumn done" style="display:none;">
+      <div class="doneIconWrap">
+        <div class="doneIcon">
+          <img class="img100" src="__STATIC__/images/icon@2x.png" alt="成功">
+        </div>
+        <p class="doneText">报名成功</p>
+      </div>
+
+      <div>
+        <button class="backIndex">返回首页</button>
+      </div>
+      <script>
+        window.onload = function () {
+          document.getElementsByClassName("backIndex")[0].onclick = function () {
+            //去会议培训列表？
+            // window.location.href = ""
+          }
         }
-      }
-    </script>
+      </script>
+    </div>
   </div>
 </body>
 

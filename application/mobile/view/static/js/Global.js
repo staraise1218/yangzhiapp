@@ -61,6 +61,40 @@ var Global = (function () {
       }
     }
   }
+  //上传多图片 IOS
+  function mutiUploadIOS(fileArr, typeStr, callback) { //$数组
+    if (fileArr.length > 0) {
+      let formData = new FormData()
+      formData.append("type", typeStr)
+      fileArr.forEach(function (obj) {
+        let file = obj.file
+        console.log(file)
+        formData.append("file[]", file)
+      })
+      $.ajax({
+        type: "POST",
+        url: host + "/Api/Common/uploadMultiFile",
+        data: formData,
+        cache: false,//上传文件无需缓存
+        processData: false,//用于对data参数进行序列化处理 这里必须false
+        contentType: false, //必须
+        traditional: true,
+        success: function (res) {
+          console.log(res)
+          if (callback) {
+            callback(res)
+          }
+        },
+        error: function (e) {
+          console.log(e)
+        }
+      })
+    } else {
+      if (callback) {
+        callback()
+      }
+    }
+  }
   //收藏
   function collect(ele, option, callback) { //ele点击的元素；option参数obj
     let postData = {
@@ -148,8 +182,8 @@ var Global = (function () {
                 <div class="msg">
                     <p class="msgText">${msg}</p>
                     <p class="msgCtrl">
-                        <span class="closeMsg">取消</span>
-                        <span class="gotoCallback">确定</span>
+                        <span class="gotoCallback">取消</span>
+                        <span class="closeMsg">确定</span>
                     </p>
                 </div>
             </div>
@@ -158,10 +192,10 @@ var Global = (function () {
         e.stopPropagation();
         e.preventDefault();
       }, false);
-      $msgDiv.find(".closeMsg").click(function () {
+      $msgDiv.find(".gotoCallback").click(function () {
         $msgDiv.remove();
       });
-      $msgDiv.find(".gotoCallback").click(function () {
+      $msgDiv.find(".closeMsg").click(function () {
         callback();
         $msgDiv.remove();
       });
@@ -202,9 +236,27 @@ var Global = (function () {
   function getMUserInfo() {
     let info = {}
     if (localStorage.getItem("mUserInfo") && localStorage.getItem("mUserInfo") !== "" && localStorage.getItem("mUserInfo") !== null && localStorage.getItem("mUserInfo") !== "null") {
+      Global.messageWin(localStorage.getItem("mUserInfo"))
       info = JSON.parse(localStorage.getItem("mUserInfo"))
+    } else {
+      Global.messageWin("无local")
     }
     return info
+  }
+  function isIOS() {
+    let u = navigator.userAgent;
+    let isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    return isIOS;
+  }
+  function resizeImg(imgEle) {
+    console.log(imgEle.width, imgEle.height)
+    if (imgEle.width > imgEle.height) {
+      imgEle.style.width = "100%"
+      imgEle.style.height = "auto"
+    } else {
+      imgEle.style.width = "auto"
+      imgEle.style.height = "100%"
+    }
   }
   //绑定事件----------------------------------
   function eventBind() {
@@ -223,13 +275,16 @@ var Global = (function () {
     getPageParams,
     stampToDate,
     mutiUpload,
+    mutiUploadIOS,
     collect,
     cancelCollect,
     messageWin,
     messageConfirWin,
     showFullPic,
     initStarsEvent,
-    getMUserInfo
+    getMUserInfo,
+    isIOS,
+    resizeImg
   }
 })();
 

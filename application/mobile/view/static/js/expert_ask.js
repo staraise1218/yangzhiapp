@@ -1,3 +1,4 @@
+var iosFileArr = []
 var Ask = {
   mUserInfo: {},
   user_id: "",
@@ -20,8 +21,17 @@ var Ask = {
     }
 
     //上传多图片
-    let $inputs = $(".addedPic .picWrap:visible").find("input[type='file']")
-    Global.mutiUpload($inputs, "ask_images", function (fileRes) {
+    if(Global.isIOS()){
+      Global.mutiUploadIOS(iosFileArr, "ask_images", function (fileRes) {
+        callback(fileRes)
+      })
+    }else{
+      let $inputs = $(".addedPic .picWrap:visible").find("input[type='file']")
+      Global.mutiUpload($inputs, "ask_images", function (fileRes) {
+        callback(fileRes)
+      })
+    }
+    function callback(fileRes) {
       console.log(fileRes)
       //ajax提交问题
       let imagesJsonStr = ""
@@ -57,7 +67,7 @@ var Ask = {
           console.log(e)
         }
       })
-    })
+    }
   },
   //对问答进行追问
   submitAskAgain() {
@@ -72,6 +82,7 @@ var Ask = {
       content: $(".mTextarea").val(),
     }
     console.log(postData)
+    // Global.messageWin(JSON.stringify(postData))
     // return
     $(".submitAsk").addClass("eventsDisabled")
     $.ajax({
@@ -98,14 +109,21 @@ var Ask = {
   addPic() {
     let $div = $(`
       <div class="picWrap" style="display:none;">
-        <img class="img100" src="" alt="图片">
+        <img src="" alt="图片" onload="Global.resizeImg(this)">
         <span class="delPic"></span>
-        <input type="file" style="display: none;">
+        <input type="file" style="display: none;" accept="image/*">
       </div>
     `)
     $(".addedPic").append($div)
     let input = $div.find("input[type='file']")[0]
     input.click()
+  },
+  addPicIOS() {
+    let $input = $(`
+      <input class="iosInputFile" type="file" style="display: none;" accept="image/*">
+    `)
+    $(".iosInputWrap").append($input)
+    $input[0].click()
   },
   inpuImgChange(self) { //input
     var fileList = self.files
@@ -124,19 +142,76 @@ var Ask = {
       $(self).closest(".picWrap").remove()
     }
   },
+  inpuImgChangeIOS(self) { //input
+    var fileList = self.files
+    console.log(fileList)
+    if (fileList.length > 0) {
+      for (let i = 0; i < fileList.length; i++) {
+        let file = fileList[i]
+        let stamp = Math.round(Math.random() * 10000) //img file的唯一标识
+        console.log(stamp)
+        let $div = $(`
+          <div class="picWrap" data-rd="${stamp}">
+            <img src="" alt="图片" onload="Global.resizeImg(this)">
+            <span class="delPic"></span>
+          </div>
+        `)
+        $(".addedPic").append($div)
+
+        let reader = new FileReader()
+        reader.onload = function (e) {
+          console.log(e)
+          $div.find("img")[0].src = e.target.result
+          iosFileArr.push({
+            file: file,
+            rd: Number($div.attr("data-rd"))
+          })
+          console.log(iosFileArr)
+        }
+        reader.readAsDataURL(file)
+      }
+    }
+  },
+  delImgIOS(ele) {
+    let rd = Number($(ele).closest(".picWrap").attr("data-rd"))
+    let index = ""
+    iosFileArr.forEach(function (obj, idx) {
+      if (obj.rd == rd) {
+        index = idx
+      }
+    })
+    iosFileArr.splice(index, 1)
+    $(ele).closest(".picWrap").remove()
+    console.log(iosFileArr)
+  },
   eventBind() {
     //添加图片
     //点击图片加号
     $(".addpicBtn").click(function () {
-      Ask.addPic()
+      if ($(".picWrap:visible").length >= 3) {
+        Global.messageWin("最多选择3张图片")
+        return
+      }
+      if (Global.isIOS()) {
+        Ask.addPicIOS()
+      } else {
+        Ask.addPic()
+      }
     })
     $(".addedPic").delegate("input[type='file']", "change", function () {
       Ask.inpuImgChange(this)
     })
+    $(".iosInputWrap").delegate("input[type='file']", "change", function () {
+      Ask.inpuImgChangeIOS(this)
+    })
     //点击×
     $(".addedPic").delegate(".delPic", "click", function (event) {
       event.stopPropagation();
-      $(this).closest(".picWrap").remove()
+      if (Global.isIOS()) {
+        Ask.delImgIOS(this)
+      } else {
+        $(this).closest(".picWrap").remove()
+      }
     })
     //添加图片 end
     //点击已添加的图片 查看大图
@@ -164,7 +239,7 @@ var Ask = {
       $(".addpicWrap").show()
     }
     Ask.ask_id = option.ask_id ? Number(option.ask_id) : ""
-    Ask.expert_id = option.expert_id ? Number(option.expert_id) : ""
+    Ask.expert_id = option.id ? Number(option.id) : ""
     Ask.eventBind()
   }
 }

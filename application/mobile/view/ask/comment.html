@@ -56,29 +56,31 @@
 </head>
 
 <body class="ask posiRe vh100">
-  <div class="topWrap paddinglr14">
-    <textarea class="mTextarea" name="" id="" placeholder="填写提问的内容"></textarea>
-    <!-- 评价星级 -->
-    <div class="starsWrapWrap">
-      <h4>评价星级</h4>
-      <p><span class="starsCount">0</span><span>分</span></p>
-      <div class="starsWrap">
-        <ul class="flexCenter stars">
-          <li class="stars0"></li>
-          <li class="stars0"></li>
-          <li class="stars0"></li>
-          <li class="stars0"></li>
-          <li class="stars0"></li>
-        </ul>
-        <script>
-          $(".stars li").width($(".stars").height())
-        </script>
+  <div class="h100scroll">
+    <div class="topWrap paddinglr14">
+      <textarea class="mTextarea" name="" id="" placeholder="填写提问的内容" maxlength="200"></textarea>
+      <!-- 评价星级 -->
+      <div class="starsWrapWrap">
+        <h4>评价星级</h4>
+        <p><span class="starsCount">0</span><span>分</span></p>
+        <div class="starsWrap">
+          <ul class="flexCenter stars">
+            <li class="stars0"></li>
+            <li class="stars0"></li>
+            <li class="stars0"></li>
+            <li class="stars0"></li>
+            <li class="stars0"></li>
+          </ul>
+          <script>
+            $(".stars li").width($(".stars").height())
+          </script>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- 提问 -->
-  <div class="downBtn">
-    <button class="mBtn submit">提交</button>
+    <!-- 提问 -->
+    <div class="downBtn">
+      <button class="mBtn submit">提交</button>
+    </div>
   </div>
 </body>
 

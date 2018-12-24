@@ -38,25 +38,28 @@
 </head>
 
 <body class="ask posiRe vh100">
-  <div class="topWrap paddinglr14">
-    <textarea class="mTextarea" name="" id="" placeholder="填写提问的内容"></textarea>
-    <!-- 添加图片 -->
-    <div class="addpicWrap" style="display: none;">
-      <div style="padding-left:0.05rem;">
-        <a class="addpicBtn"></a>
-      </div>
-      <div class="addedPic">
-        <!-- <div class="picWrap">
-          <img src="__STATIC__/images/timg.jpg" alt="图片">
-          <span class="delPic"></span>
-          <input type="file" style="display: none;">
-        </div> -->
+  <div class="h100scroll">
+    <div class="topWrap paddinglr14">
+      <textarea class="mTextarea" name="" id="" placeholder="填写提问的内容" maxlength="200"></textarea>
+      <!-- 添加图片 -->
+      <div class="addpicWrap" style="display: none;">
+        <div style="padding-left:0.05rem;">
+          <a class="addpicBtn"></a>
+        </div>
+        <div class="addedPic">
+          <!-- <div class="picWrap">
+                <img src="__STATIC__/images/timg.jpg" alt="图片">
+                <span class="delPic"></span>
+                <input type="file" style="display: none;">
+              </div> -->
+        </div>
+        <div class="iosInputWrap" style="display:none;"></div>
       </div>
     </div>
-  </div>
-  <!-- 提问 -->
-  <div class="downBtn">
-    <button class="mBtn submitAsk">提问</button>
+    <!-- 提问 -->
+    <div class="downBtn">
+      <button class="mBtn submitAsk">提问</button>
+    </div>
   </div>
 </body>
 
