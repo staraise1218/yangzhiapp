@@ -137,7 +137,8 @@ var Ask = {
     var fileList = self.files
     console.log(fileList)
     if (fileList.length > 0) {
-      fileList.forEach(function(file){
+      for(let i=0;i<fileList.length;i++){
+        let file=fileList[i]
         let $div = $(`
           <div class="picWrap">
             <img src="" alt="图片" onload="Global.resizeImg(this)">
@@ -152,7 +153,7 @@ var Ask = {
           $div.find("img")[0].src = e.target.result
         }
         reader.readAsDataURL(file)
-      })
+      }
     }
   },
   eventBind() {
