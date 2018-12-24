@@ -157,10 +157,22 @@ var Ask = {
             file:file,
             rd:Number($div.attr("data-rd"))
           })
+          console.log(iosFileArr)
         }
         reader.readAsDataURL(file)
       }
     }
+  },
+  delImgIOS(ele){
+    let rd=Number($(ele).closest(".picWrap").attr("data-rd"))
+    let index=""
+    iosFileArr.forEach(function(obj,idx){
+      if(obj.rd==rd){
+        index=idx
+      }
+    })
+    iosFileArr.splice(index,1)
+    $(ele).closest(".picWrap").remove()
     console.log(iosFileArr)
   },
   eventBind() {
@@ -186,7 +198,11 @@ var Ask = {
     //点击×
     $(".addedPic").delegate(".delPic", "click", function (event) {
       event.stopPropagation();
-      $(this).closest(".picWrap").remove()
+      if(Global.isIOS()){
+        Ask.delImgIOS(this)
+      }else{
+        $(this).closest(".picWrap").remove()
+      }
     })
     //添加图片 end
     //点击已添加的图片 查看大图
