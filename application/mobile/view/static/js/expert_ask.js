@@ -146,8 +146,13 @@ var Ask = {
     var fileList = self.files
     console.log(fileList)
     if (fileList.length > 0) {
-      for (let i = 0; i < fileList.length; i++) {
-        let file = fileList[i]
+      let fileList2=fileList
+      if(fileList.length>3){
+        fileList2=[fileList[0],fileList[1],fileList[2]]
+        Global.messageWin("最多选择3张图片")
+      }
+      for (let i = 0; i < fileList2.length; i++) {
+        let file = fileList2[i]
         let stamp = Math.round(Math.random() * 10000) //img file的唯一标识
         console.log(stamp)
         let $div = $(`
