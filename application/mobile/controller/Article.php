@@ -13,6 +13,7 @@
  */
 namespace app\mobile\controller;
 
+use think\Db;
 use think\Controller;
  
 class Article extends Controller
