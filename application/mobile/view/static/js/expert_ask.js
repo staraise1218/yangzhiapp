@@ -1,3 +1,4 @@
+var iosFileArr = []
 var Ask = {
   mUserInfo: {},
   user_id: "",
@@ -109,16 +110,11 @@ var Ask = {
     input.click()
   },
   addPicIOS() {
-    let $div = $(`
-      <div class="picWrap" style="display:none;">
-        <img src="" alt="图片" onload="Global.resizeImg(this)">
-        <span class="delPic"></span>
-        <input type="file" style="display: none;" accept="image/*" multiple="false">
-      </div>
+    let $input = $(`
+      <input class="iosInputFile" type="file" style="display: none;" accept="image/*">
     `)
-    $(".addedPic").append($div)
-    let input = $div.find("input[type='file']")[0]
-    input.click()
+    $(".iosInputWrap").append($input)
+    $input[0].click()
   },
   inpuImgChange(self) { //input
     var fileList = self.files
@@ -137,11 +133,33 @@ var Ask = {
       $(self).closest(".picWrap").remove()
     }
   },
+  inpuImgChangeIOS(self) { //input
+    var fileList = self.files
+    console.log(fileList)
+    if (fileList.length > 0) {
+      fileList.forEach(function(file){
+        let $div = $(`
+          <div class="picWrap" style="display:none;">
+            <img src="" alt="图片" onload="Global.resizeImg(this)">
+            <span class="delPic"></span>
+          </div>
+        `)
+        $(".addedPic").append($div)
+
+        let reader = new FileReader()
+        reader.onload = function (e) {
+          console.log(e)
+          $div.find("img")[0].src = e.target.result
+        }
+        reader.readAsDataURL(file)
+      })
+    }
+  },
   eventBind() {
     //添加图片
     //点击图片加号
     $(".addpicBtn").click(function () {
-      if($(".picWrap:visible").length>=3){
+      if ($(".picWrap:visible").length >= 3) {
         Global.messageWin("最多选择3张图片")
         return
       }
@@ -153,6 +171,9 @@ var Ask = {
     })
     $(".addedPic").delegate("input[type='file']", "change", function () {
       Ask.inpuImgChange(this)
+    })
+    $(".iosInputWrap").delegate("input[type='file']", "change", function () {
+      Ask.inpuImgChangeIOS(this)
     })
     //点击×
     $(".addedPic").delegate(".delPic", "click", function (event) {
