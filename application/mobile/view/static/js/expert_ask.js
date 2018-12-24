@@ -139,8 +139,10 @@ var Ask = {
     if (fileList.length > 0) {
       for(let i=0;i<fileList.length;i++){
         let file=fileList[i]
+        let stamp=Math.round(Math.random()*10000) //img file的唯一标识
+        console.log(stamp)
         let $div = $(`
-          <div class="picWrap">
+          <div class="picWrap" data-rd="${stamp}">
             <img src="" alt="图片" onload="Global.resizeImg(this)">
             <span class="delPic"></span>
           </div>
@@ -151,10 +153,15 @@ var Ask = {
         reader.onload = function (e) {
           console.log(e)
           $div.find("img")[0].src = e.target.result
+          iosFileArr.push({
+            file:file,
+            rd:Number($div.attr("data-rd"))
+          })
         }
         reader.readAsDataURL(file)
       }
     }
+    console.log(iosFileArr)
   },
   eventBind() {
     //添加图片
