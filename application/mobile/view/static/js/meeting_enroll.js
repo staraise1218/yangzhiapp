@@ -63,8 +63,9 @@ var Sign = { //会议id
         $(".submit").removeClass("eventsDisabled")
         console.log(res)
         if(res&&Number(res.code)==200){
-          // window.location.href=
-          $(".done").show()
+          // $(".done").show()
+          Global.messageWin("报名成功")
+          window.history.back(-1)
         }
       },
       error: function (e) {
