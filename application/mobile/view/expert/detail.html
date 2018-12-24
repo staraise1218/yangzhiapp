@@ -18,63 +18,64 @@
 </head>
 
 <body class="zhuanjiajianjie">
-  <!-- 头像 -->
-  <div class="container container1">
-    <div class="flexCenter flexBetween headpicWrap">
-      <div class="flexCenterIL headpic">
-        <div class="headbox">
-          <img src="__STATIC__/images/tx.png" alt="头像">
+  <div class="h100scroll">
+    <!-- 头像 -->
+    <div class="container container1">
+      <div class="flexCenter flexBetween headpicWrap">
+        <div class="flexCenterIL headpic">
+          <div class="headbox">
+            <img src="__STATIC__/images/tx.png" alt="头像">
+          </div>
+          <span class="headname"></span>
         </div>
-        <span class="headname"></span>
-      </div>
-      <!-- <div class="mBtnBox attend jiaAt">
+        <!-- <div class="mBtnBox attend jiaAt">
         <button class="mBtn">关注</button>
       </div>
       <div class="mBtnBox attend cancelAt" style="display: none;">
         <button class="mBtn">取消关注</button>
       </div> -->
-    </div>
-    <div class="flexCenter flexBetween">
-      <div class="starsWrap">
-        <ul class="flexCenter stars" style="">
-          <li class="stars0"></li>
-          <li class="stars0"></li>
-          <li class="stars0"></li>
-          <li class="stars0"></li>
-          <li class="stars0"></li>
-        </ul>
-        <script>
-          $(".stars li").width($(".stars").height())
-        </script>
+      </div>
+      <div class="flexCenter flexBetween">
+        <div class="starsWrap">
+          <ul class="flexCenter stars" style="">
+            <li class="stars0"></li>
+            <li class="stars0"></li>
+            <li class="stars0"></li>
+            <li class="stars0"></li>
+            <li class="stars0"></li>
+          </ul>
+          <script>
+            $(".stars li").width($(".stars").height())
+          </script>
+        </div>
+
+        <div class="flexCenter commentCount" style="display:none;">
+          <img src="__STATIC__/images/回答 @2x.png" alt="评论">
+          <span class="commentCountText"></span>
+        </div>
       </div>
 
-      <div class="flexCenter commentCount" style="display:none;">
-        <img src="__STATIC__/images/回答 @2x.png" alt="评论">
-        <span class="commentCountText"></span>
+      <div class="flexColumn">
+        <p class="articleText articleText1"></p>
+        <!-- <span class="downArrow"></span> -->
       </div>
     </div>
 
-    <div class="flexColumn">
-      <p class="articleText articleText1"></p>
-      <!-- <span class="downArrow"></span> -->
+    <!-- 专家简介 -->
+    <div class="container container2">
+      <h4>专家简介</h4>
+      <p class="articleText limitLine5 jianjie2"></p>
+      <img class="jianjieImg imgw100" src="__STATIC__/images/timg.jpg" alt="图片" style="display: none;">
     </div>
-  </div>
 
-  <!-- 专家简介 -->
-  <div class="container container2">
-    <h4>专家简介</h4>
-    <p class="articleText limitLine5 jianjie2"></p>
-    <img class="jianjieImg imgw100" src="__STATIC__/images/timg.jpg" alt="图片" style="display: none;">
-  </div>
-
-  <!-- 问答列表 -->
-  <div class="container container3 askList" style="display: none;">
-    <div class="flexCenter flexBetween titleWrap">
-      <h4 class="title">问答列表</h4>
-      <span class="flexCenter more moreAsk">查看更多<span class="rightArrow"></span></span>
-    </div>
-    <div class="askItemWrap">
-      <!-- <div class="askItem">
+    <!-- 问答列表 -->
+    <div class="container container3 askList" style="display: none;">
+      <div class="flexCenter flexBetween titleWrap">
+        <h4 class="title">问答列表</h4>
+        <span class="flexCenter more moreAsk">查看更多<span class="rightArrow"></span></span>
+      </div>
+      <div class="askItemWrap">
+        <!-- <div class="askItem">
         <div class="flexCenter flexBetween headpicWrap">
           <div class="flexCenterIL headpic">
             <div class="headbox">
@@ -87,44 +88,45 @@
         </div>
         <p class="articleText">该项目是国家4A国家级旅游景区、新北京十六景北京文化创意产业基地，有华侨城集团川办，是集国际化、现代化的主题公园遗产，展现所有得成果</p>
       </div> -->
-    </div>
-  </div>
-
-  <!-- 用户评价 -->
-  <div class="container container3 commentList" style="margin-bottom:0.49rem;display: none;">
-    <div class="flexCenter flexBetween titleWrap">
-      <h4 class="title">用户评价</h4>
-      <span class="flexCenter more moreComment">查看更多<span class="rightArrow"></span></span>
-    </div>
-    <div class="askItemWrap">
-      <div class="askItem">
-        <div class="flexCenter flexBetween commentHead">
-          <h5 class="textOmit">非常好的体验</h5>
-          <div class="starsWrap">
-            <ul class="flexCenter stars">
-              <li class="stars0"></li>
-              <li class="stars0"></li>
-              <li class="stars0"></li>
-              <li class="stars0"></li>
-              <li class="stars0"></li>
-            </ul>
-            <script>
-              $(".stars li").width($(".stars").height())
-            </script>
-          </div>
-        </div>
-        <p class="articleText">该项目是国家4A国家级旅游景区、新北京十六景北京文化创意产业基地，有华侨城集团川办，是集国际化、现代化的主题公园遗产，展现所有得成果</p>
       </div>
     </div>
-  </div>
 
-  <!-- 提问 收藏 -->
-  <div class="downBtnWrap">
-    <div class="flexCenter flexJCenter imgBtn lightBlue gotoAsk">
-      <img src="__STATIC__/images/编辑 (1)@2x.png" alt="icon">提问
+    <!-- 用户评价 -->
+    <div class="container container3 commentList" style="margin-bottom:0.49rem;display: none;">
+      <div class="flexCenter flexBetween titleWrap">
+        <h4 class="title">用户评价</h4>
+        <span class="flexCenter more moreComment">查看更多<span class="rightArrow"></span></span>
+      </div>
+      <div class="askItemWrap">
+        <div class="askItem">
+          <div class="flexCenter flexBetween commentHead">
+            <h5 class="textOmit">非常好的体验</h5>
+            <div class="starsWrap">
+              <ul class="flexCenter stars">
+                <li class="stars0"></li>
+                <li class="stars0"></li>
+                <li class="stars0"></li>
+                <li class="stars0"></li>
+                <li class="stars0"></li>
+              </ul>
+              <script>
+                $(".stars li").width($(".stars").height())
+              </script>
+            </div>
+          </div>
+          <p class="articleText">该项目是国家4A国家级旅游景区、新北京十六景北京文化创意产业基地，有华侨城集团川办，是集国际化、现代化的主题公园遗产，展现所有得成果</p>
+        </div>
+      </div>
     </div>
-    <div class="flexCenter flexJCenter imgBtn darkBlue collection">
-      <img src="__STATIC__/images/收藏@2x.png" alt="icon">收藏
+
+    <!-- 提问 收藏 -->
+    <div class="downBtnWrap">
+      <div class="flexCenter flexJCenter imgBtn lightBlue gotoAsk">
+        <img src="__STATIC__/images/编辑 (1)@2x.png" alt="icon">提问
+      </div>
+      <div class="flexCenter flexJCenter imgBtn darkBlue collection">
+        <img src="__STATIC__/images/收藏@2x.png" alt="icon">收藏
+      </div>
     </div>
   </div>
 </body>
