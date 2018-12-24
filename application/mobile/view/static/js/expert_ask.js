@@ -141,6 +141,10 @@ var Ask = {
     //添加图片
     //点击图片加号
     $(".addpicBtn").click(function () {
+      if($(".picWrap:visible").length>=3){
+        Global.messageWin("最多选择3张图片")
+        return
+      }
       if (Global.isIOS()) {
         Ask.addPicIOS()
       } else {
