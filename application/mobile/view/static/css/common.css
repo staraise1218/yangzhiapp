@@ -198,9 +198,11 @@ img{
 .h100scroll{
   height: 100%;
   overflow-y: auto;
+  /* position: relative; */
+}
+.touchScroll{
   -webkit-overflow-scrolling: touch;
 	overflow-scrolling: touch;
-  /* position: relative; */
 }
 .img100{
   width: 100%;
