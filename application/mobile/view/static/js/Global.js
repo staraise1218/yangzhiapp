@@ -206,6 +206,11 @@ var Global = (function () {
     }
     return info
   }
+  function isIOS() {
+      let u = navigator.userAgent;
+      let isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+      return isIOS;
+  }
   //绑定事件----------------------------------
   function eventBind() {
     // //点击头像
@@ -229,7 +234,8 @@ var Global = (function () {
     messageConfirWin,
     showFullPic,
     initStarsEvent,
-    getMUserInfo
+    getMUserInfo,
+    isIOS
   }
 })();
 

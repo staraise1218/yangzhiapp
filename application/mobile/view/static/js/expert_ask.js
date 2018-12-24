@@ -100,7 +100,19 @@ var Ask = {
       <div class="picWrap" style="display:none;">
         <img class="img100" src="" alt="图片">
         <span class="delPic"></span>
-        <input type="file" style="display: none;">
+        <input type="file" style="display: none;" accept="image/*">
+      </div>
+    `)
+    $(".addedPic").append($div)
+    let input = $div.find("input[type='file']")[0]
+    input.click()
+  },
+  addPicIOS(){
+    let $div = $(`
+      <div class="picWrap" style="display:none;">
+        <img class="img100" src="" alt="图片">
+        <span class="delPic"></span>
+        <input type="file" style="display: none;" accept="image/*">
       </div>
     `)
     $(".addedPic").append($div)
@@ -128,7 +140,11 @@ var Ask = {
     //添加图片
     //点击图片加号
     $(".addpicBtn").click(function () {
-      Ask.addPic()
+      if(Global.isIOS()){
+        Ask.addPicIOS()
+      }else{
+        Ask.addPic()
+      }
     })
     $(".addedPic").delegate("input[type='file']", "change", function () {
       Ask.inpuImgChange(this)
