@@ -199,6 +199,9 @@ img{
   height: 100%;
   overflow-y: auto;
   /* position: relative; */
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 .touchScroll{
   -webkit-overflow-scrolling: touch;
