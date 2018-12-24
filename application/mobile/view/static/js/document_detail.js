@@ -125,6 +125,7 @@ var ZaiDetail = {
         if (res && Number(res.code) == 200) {
           $("#commentInpt").val("")
           ZaiDetail.getComments()
+          document.getElementsByClassName("h100scroll")[0].scrollTop=0
         }
       },
       error: function (e) {

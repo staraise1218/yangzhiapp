@@ -37,20 +37,20 @@ var Ask = {
       let imagesJsonStr = ""
       if (fileRes) {
         let imagesArr = fileRes.data.filepath
-        imagesJsonStr = JSON.stringify(imagesArr)
+        // imagesJsonStr = JSON.stringify(imagesArr)
+        imagesJsonStr=imagesArr[0] //路径字符串
       }
       let postData = {
         user_id: Number(Ask.mUserInfo.user_id),
-        expert_id: Ask.expert_id,
         content: $(".mTextarea").val(),
-        images: imagesJsonStr
+        image: imagesJsonStr
       }
       console.log(postData)
       // return
       $(".submitAsk").addClass("eventsDisabled")
       $.ajax({
         type: "POST",
-        url: Global.host + "/Api/ask/ask",
+        url: Global.host + "/Api/User/feedback",
         data: postData,
         success: function (res) {
           $(".submitAsk").removeClass("eventsDisabled")
@@ -58,6 +58,7 @@ var Ask = {
           if (res && Number(res.code) == 200) {
             // alert("操作成功")
             Global.messageWin("操作成功", function () {
+              //原生返回？
               window.history.back(-1)
             })
           }
@@ -146,13 +147,8 @@ var Ask = {
     var fileList = self.files
     console.log(fileList)
     if (fileList.length > 0) {
-      let fileList2=fileList
-      if(fileList.length>3){
-        fileList2=[fileList[0],fileList[1],fileList[2]]
-        Global.messageWin("最多选择3张图片")
-      }
-      for (let i = 0; i < fileList2.length; i++) {
-        let file = fileList2[i]
+      for (let i = 0; i < fileList.length; i++) {
+        let file = fileList[i]
         let stamp = Math.round(Math.random() * 10000) //img file的唯一标识
         console.log(stamp)
         let $div = $(`
@@ -193,9 +189,8 @@ var Ask = {
     //添加图片
     //点击图片加号
     $(".addpicBtn").click(function () {
-      Global.messageWin("1")
-      if ($(".picWrap:visible").length >= 3) {
-        Global.messageWin("最多选择3张图片")
+      if ($(".picWrap:visible").length >= 1) {
+        Global.messageWin("最多选择1张图片")
         return
       }
       if (Global.isIOS()) {
@@ -245,7 +240,7 @@ var Ask = {
       $(".addpicWrap").show()
     }
     Ask.ask_id = option.ask_id ? Number(option.ask_id) : ""
-    Ask.expert_id = option.expert_id ? Number(option.expert_id) : ""
+    Ask.expert_id = option.id ? Number(option.id) : ""
     Ask.eventBind()
   }
 }
