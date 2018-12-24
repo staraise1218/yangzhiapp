@@ -98,7 +98,7 @@ var Ask = {
   addPic() {
     let $div = $(`
       <div class="picWrap" style="display:none;">
-        <img class="img100" src="" alt="图片">
+        <img src="" alt="图片" onload="Global.resizeImg(this)">
         <span class="delPic"></span>
         <input type="file" style="display: none;" accept="image/*">
       </div>
@@ -110,7 +110,7 @@ var Ask = {
   addPicIOS(){
     let $div = $(`
       <div class="picWrap" style="display:none;">
-        <img class="img100" src="" alt="图片">
+        <img src="" alt="图片" onload="Global.resizeImg(this)">
         <span class="delPic"></span>
         <input type="file" style="display: none;" accept="image/*">
       </div>

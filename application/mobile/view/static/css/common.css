@@ -427,13 +427,18 @@ img{
   /* padding: 16.6666%; */
   padding: calc(16.6666% - 0.05rem);
   margin: 0.05rem;
+  overflow: hidden;
 }
 .addpicWrap .addedPic .picWrap>img{
-  position: absolute;
+  /* position: absolute;
   left: 0;
   right: 0;
   top: 0;
-  bottom: 0;
+  bottom: 0; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 .addpicWrap .delPic{
   display: inline-block;

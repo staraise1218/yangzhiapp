@@ -211,6 +211,16 @@ var Global = (function () {
       let isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
       return isIOS;
   }
+  function resizeImg(imgEle){
+      console.log(imgEle.width,imgEle.height)
+      if(imgEle.width>imgEle.height){
+          imgEle.style.width="100%"
+          imgEle.style.height="auto"
+      }else{
+          imgEle.style.width="auto"
+          imgEle.style.height="100%"
+      }
+  }
   //绑定事件----------------------------------
   function eventBind() {
     // //点击头像
@@ -235,7 +245,8 @@ var Global = (function () {
     showFullPic,
     initStarsEvent,
     getMUserInfo,
-    isIOS
+    isIOS,
+    resizeImg
   }
 })();
 
