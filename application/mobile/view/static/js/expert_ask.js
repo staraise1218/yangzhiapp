@@ -72,7 +72,7 @@ var Ask = {
       content: $(".mTextarea").val(),
     }
     console.log(postData)
-    Global.messageWin(JSON.stringify(postData))
+    // Global.messageWin(JSON.stringify(postData))
     // return
     $(".submitAsk").addClass("eventsDisabled")
     $.ajax({
@@ -108,7 +108,7 @@ var Ask = {
     let input = $div.find("input[type='file']")[0]
     input.click()
   },
-  addPicIOS(){
+  addPicIOS() {
     let $div = $(`
       <div class="picWrap" style="display:none;">
         <img src="" alt="图片" onload="Global.resizeImg(this)">
@@ -141,9 +141,9 @@ var Ask = {
     //添加图片
     //点击图片加号
     $(".addpicBtn").click(function () {
-      if(Global.isIOS()){
+      if (Global.isIOS()) {
         Ask.addPicIOS()
-      }else{
+      } else {
         Ask.addPic()
       }
     })
@@ -181,7 +181,7 @@ var Ask = {
       $(".addpicWrap").show()
     }
     Ask.ask_id = option.ask_id ? Number(option.ask_id) : ""
-    Ask.expert_id = option.expert_id ? Number(option.expert_id) : ""
+    Ask.expert_id = option.id ? Number(option.id) : ""
     Ask.eventBind()
   }
 }
