@@ -18,14 +18,14 @@ class Video extends Base {
 		$cat_id = I('cat_id');
 
 		$where['is_delete'] = 0;
-		if($keyword) $where['keyword'] = array('title', array('like', "'%$keyword%'"));
+        if($keyword) $where['title'] = array('like', "%$keyword%");
 		if($cat_id) $where['cat_id'] = $cat_id;
 
 		$list = Db::name('video')
 			->where($where)
 			->limit(10)
 			->page($page)
-			->field('id, title, thumb, tag, description')
+			->field('id, title, thumb, tag, price, description')
 			->order('id desc')
 			->select();
 		if(is_array($list) && !empty($list)){
@@ -141,7 +141,7 @@ class Video extends Base {
         }
     }
 
-   public function generateOrderSn(){
+    public function generateOrderSn(){
         $order_sn = date('YmdHis').mt_rand(1000, 9999);
 
         $count = Db::name('video_order')->where('order_sn', $order_sn)->count();

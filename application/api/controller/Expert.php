@@ -15,16 +15,26 @@ class Expert extends Base {
     /**
      * [index 我的 页面 需要的接口]
      * @return [type] [description]
+     * type hot热度 recommend 推荐 
      */
     public function index(){
         $page = I('page', 1);
+        $type = I('type', 'hot');
+
+        $where['is_lock'] = 0;
+        $where['group_id'] = 2;
+        $order = 'user_id desc';
+
+
+        if($type == 'recommend') $where['is_recommend'] = 1;
+        if($type == 'hot') $order = 'questionNum desc, user_id desc';
 
         $list = Db::name('users')->alias('u')
             ->join('expert e', 'e.user_id=u.user_id', 'left')
-            ->where('is_lock', 0)
-            ->where('group_id', 2)
+            ->where($where)
             ->limit(10)
             ->page($page)
+            ->order($order)
             ->field('u.user_id, fullname, head_pic, description')
             ->select();
 

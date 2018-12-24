@@ -53,6 +53,9 @@ class Ask extends Base {
 
         if(Db::name('ask')->insert($data)){
             response_success('', '操作成功');
+
+            // 专家问题数量加1
+            Db::name('users')->where('user_id', $user_id)->setInc('questionNum');
         } else {
             response_error('', '操作失敗');
         }

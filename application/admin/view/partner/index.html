@@ -25,7 +25,7 @@
         <h5>(共{$pager->totalRows}条记录)</h5>
       </div>
       <div title="刷新数据" class="pReload"><i class="fa fa-refresh"></i></div>
-	  <form class="navbar-form form-inline" action="{:U('Admin/document/index')}" method="post">      
+	  <form class="navbar-form form-inline" action="{:U('Admin/partner/index')}" method="post">      
       <div class="sDiv">
         <div class="sDiv2">
           
@@ -44,14 +44,14 @@
                 <div style="width: 24px;"><i class="ico-check"></i></div>
               </th>
               <th align="left" abbr="article_title" axis="col3" class="">
-                <div style="text-align: left; width: 240px;" class="">标题</div>
+                <div style="text-align: left; width: 240px;" class="">公司名称</div>
               </th>                
-              <th align="center" abbr="article_time" axis="col6" class="">
+              <!-- <th align="center" abbr="article_time" axis="col6" class="">
                 <div style="text-align: center; width: 30px;" class="" onClick="sort('is_recommend');">推荐</div>
-              </th>  
-              <th align="center" abbr="article_time" axis="col6" class="">
+              </th>  --> 
+              <!-- <th align="center" abbr="article_time" axis="col6" class="">
                 <div style="text-align: center; width: 160px;" class="">发布时间</div>
-              </th>
+              </th> -->
               <th align="center" axis="col1" class="handle">
                 <div style="text-align: center; width: 150px;">操作</div>
               </th>
@@ -66,7 +66,7 @@
     <div class="tDiv">
       <div class="tDiv2">
           <div class="fbutton"> 
-        	<a href="{:U('Admin/document/add')}"><div class="add" title="新增数据"><span><i class="fa fa-plus"></i>新增数据</span></div></a> 
+        	<a href="{:U('Admin/partner/add')}"><div class="add" title="新增数据"><span><i class="fa fa-plus"></i>新增数据</span></div></a> 
           </div>
           <!-- <div class="fbutton"><div class="del" title="将选定行数据批量删除"><span><i class="fa fa-trash"></i>批量删除</span></div></div>-->
       </div>
@@ -84,22 +84,22 @@
                 <td align="left" class="">
                   <div style="text-align: left; width: 240px;">{$vo.title|getSubstr=0,33}</div>
                 </td>              
-                <td align="center" axis="col0">
-                  <div style="text-align: center; width: 30px;">
-                    <if condition='$vo[is_recommend] eq 1'>
-                      <span class="yes" onClick="changeTableVal('document','id','{$vo.id}','is_recommend',this)" ><i class="fa fa-check-circle"></i>是</span>
-                      <else />
-                      <span class="no" onClick="changeTableVal('document','id','{$vo.id}','is_recommend',this)" ><i class="fa fa-ban"></i>否</span>
-                    </if>
-                  </div>
-                </td> 
-                <td align="center" class="">
+                <!-- <td align="center" axis="col0">
+                   <div style="text-align: center; width: 30px;">
+                     <if condition='$vo[is_recommend] eq 1'>
+                       <span class="yes" onClick="changeTableVal('document','id','{$vo.id}','is_recommend',this)" ><i class="fa fa-check-circle"></i>是</span>
+                       <else />
+                       <span class="no" onClick="changeTableVal('document','id','{$vo.id}','is_recommend',this)" ><i class="fa fa-ban"></i>否</span>
+                     </if>
+                   </div>
+                 </td> --> 
+                <!-- <td align="center" class="">
                   <div style="text-align: center; width: 160px;">{:date('Y-m-d H:i:s', $vo.createtime)}</div>
-                </td>
+                </td> -->
                 <td align="center" class="handle">
                   <div style="text-align: center; width: 170px; max-width:170px;"> 
-                    <a href="{:U('document/edit',array('id'=>$vo['id']))}" class="btn blue"><i class="fa fa-pencil-square-o"></i>编辑</a> 
-                    <a class="btn red"  href="javascript:void(0)" data-url="{:U('document/del')}" data-id="{$vo.id}" onClick="delfun(this)"><i class="fa fa-trash-o"></i>删除</a>
+                    <a href="{:U('partner/edit',array('id'=>$vo['id']))}" class="btn blue"><i class="fa fa-pencil-square-o"></i>编辑</a> 
+                    <a class="btn red"  href="javascript:void(0)" data-url="{:U('partner/del')}" data-id="{$vo.id}" onClick="delfun(this)"><i class="fa fa-trash-o"></i>删除</a>
                   </div>
                 </td>
                 <td align="" class="" style="width: 100%;">

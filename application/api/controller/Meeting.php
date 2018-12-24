@@ -16,9 +16,12 @@ class Meeting extends Base {
 	}
 
 	public function index(){
+		$user_id = I('user_id');
 		$keyword = I('keyword');
+		$page = I('page', 1);
 
-		if($keyword) $where['keyword'] = array('title', array('like', "'%$keyword%'"));
+		
+		if($keyword) $where['title'] = array('like', "%$keyword%");
 
 		$where['is_delete'] = 0;
 		$where['is_open'] = 1;
@@ -32,7 +35,8 @@ class Meeting extends Base {
 
 		if(is_array($list) && !empty($list)){
 			foreach ($list as &$item) {
-				$item['enrolled'] = 0;
+				$is_enroll = Db::name('meeting_enroll')->where(array('user_id'=>$user_id, 'meeting_id'=>$item['id']));
+				$item['enrolled'] = $is_enroll ? 1 : 0;
 			}
 		}
 
