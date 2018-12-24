@@ -188,6 +188,7 @@ var Ask = {
     //添加图片
     //点击图片加号
     $(".addpicBtn").click(function () {
+      Global.messageWin("1")
       if ($(".picWrap:visible").length >= 3) {
         Global.messageWin("最多选择3张图片")
         return
@@ -239,7 +240,7 @@ var Ask = {
       $(".addpicWrap").show()
     }
     Ask.ask_id = option.ask_id ? Number(option.ask_id) : ""
-    Ask.expert_id = option.id ? Number(option.id) : ""
+    Ask.expert_id = option.expert_id ? Number(option.expert_id) : ""
     Ask.eventBind()
   }
 }
