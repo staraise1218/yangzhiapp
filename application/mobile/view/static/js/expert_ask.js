@@ -21,8 +21,17 @@ var Ask = {
     }
 
     //上传多图片
-    let $inputs = $(".addedPic .picWrap:visible").find("input[type='file']")
-    Global.mutiUpload($inputs, "ask_images", function (fileRes) {
+    if(Global.isIOS()){
+      Global.mutiUploadIOS(iosFileArr, "ask_images", function (fileRes) {
+        callback(fileRes)
+      })
+    }else{
+      let $inputs = $(".addedPic .picWrap:visible").find("input[type='file']")
+      Global.mutiUpload($inputs, "ask_images", function (fileRes) {
+        callback(fileRes)
+      })
+    }
+    function callback(fileRes) {
       console.log(fileRes)
       //ajax提交问题
       let imagesJsonStr = ""
@@ -58,7 +67,7 @@ var Ask = {
           console.log(e)
         }
       })
-    })
+    }
   },
   //对问答进行追问
   submitAskAgain() {
@@ -137,9 +146,9 @@ var Ask = {
     var fileList = self.files
     console.log(fileList)
     if (fileList.length > 0) {
-      for(let i=0;i<fileList.length;i++){
-        let file=fileList[i]
-        let stamp=Math.round(Math.random()*10000) //img file的唯一标识
+      for (let i = 0; i < fileList.length; i++) {
+        let file = fileList[i]
+        let stamp = Math.round(Math.random() * 10000) //img file的唯一标识
         console.log(stamp)
         let $div = $(`
           <div class="picWrap" data-rd="${stamp}">
@@ -154,8 +163,8 @@ var Ask = {
           console.log(e)
           $div.find("img")[0].src = e.target.result
           iosFileArr.push({
-            file:file,
-            rd:Number($div.attr("data-rd"))
+            file: file,
+            rd: Number($div.attr("data-rd"))
           })
           console.log(iosFileArr)
         }
@@ -163,15 +172,15 @@ var Ask = {
       }
     }
   },
-  delImgIOS(ele){
-    let rd=Number($(ele).closest(".picWrap").attr("data-rd"))
-    let index=""
-    iosFileArr.forEach(function(obj,idx){
-      if(obj.rd==rd){
-        index=idx
+  delImgIOS(ele) {
+    let rd = Number($(ele).closest(".picWrap").attr("data-rd"))
+    let index = ""
+    iosFileArr.forEach(function (obj, idx) {
+      if (obj.rd == rd) {
+        index = idx
       }
     })
-    iosFileArr.splice(index,1)
+    iosFileArr.splice(index, 1)
     $(ele).closest(".picWrap").remove()
     console.log(iosFileArr)
   },
@@ -198,9 +207,9 @@ var Ask = {
     //点击×
     $(".addedPic").delegate(".delPic", "click", function (event) {
       event.stopPropagation();
-      if(Global.isIOS()){
+      if (Global.isIOS()) {
         Ask.delImgIOS(this)
-      }else{
+      } else {
         $(this).closest(".picWrap").remove()
       }
     })
