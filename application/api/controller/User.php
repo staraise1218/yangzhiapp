@@ -84,19 +84,9 @@ class User extends Base {
     public function feedback(){
         $data['user_id'] = I('user_id');
         $data['content'] = I('content');
+        $data['image'] = I('image');
 
         $data['createtime'] = time();
-
-        if($_FILES['image']){
-            $FileLogic = new FileLogic();
-            $uploadPath = UPLOAD_PATH.'feedback';
-            $result = $FileLogic->uploadSingleFile('image', $uploadPath);
-            if($result['status'] == '1'){
-                $data['image'] = $result['fullPath'];
-            } else {
-                response_error('', '文件上传失败');
-            }
-        }
 
         if(M('feedback')->insert($data)){
             response_success('', '操作成功');
