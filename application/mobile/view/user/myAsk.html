@@ -18,28 +18,35 @@
   <script src="__STATIC__/js/js-build/jquery-weui-build/dist/js/jquery-weui.min.js"></script>
   <script src="__STATIC__/js/Global.js"></script>
   <script src="__STATIC__/js/user_myAsk.js"></script>
+  <style>
+  .listWrap{
+    height: calc(100% + 50px);
+  }
+  </style>
 </head>
 
 <body class="myAsk">
-  <div class="h100scroll listWrap">
-    <div class="weui-pull-to-refresh__layer">
-      <div class='weui-pull-to-refresh__arrow'></div>
-      <div class='weui-pull-to-refresh__preloader'></div>
-      <div class="down">下拉刷新</div>
-      <div class="up">释放刷新</div>
-      <div class="refresh">正在刷新</div>
-    </div>
-
-    <div class="container">
-      <div class="myAskWrap">
+  <div class="h100 overhidden">
+    <div class="h100scroll listWrap">
+      <div class="weui-pull-to-refresh__layer">
+        <div class='weui-pull-to-refresh__arrow'></div>
+        <div class='weui-pull-to-refresh__preloader'></div>
+        <div class="down">下拉刷新</div>
+        <div class="up">释放刷新</div>
+        <div class="refresh">正在刷新</div>
       </div>
-      <p class="noList" style="display:none;">暂无数据</p>
-    </div>
 
-    <div class="isLoading_weui">
-      <div class="weui-loadmore" style="display: none;">
-        <i class="weui-loading"></i>
-        <span class="weui-loadmore__tips">正在加载</span>
+      <div class="container">
+        <div class="myAskWrap">
+        </div>
+        <p class="noList" style="display:none;">暂无数据</p>
+      </div>
+
+      <div class="isLoading_weui">
+        <div class="weui-loadmore" style="display: none;">
+          <i class="weui-loading"></i>
+          <span class="weui-loadmore__tips">正在加载</span>
+        </div>
       </div>
     </div>
   </div>
