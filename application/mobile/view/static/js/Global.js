@@ -240,7 +240,7 @@ var Global = (function () {
   function getMUserInfo() {
     let info = {}
     if (localStorage.getItem("mUserInfo") && localStorage.getItem("mUserInfo") !== "" && localStorage.getItem("mUserInfo") !== null && localStorage.getItem("mUserInfo") !== "null") {
-      Global.messageWin(localStorage.getItem("mUserInfo"))
+      // Global.messageWin(localStorage.getItem("mUserInfo"))
       info = JSON.parse(localStorage.getItem("mUserInfo"))
     } else {
       Global.messageWin("无local")
