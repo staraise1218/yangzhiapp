@@ -46,7 +46,7 @@ var Askd = { //id(ask_id)
           let $img = $(`
             <div class="imgBgSq">
               <div class="imgBgSqBox">
-                <img class="positionCenter" src="${Global.domain + src}" alt="图片" onload="Global.resizeImg(this)">
+                <img class="positionCenter img100" src="${Global.domain + src}" alt="图片" onload="Global.resizeImg(this)">
               </div>
             </div>
           `)
