@@ -45,7 +45,9 @@ var Askd = { //id(ask_id)
         info.images.forEach(function (src, index) {
           let $img = $(`
             <div class="imgBgSq">
-              <img class="positionCenter" src="${Global.domain + src}" alt="图片" onload="Global.resizeImg(this)">
+              <div class="imgBgSqBox">
+                <img class="positionCenter" src="${Global.domain + src}" alt="图片" onload="Global.resizeImg(this)">
+              </div>
             </div>
           `)
           $(".container1 .imgWrap").append($img)
