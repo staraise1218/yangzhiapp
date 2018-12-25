@@ -296,7 +296,26 @@ $(function () {
   Global.eventBind()
 })
 
-//-------------------------------------
-function askImgCallback(res){
-  Global.messageWin(JSON.stringify(res))
+//------------------------------------------------------------------------------
+//提问页面, app上传图片回调
+function askImgCallback(res) {
+  // {
+  //   "filepath":[
+  //     "...",
+  //     "..."
+  //   ]
+  // }
+  alert(JSON.stringify(res))
+  console.log(res)
+  let filepathArr = res.filepath
+  filepathArr.forEach(function (file) {
+    let src = Global.domain + file
+    let $div = $(`
+      <div class="picWrap">
+        <img src="${src}" data-src="${file}" alt="图片" onload="Global.resizeImg(this)">
+        <span class="delPic"></span>
+      </div>
+    `)
+    $(".addedPic").append($div)
+  })
 }
