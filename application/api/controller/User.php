@@ -198,7 +198,7 @@ class User extends Base {
         $list = Db::name('ask')->alias('a')
             ->join('users u', 'a.expert_id=u.user_id')
             ->where('a.user_id', $user_id)
-            ->field('a.title, a.content, a.createtime, u.fullname')
+            ->field('a.user_id ask_id, a.expert_id, a.title, a.content, a.createtime, u.fullname')
             ->page($page)
             ->limit(10)
             ->order('a.id desc')
