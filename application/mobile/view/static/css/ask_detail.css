@@ -23,6 +23,7 @@ body.askDetail{
 }
 .askContent .imgBgSq .imgBgSqBox{
   padding: 100% 0 0 0;
+  position: relative;
 }
 /* 问答列表 */
 .container3 .titleWrap{
