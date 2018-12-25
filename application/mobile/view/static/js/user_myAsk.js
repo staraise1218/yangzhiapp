@@ -78,7 +78,7 @@ var Mask = {
       `)
       $(".myAskWrap").append($div)
     })
-    if ($(".askItem").length == 0) {
+    if ($(".myAskItem").length == 0) {
       $(".noList").show()
     }
   },
@@ -115,7 +115,7 @@ var Mask = {
       event.stopPropagation();
       let ask_id = $(this).closest(".myAskItem").attr("data-askid")
       let expert_id = $(this).closest(".myAskItem").attr("data-expertid")
-      window.location.href = Global.host + "/ask/comment?id=" + ask_id + "&expert_id=" + expert_id
+      window.location.href = Global.host + "/mobile/ask/comment?id=" + ask_id + "&expert_id=" + expert_id
     })
   },
   init() {
