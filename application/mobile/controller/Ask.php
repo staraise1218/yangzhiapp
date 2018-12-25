@@ -10,6 +10,10 @@ class Ask extends Controller{
     	return $this->fetch();
     }
 
+    public function detail(){
+    	return $this->fetch();
+    }
+
     public function comment(){
     	return $this->fetch();
     }
