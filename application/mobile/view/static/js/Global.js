@@ -291,3 +291,8 @@ var Global = (function () {
 $(function () {
   Global.eventBind()
 })
+
+//-------------------------------------
+function askImgCallback(res){
+  Global.messageWin(JSON.stringify(res))
+}
