@@ -157,7 +157,7 @@ class User extends Base {
             ->join('video v', 'uc.table_id=v.id', 'left')
             ->where('uc.user_id', $user_id)
             ->where('uc.table_name', 'video')
-            ->field('d.id, d.title, d.thumb, d.tag, d.description')
+            ->field('v.id, v.title, v.thumb, v.tag, v.description')
             ->page($page)
             ->limit(10)
             ->select();
@@ -174,6 +174,7 @@ class User extends Base {
     private function myCollectExpert($user_id, $page){
         $list = Db::name('user_collect')->alias('uc')
             ->join('users u', 'uc.table_id=u.user_id', 'left')
+            ->join('expert e', 'uc.table_id=e.user_id', 'left')
             ->where('uc.user_id', $user_id)
             ->where('uc.table_name', 'expert')
             ->field('u.user_id, fullname, head_pic, description')
