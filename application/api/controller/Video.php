@@ -65,6 +65,7 @@ class Video extends Base {
 
         $info['is_collect'] = $count ? 1 : 0;
         $info['buyed_count'] = 0;
+        $info['content'] = $info['content'] ? htmlspecialchars_decode($info['content']) : '';
 
 		response_success($info);
 	}

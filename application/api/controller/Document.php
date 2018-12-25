@@ -64,7 +64,7 @@ class Document extends Base {
 			->where('table_name', 'document')
 			->count();
 		$info['is_collect'] = $is_collect ? 1 : 0;
-		$info['content'] = $info['content'] ? html_entity_decode($info['content']);
+		$info['content'] = $info['content'] ? htmlspecialchars_decode($info['content']) : '';
 
 		response_success($info);
 	}

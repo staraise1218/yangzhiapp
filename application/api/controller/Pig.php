@@ -52,6 +52,9 @@ class Pig extends Base {
 			->where('is_delete', 0)
 			->find();
 
+		
+		$info['content'] = $info['content'] ? htmlspecialchars_decode($info['content']) : '';
+
 		response_success($info);
 	}
 

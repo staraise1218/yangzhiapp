@@ -61,6 +61,7 @@ class Meeting extends Base {
 				->count();
 			$info['enrolled'] = $enrolled > 0 ? 1 : 0;
 			$info['collected'] = 0;
+			$info['content'] = $info['content'] ? htmlspecialchars_decode($info['content']) : '';
 		}
 
 		response_success($info);
