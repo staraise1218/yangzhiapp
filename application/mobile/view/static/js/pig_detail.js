@@ -42,7 +42,7 @@ var ZhuDetail = { //猪场id pig_id
   initshare() {
     let url = window.location.href
     $(".share").attr("data-clipboard-text", url)
-    var clipboard = new ClipboardJS('.btn');
+    var clipboard = new ClipboardJS('.share');
 
     clipboard.on('success', function (e) {
       console.info('Action:', e.action);
