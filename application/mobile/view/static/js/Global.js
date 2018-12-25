@@ -262,20 +262,23 @@ var Global = (function () {
       imgEle.style.height = "100%"
     }
   }
-  //绑定事件----------------------------------
-  function eventBind() {
-    // //点击头像
-    // $("body").delegate(".headbox","click",function(){
-    //   if($(this).attr){
-
-    //   }
-    // })
+  //global事件----------------------------------
+  function init() {
+    var screenHeight;
+    if (window.innerHeight) {
+      screenHeight = window.innerHeight;
+    }
+    else if ((document.body) && (document.body.clientHeight)) {
+      screenHeight = document.body.clientHeight;
+    }
+    $("html,body").height(screenHeight);
   }
   //--------------------------------------------------------
   return {
     domain,
     host,
-    eventBind,
+
+    init,
     getPageParams,
     stampToDate,
     mutiUpload,
@@ -293,7 +296,7 @@ var Global = (function () {
 })();
 
 $(function () {
-  Global.eventBind()
+  Global.init()
 })
 
 //------------------------------------------------------------------------------
