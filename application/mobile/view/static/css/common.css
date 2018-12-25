@@ -181,10 +181,13 @@ a:hover {
 
 
 /* common */
+html,body{
+  height: 100%;
+}
 body{
   font-family: "HiraginoSansGB-W3";
   font-size: 0.14rem;
-  height: 100vh;
+  /* height: 100vh; */
   overflow: hidden;
   position: relative;
 
