@@ -187,6 +187,9 @@ body{
   height: 100vh;
   overflow: hidden;
   position: relative;
+
+  display: inline-block; /* 让body bfc */
+  width: 100%;
 }
 a{
   text-decoration: none;
@@ -213,9 +216,14 @@ img{
   width: 100%;
   height: auto;
 }
-/* 布局 */
+.overhidden{
+  overflow: hidden;
+}
 .vh100{
   height: 100vh;
+}
+.h100{
+  height: 100%;
 }
 .marginlr14{
   margin-left: 0.14rem;
@@ -619,4 +627,8 @@ img{
   height: 0.6rem;
   border: 1px solid transparent;
   overflow: hidden;
+}
+.noList {
+  line-height: 0.5rem;
+  text-align: center;
 }

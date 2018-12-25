@@ -1,4 +1,4 @@
-var Com = { //ask_id  expert_id
+var Com = { //id(ask_id)  expert_id
   mUserInfo: {},
   ask_id: "", //要评论的问答id
   expert_id: "",
@@ -57,7 +57,7 @@ var Com = { //ask_id  expert_id
     Com.mUserInfo = Global.getMUserInfo()
     // Com.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
-    Com.ask_id = option.ask_id ? Number(option.ask_id) : ""
+    Com.ask_id = option.id ? Number(option.id) : ""
     Com.expert_id = option.expert_id ? Number(option.expert_id) : ""
     Com.eventBind()
   }

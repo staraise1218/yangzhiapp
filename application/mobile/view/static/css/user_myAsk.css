@@ -1,0 +1,44 @@
+.myAskItem{
+  padding: 0.1rem 0;
+  border-bottom: 1px solid rgba(245, 245, 245, 1);
+}
+.myAskItem:last-of-type{
+  border-bottom: none;
+}
+.myAskItem_top h4{
+  color: rgba(77, 77, 77, 1);
+  font-size: 0.16rem;
+  font-weight: bold;
+}
+.expertName{
+  color: rgba(77, 77, 77, 1);
+  font-size: 0.14rem;
+  /* font-weight: bold; */
+}
+.askContent{
+  color: rgba(77, 77, 77, 1);
+  font-size: 0.14rem;
+  margin: 0.1rem 0;
+}
+.goAsk,
+.goComment{
+  color: rgba(11, 78, 161, 1);
+  font-size: 0.14rem;
+}
+.icon_m{
+  display: inline-block;
+  width: 0.15rem;
+  height: 0.15rem;
+}
+.icon_expert{
+  background: url(../images/专家@2x.png) center center no-repeat;
+  background-size: 100% 100%;
+}
+.icon_ask{
+  background: url(../images/zhuiwen.png) center center no-repeat;
+  background-size: 100% 100%;
+}
+.icon_comment{
+  background: url(../images/pingjia.png) center center no-repeat;
+  background-size: 100% 100%;
+}

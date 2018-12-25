@@ -1,5 +1,5 @@
 var iosFileArr = []
-var Ask = {
+var Ask = { //需要ask_id  expert_id
   mUserInfo: {},
   user_id: "",
   expert_id: "",
@@ -202,6 +202,7 @@ var Ask = {
         uploadImgApp("2","askImgCallback")
       } else {
         // Ask.addPic()
+        window.Android.uploadImgApp("2","askImgCallback")
       }
     })
     $(".addedPic").delegate("input[type='file']", "change", function () {
