@@ -1,5 +1,5 @@
 var iosFileArr = []
-var Ask = { //需要ask_id  expert_id
+var Ask = { //需要ask_id  expert_id   [isAgain]
   mUserInfo: {},
   user_id: "",
   expert_id: "",
@@ -21,53 +21,51 @@ var Ask = { //需要ask_id  expert_id
     }
 
     //上传多图片
-    if(Global.isIOS()){
-      Global.mutiUploadIOS(iosFileArr, "ask_images", function (fileRes) {
-        callback(fileRes)
-      })
-    }else{
-      let $inputs = $(".addedPic .picWrap:visible").find("input[type='file']")
-      Global.mutiUpload($inputs, "ask_images", function (fileRes) {
-        callback(fileRes)
-      })
+    // if (Global.isIOS()) {
+    //   Global.mutiUploadIOS(iosFileArr, "ask_images", function (fileRes) {
+    //     callback(fileRes)
+    //   })
+    // } else {
+    //   let $inputs = $(".addedPic .picWrap:visible").find("input[type='file']")
+    //   Global.mutiUpload($inputs, "ask_images", function (fileRes) {
+    //     callback(fileRes)
+    //   })
+    // }
+
+    //ajax提交问题
+    let imagesArr = []
+    $(".addedPic .picWrap").each(function () {
+      let src = $(this).find("img").attr("data-src")
+      imagesArr.push(src)
+    })
+    let postData = {
+      user_id: Number(Ask.mUserInfo.user_id),
+      expert_id: Ask.expert_id,
+      content: $(".mTextarea").val(),
+      images: JSON.stringify(imagesArr)
     }
-    function callback(fileRes) {
-      console.log(fileRes)
-      //ajax提交问题
-      let imagesJsonStr = ""
-      if (fileRes) {
-        let imagesArr = fileRes.data.filepath
-        imagesJsonStr = JSON.stringify(imagesArr)
-      }
-      let postData = {
-        user_id: Number(Ask.mUserInfo.user_id),
-        expert_id: Ask.expert_id,
-        content: $(".mTextarea").val(),
-        images: imagesJsonStr
-      }
-      console.log(postData)
-      // return
-      $(".submitAsk").addClass("eventsDisabled")
-      $.ajax({
-        type: "POST",
-        url: Global.host + "/Api/ask/ask",
-        data: postData,
-        success: function (res) {
-          $(".submitAsk").removeClass("eventsDisabled")
-          console.log(res)
-          if (res && Number(res.code) == 200) {
-            // alert("操作成功")
-            Global.messageWin("操作成功", function () {
-              window.history.back(-1)
-            })
-          }
-        },
-        error: function (e) {
-          $(".submitAsk").removeClass("eventsDisabled")
-          console.log(e)
+    console.log(postData)
+    // return
+    $(".submitAsk").addClass("eventsDisabled")
+    $.ajax({
+      type: "POST",
+      url: Global.host + "/Api/ask/ask",
+      data: postData,
+      success: function (res) {
+        $(".submitAsk").removeClass("eventsDisabled")
+        console.log(res)
+        if (res && Number(res.code) == 200) {
+          // alert("操作成功")
+          Global.messageWin("操作成功", function () {
+            window.history.back(-1)
+          })
         }
-      })
-    }
+      },
+      error: function (e) {
+        $(".submitAsk").removeClass("eventsDisabled")
+        console.log(e)
+      }
+    })
   },
   //对问答进行追问
   submitAskAgain() {
@@ -146,9 +144,9 @@ var Ask = { //需要ask_id  expert_id
     var fileList = self.files
     console.log(fileList)
     if (fileList.length > 0) {
-      let fileList2=fileList
-      if(fileList.length>3){
-        fileList2=[fileList[0],fileList[1],fileList[2]]
+      let fileList2 = fileList
+      if (fileList.length > 3) {
+        fileList2 = [fileList[0], fileList[1], fileList[2]]
         Global.messageWin("最多选择3张图片")
       }
       for (let i = 0; i < fileList2.length; i++) {
@@ -193,16 +191,16 @@ var Ask = { //需要ask_id  expert_id
     //添加图片
     //点击图片加号
     $(".addpicBtn").click(function () {
-      if ($(".picWrap").length >= 2) {
-        Global.messageWin("最多选择2张图片")
-        return
-      }
+      // if ($(".picWrap").length >= 2) {
+      //   Global.messageWin("最多选择2张图片")
+      //   return
+      // }
       if (Global.isIOS()) {
         // Ask.addPicIOS()
-        uploadImgApp(2,"askImgCallback") //参数1 type:1单图片 2多张图片，类型string；参数2 callback:上传完图片后，调用的h5 js方法的名称，类型string
+        uploadImgApp("2", "askImgCallback") //参数1 type:1单图片 2多张图片，类型string；参数2 callback:上传完图片后，调用的h5 js方法的名称，类型string
       } else {
         // Ask.addPic()
-        window.Android.uploadImgApp("2","askImgCallback")
+        window.Android.uploadImgApp("2", "askImgCallback")
       }
     })
     $(".addedPic").delegate("input[type='file']", "change", function () {

@@ -4,7 +4,7 @@ var Global = (function () {
 
   //图片路径
   // Global.domain + "/application/mobile/view/static/images/tx.png"
-  // 或者 "__STATIC__/images/tx.png"
+  // 或者 "__STATIC__/images/tx.png" ?
 
   //获取页面传值参数
   function getPageParams() {
@@ -262,20 +262,46 @@ var Global = (function () {
       imgEle.style.height = "100%"
     }
   }
-  //绑定事件----------------------------------
-  function eventBind() {
-    // //点击头像
-    // $("body").delegate(".headbox","click",function(){
-    //   if($(this).attr){
+  //global事件----------------------------------
+  function init() {
+    //阻止ios body 滚动
+    if (Global.isIOS()) {
+      document.body.ontouchmove = function (e) {
+        e.preventDefault();
+      };
+      iosTrouchFn(document.getElementsByClassName("h100scroll")[0]);
+    }
+    function iosTrouchFn(el) {
+      //el需要滑动的元素
+      el.addEventListener('touchmove', function (e) {
+        e.isSCROLL = true;
+      })
+      document.body.addEventListener('touchmove', function (e) {
+        if (!e.isSCROLL) {
+          e.preventDefault(); //阻止默认事件(上下滑动)
+        } else {
+          //需要滑动的区域
+          var top = el.scrollTop; //对象最顶端和窗口最顶端之间的距离 
+          var scrollH = el.scrollHeight; //含滚动内容的元素大小
+          var offsetH = el.offsetHeight; //网页可见区域高
+          var cScroll = top + offsetH; //当前滚动的距离
 
-    //   }
-    // })
+          //被滑动到最上方和最下方的时候
+          if (top == 0) {
+            top = 1; //0～1之间的小数会被当成0
+          } else if (cScroll === scrollH) {
+            el.scrollTop = top - 0.1;
+          }
+        }
+      }, { passive: false }) //passive防止阻止默认事件不生效
+    }
   }
   //--------------------------------------------------------
   return {
     domain,
     host,
-    eventBind,
+
+    init,
     getPageParams,
     stampToDate,
     mutiUpload,
@@ -293,21 +319,20 @@ var Global = (function () {
 })();
 
 $(function () {
-  Global.eventBind()
+  Global.init()
 })
 
 //------------------------------------------------------------------------------
 //提问页面, app上传图片回调
-function askImgCallback(res) {
+function askImgCallback(res) { //目前ios 是数组
   // {
   //   "filepath":[
   //     "...",
   //     "..."
   //   ]
   // }
-  alert(JSON.stringify(res))
   console.log(res)
-  let filepathArr = res.filepath
+  let filepathArr = res
   filepathArr.forEach(function (file) {
     let src = Global.domain + file
     let $div = $(`

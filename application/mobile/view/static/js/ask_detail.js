@@ -62,7 +62,7 @@ var Askd = { //id(ask_id)
         $(".container3").show()
         $(".askItemWrap").html("")
         answerList.forEach(function (obj) {
-          let head_pic = "__STATIC__/images/tx.png"
+          let head_pic = Global.domain + "/application/mobile/view/static/images/tx.png"
           if (obj.head_pic && obj.head_pic !== "") {
             head_pic = Global.domain + obj.head_pic
           }
