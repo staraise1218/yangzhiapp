@@ -63,7 +63,7 @@
     .downBtnWrap {
       display: flex;
       height: 0.49rem;
-      position: fixed;
+      position: absolute;
       width: 100%;
       bottom: 0;
       left: 0;
@@ -86,7 +86,7 @@
 
 <body class="zaixianDetail">
   <div class="h100 overhidden">
-    <div class="h100scroll">
+    <div class="h100scroll" style="height:calc(100% - 0.49rem);">
       <div class="container container1" style="padding-bottom: 0.15rem;">
         <div class="flexCenter flexBetween titleWrap">
           <h4 class="title"></h4>

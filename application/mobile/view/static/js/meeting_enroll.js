@@ -65,7 +65,7 @@ var Sign = { //会议id
         if(res&&Number(res.code)==200){
           // $(".done").show()
           Global.messageWin("报名成功")
-          window.history.back(-1)
+          // window.history.back(-1)
         }
       },
       error: function (e) {
