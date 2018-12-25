@@ -264,14 +264,9 @@ var Global = (function () {
   }
   //global事件----------------------------------
   function init() {
-    // var screenHeight;
-    // if (window.innerHeight) {
-    //   screenHeight = window.innerHeight;
-    // }
-    // else if ((document.body) && (document.body.clientHeight)) {
-    //   screenHeight = document.body.clientHeight;
-    // }
-    // $("html,body").height(screenHeight);
+    document.body.ontouchmove = function (e) {
+      e.preventDefault();
+    };
   }
   //--------------------------------------------------------
   return {
