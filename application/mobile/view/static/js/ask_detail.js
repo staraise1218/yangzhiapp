@@ -96,7 +96,7 @@ var Askd = { //id(ask_id)
     })
     //点击评论
     $(".gotoComment").click(function () {
-      window.location.href = Global.host + "/ask/comment?id=" + Askd.ask_id + "&expert_id=" + Askd.data.info.expert_id
+      window.location.href = Global.host + "/mobile/ask/comment?id=" + Askd.ask_id + "&expert_id=" + Askd.data.info.expert_id
     })
   },
   init() {
