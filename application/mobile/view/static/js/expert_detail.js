@@ -56,7 +56,7 @@ var Jianjie = {
       if (Jianjie.askList.length > 0) {
         $(".askList").show()
         Jianjie.askList.forEach(function (obj) {
-          let head_pic = "../static/images/tx.png"
+          let head_pic = Global.domain + "/application/mobile/view/static/images/tx.png"
           if (obj.head_pic && obj.head_pic !== "") {
             head_pic = Global.domain + obj.head_pic
           }
@@ -105,7 +105,7 @@ var Jianjie = {
     $(".askItemWrap").delegate(".askItem", "click", function () {
       let ask_id = $(this).attr("data-askid")
       // window.location.href = "../ask/detail.html?ask_id=" + ask_id //测试
-      window.location.href = Global.host + "/mobile/ask/detail?ask_id=" + ask_id
+      window.location.href = Global.host + "/mobile/ask/detail?id=" + ask_id
     })
     //点击提问
     $(".gotoAsk").click(function () {
@@ -114,11 +114,6 @@ var Jianjie = {
     })
     //点击收藏
     $(".collection").click(function () {
-      // Global.messageWin(JSON.stringify({
-      //   user_id: Number(Jianjie.mUserInfo.user_id),
-      //   table_id: Jianjie.export_id,	// 收藏的id
-      //   table_name: "expert"
-      // }))
       Global.collect(this, {
         user_id: Number(Jianjie.mUserInfo.user_id),
         table_id: Jianjie.export_id,	// 收藏的id

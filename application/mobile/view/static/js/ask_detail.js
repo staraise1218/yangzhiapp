@@ -1,4 +1,4 @@
-var Askd = { //需要ask_id
+var Askd = { //id(ask_id)
   mUserInfo: {},
   ask_id: "", //问题id
   data: {},
@@ -43,7 +43,13 @@ var Askd = { //需要ask_id
       if (info.images && info.images !== "") {
         $(".container1 .imgWrap").html("")
         info.images.forEach(function (src, index) {
-          let $img = $('<img src="' + Global.domain + src + '" alt="图片">')
+          let $img = $(`
+            <div class="imgBgSq">
+              <div class="imgBgSqBox">
+                <img class="positionCenter" src="${Global.domain + src}" alt="图片" onload="Global.resizeImg(this)">
+              </div>
+            </div>
+          `)
           $(".container1 .imgWrap").append($img)
         })
       }
@@ -96,14 +102,14 @@ var Askd = { //需要ask_id
     })
     //点击评论
     $(".gotoComment").click(function () {
-      window.location.href = Global.host + "/ask/comment?id=" + Askd.ask_id + "&expert_id=" + Askd.data.info.expert_id
+      window.location.href = Global.host + "/mobile/ask/comment?id=" + Askd.ask_id + "&expert_id=" + Askd.data.info.expert_id
     })
   },
   init() {
     Askd.mUserInfo = Global.getMUserInfo()
     // Askd.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
-    Askd.ask_id = option.ask_id ? Number(option.ask_id) : ""
+    Askd.ask_id = option.id ? Number(option.id) : ""
     // Askd.ask_id = 1 //测试
     Askd.getInfo(function () {
       Askd.updateDom()

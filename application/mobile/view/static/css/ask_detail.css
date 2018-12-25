@@ -18,10 +18,17 @@ body.askDetail{
   font-size: 0.16rem;
   height: 0.35rem;
 }
-.askContent img{
+.askContent .imgBgSq{
   width: 1.13rem;
-  height: 0.85rem;
-} 
+}
+.askContent .imgBgSq .imgBgSqBox{
+  padding: 100% 0 0 0;
+  position: relative;
+}
+.askContent .imgBgSq .imgBgSqBox>img{
+  max-width: 1.13rem;
+  max-height: 1.13rem;
+}
 /* 问答列表 */
 .container3 .titleWrap{
   padding: 0.15rem 0 0.05rem;
@@ -45,7 +52,7 @@ body.askDetail{
 .downBtnWrap{
   display: flex;
   height: 0.49rem;
-  position: fixed;
+  position: absolute;
   width: 100%;
   bottom: 0;
   left: 0;
