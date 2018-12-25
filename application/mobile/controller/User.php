@@ -14,4 +14,8 @@ class User extends Controller{
     	
     	return $this->fetch();
     }
+
+    public function myAsk(){
+    	return $this->fetch();
+    }
 }
