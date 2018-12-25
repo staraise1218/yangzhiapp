@@ -70,7 +70,7 @@ var ZaiDetail = {
           $(".container2").show()
           $(".commentWrap").html("")
           arr.forEach(function (obj) {
-            let head_pic = "__STATIC__/images/tx.png"
+            let head_pic = Global.domain + "/application/mobile/view/static/images/tx.png"
             if (obj.head_pic && obj.head_pic !== "") {
               head_pic = Global.domain + obj.head_pic
             }

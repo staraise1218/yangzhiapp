@@ -4,7 +4,7 @@ var Global = (function () {
 
   //图片路径
   // Global.domain + "/application/mobile/view/static/images/tx.png"
-  // 或者 "__STATIC__/images/tx.png"
+  // 或者 "__STATIC__/images/tx.png" ?
 
   //获取页面传值参数
   function getPageParams() {
