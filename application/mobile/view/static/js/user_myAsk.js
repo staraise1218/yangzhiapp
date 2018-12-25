@@ -122,7 +122,7 @@ var Mask = {
   },
   init() {
     Mask.mUserInfo = Global.getMUserInfo()
-    Mask.mUserInfo.user_id = 1 //测试
+    // Mask.mUserInfo.user_id = 1 //测试
     Mask.getList()
     Mask.eventBind()
   }
