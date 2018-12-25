@@ -264,9 +264,15 @@ var Global = (function () {
   }
   //global事件----------------------------------
   function init() {
+    //
     document.body.ontouchmove = function (e) {
       e.preventDefault();
     };
+    //
+    function stopScrolling(event) {
+      event.preventDefault();
+    }
+    document.addEventListener('touchmove', stopScrolling, false);
   }
   //--------------------------------------------------------
   return {
