@@ -18,9 +18,11 @@ body.askDetail{
   font-size: 0.16rem;
   height: 0.35rem;
 }
-.askContent img{
+.askContent .imgBgSq{
   width: 1.13rem;
-  height: 0.85rem;
+  height: 0;
+  padding: 100% 0 0 0;
+  position: relative;
 } 
 /* 问答列表 */
 .container3 .titleWrap{

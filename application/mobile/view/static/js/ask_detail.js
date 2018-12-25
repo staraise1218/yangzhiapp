@@ -43,7 +43,11 @@ var Askd = { //id(ask_id)
       if (info.images && info.images !== "") {
         $(".container1 .imgWrap").html("")
         info.images.forEach(function (src, index) {
-          let $img = $('<img src="' + Global.domain + src + '" alt="图片">')
+          let $img = $(`
+            <div class="imgBgSq">
+              <img class="positionCenter" src="${Global.domain + src}" alt="图片" onload="Global.resizeImg(this)">
+            </div>
+          `)
           $(".container1 .imgWrap").append($img)
         })
       }
