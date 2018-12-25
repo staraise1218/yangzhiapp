@@ -22,15 +22,11 @@ class Common extends Base {
      * @return [type] [description]
      */
     public function uploadFile(){
-        $type = I('type');
 
-        if( ! in_array($type, array('head_pic', 'feedback'))) response_error('', '不被允许的类型');
         if(empty($_FILES)) response_error('文件不能为空');
 
         /************* 上传路径 ***************/        
-        $uploadPath = UPLOAD_PATH.'files';
-        if($type == 'head_pic') $uploadPath = UPLOAD_PATH.'head_pic';
-        if($type == 'feedback') $uploadPath = UPLOAD_PATH.'feedback';
+        $uploadPath = UPLOAD_PATH.'singleImage';
         
         $FileLogic = new FileLogic();
         $result = $FileLogic->uploadSingleFile('file', $uploadPath);
@@ -45,13 +41,11 @@ class Common extends Base {
     // 多文件上传
     // type ask_images
     public function uploadMultiFile(){
-        $type = I('type');
 
-        if( ! in_array($type, array('ask_images', 'feedback_images'))) response_error('', '不被允许的类型');
         if(empty($_FILES)) response_error('文件不能为空');
 
         /************* 上传路径 ***************/        
-        if($type == 'ask_images') $uploadPath = UPLOAD_PATH.'photo/ask';
+        $uploadPath = UPLOAD_PATH.'multiImages';
 
         $FileLogic = new FileLogic();
         $result = $FileLogic->uploadMultiFile('file', $uploadPath);
