@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="__STATIC__/css/pig_detail.css">
 
   <script src="__STATIC__/js/js-build/jquery-3.1.1.min.js"></script>
+  <script src="__STATIC__/js/js-build/clipboard.min.js"></script>
   <script src="__STATIC__/js/Global.js"></script>
   <script src="__STATIC__/js/pig_detail.js"></script>
   <script>
@@ -93,13 +94,26 @@
       _shareUrl += '&aid=' + encodeURIComponent(_site || '');    //显示分享来源
       window.open(_shareUrl, '_blank');
     }
+    function qqq() {
+      $(".urlWrap").html(window.location.href)
+      var clipboard = new ClipboardJS('.urlWrap');
+      clipboard.on('success', function (e) {
+        console.log(e);
+        alert(JSON.stringify(e))
+      });
+      clipboard.on('error', function (e) {
+        console.log(e);
+        alert(JSON.stringify(e))
+      });
+    }
   </script>
 </head>
 
 <body class="zaixianDetail">
   <div class="h100 overhidden">
     <div class="h100scroll" style="height:calc(100% - 0.5rem);">
-      <a href="weixin://">调用微信</a>
+      <p class="urlWrap" style="display:none;"></p>
+      <a href="" onclick="qqq()">调用微信</a>
       <div class="share-list" style="display: none;">
         <ul class="share-container">
           <li>
