@@ -264,6 +264,7 @@ var Global = (function () {
   }
   //global事件----------------------------------
   function init() {
+    //阻止ios body 滚动
     //
     document.body.ontouchmove = function (e) {
       e.preventDefault();
