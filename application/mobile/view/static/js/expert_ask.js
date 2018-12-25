@@ -193,15 +193,15 @@ var Ask = {
     //添加图片
     //点击图片加号
     $(".addpicBtn").click(function () {
-      Global.messageWin("1")
-      if ($(".picWrap:visible").length >= 3) {
-        Global.messageWin("最多选择3张图片")
-        return
-      }
+      // if ($(".picWrap:visible").length >= 3) {
+      //   Global.messageWin("最多选择3张图片")
+      //   return
+      // }
       if (Global.isIOS()) {
-        Ask.addPicIOS()
+        // Ask.addPicIOS()
+        uploadImgApp("2","askImgCallback")
       } else {
-        Ask.addPic()
+        // Ask.addPic()
       }
     })
     $(".addedPic").delegate("input[type='file']", "change", function () {
