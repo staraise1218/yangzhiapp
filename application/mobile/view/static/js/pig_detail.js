@@ -39,6 +39,24 @@ var ZhuDetail = { //猪场id pig_id
       }
     }
   },
+  initshare() {
+    let url = window.location.href
+    $(".share").attr("data-clipboard-text", url)
+    var clipboard = new ClipboardJS('.btn');
+
+    clipboard.on('success', function (e) {
+      console.info('Action:', e.action);
+      console.info('Text:', e.text);
+      console.info('Trigger:', e.trigger);
+
+      e.clearSelection();
+    });
+
+    clipboard.on('error', function (e) {
+      console.error('Action:', e.action);
+      console.error('Trigger:', e.trigger);
+    });
+  },
   eventBind() {
     //点击分享?
     $(".share").click(function () {
@@ -60,6 +78,8 @@ var ZhuDetail = { //猪场id pig_id
     let option = Global.getPageParams()
     ZhuDetail.id = option.id ? Number(option.id) : ""
     // ZhuDetail.id = 1 //测试
+    //分享 剪切板
+    ZhuDetail.initshare()
     ZhuDetail.getInfo(function () {
       ZhuDetail.updateDom()
     })
