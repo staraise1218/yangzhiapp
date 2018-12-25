@@ -183,12 +183,19 @@ a:hover {
 /* common */
 html,body{
   height: 100%;
+  -webkit-user-select: none;
+  user-select: none;
+}
+html{
+  --window-top: 0px;
+  --window-bottom: 0px;
+  --status-bar-height: 0px;
 }
 body{
   font-family: "HiraginoSansGB-W3";
   font-size: 0.14rem;
   /* height: 100vh; */
-  height: calc(100% - 0.7rem);
+
   overflow: hidden;
   position: relative;
 
