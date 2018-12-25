@@ -44,7 +44,7 @@ var mAsk = {
         }
 
         //重置pull
-        $(document.body).pullToRefreshDone();
+        $(".listWrap").pullToRefreshDone();
       },
       error: function (e) {
         mAsk.isLoading = false
@@ -89,11 +89,11 @@ var mAsk = {
   },
   initJqueryWeui() {
     //下拉刷新
-    $(document.body).pullToRefresh(function () {
+    $(".listWrap").pullToRefresh(function () {
       mAsk.getList()
     });
     //滚动加载
-    $(document.body).infinite().on("infinite", function () {
+    $(".listWrap").infinite().on("infinite", function () {
       mAsk.getList(true)
     });
   },

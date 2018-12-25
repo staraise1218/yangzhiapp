@@ -202,6 +202,7 @@ var Ask = {
         uploadImgApp("2","askImgCallback")
       } else {
         // Ask.addPic()
+        window.Android.uploadImgApp("2","askImgCallback")
       }
     })
     $(".addedPic").delegate("input[type='file']", "change", function () {

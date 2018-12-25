@@ -217,6 +217,9 @@ img{
 .vh100{
   height: 100vh;
 }
+.h100{
+  height: 100%;
+}
 .marginlr14{
   margin-left: 0.14rem;
   margin-right: 0.14rem;
@@ -619,4 +622,8 @@ img{
   height: 0.6rem;
   border: 1px solid transparent;
   overflow: hidden;
+}
+.noList {
+  line-height: 0.5rem;
+  text-align: center;
 }
