@@ -25,6 +25,10 @@ body.askDetail{
   padding: 100% 0 0 0;
   position: relative;
 }
+.askContent .imgBgSq .imgBgSqBox>img{
+  max-width: 1.13rem;
+  max-height: 1.13rem;
+}
 /* 问答列表 */
 .container3 .titleWrap{
   padding: 0.15rem 0 0.05rem;
