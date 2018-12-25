@@ -185,21 +185,25 @@ html,body{
   height: 100%;
   -webkit-user-select: none;
   user-select: none;
-}
-html{
+
   --window-top: 0px;
   --window-bottom: 0px;
   --status-bar-height: 0px;
 }
+/* html{
+  --window-top: 0px;
+  --window-bottom: 0px;
+  --status-bar-height: 0px;
+} */
 body{
   font-family: "HiraginoSansGB-W3";
   font-size: 0.14rem;
   /* height: 100vh; */
 
   overflow: hidden;
-  position: relative;
+  /* position: relative; */
 
-  display: inline-block; /* 让body bfc */
+  display: block; /* 让body bfc */
   width: 100%;
 }
 a{
@@ -219,9 +223,9 @@ img{
   height: 100%;
   overflow-y: auto;
   /* position: relative; */
-  position: absolute;
+  /* position: absolute;
   left: 0;
-  right: 0;
+  right: 0; */
   -webkit-overflow-scrolling: touch;
 	overflow-scrolling: touch;
 }
