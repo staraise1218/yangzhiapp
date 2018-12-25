@@ -1,4 +1,4 @@
-var Askd = { //需要ask_id
+var Askd = { //id(ask_id)
   mUserInfo: {},
   ask_id: "", //问题id
   data: {},
@@ -103,7 +103,7 @@ var Askd = { //需要ask_id
     Askd.mUserInfo = Global.getMUserInfo()
     // Askd.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
-    Askd.ask_id = option.ask_id ? Number(option.ask_id) : ""
+    Askd.ask_id = option.id ? Number(option.id) : ""
     // Askd.ask_id = 1 //测试
     Askd.getInfo(function () {
       Askd.updateDom()

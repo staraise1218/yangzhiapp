@@ -2,6 +2,10 @@ var Global = (function () {
   var domain = "http://yangzhiapp.staraise.com.cn"
   var host = "http://yangzhiapp.staraise.com.cn/index.php"
 
+  //图片路径
+  // Global.domain + "/application/mobile/view/static/images/tx.png"
+  // 或者 "__STATIC__/images/tx.png"
+
   //获取页面传值参数
   function getPageParams() {
     var url = window.location.href

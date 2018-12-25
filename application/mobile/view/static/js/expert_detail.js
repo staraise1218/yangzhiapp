@@ -56,7 +56,7 @@ var Jianjie = {
       if (Jianjie.askList.length > 0) {
         $(".askList").show()
         Jianjie.askList.forEach(function (obj) {
-          let head_pic = Global.domain + "/application/mobile/view/static/tx.png"
+          let head_pic = Global.domain + "/application/mobile/view/static/images/tx.png"
           if (obj.head_pic && obj.head_pic !== "") {
             head_pic = Global.domain + obj.head_pic
           }
