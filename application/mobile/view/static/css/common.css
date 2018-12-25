@@ -216,7 +216,9 @@ img{
   width: 100%;
   height: auto;
 }
-/* 布局 */
+.overhidden{
+  overflow: hidden;
+}
 .vh100{
   height: 100vh;
 }
