@@ -305,6 +305,7 @@ function askImgCallback(res) {
   //     "..."
   //   ]
   // }
+  alert(JSON.stringify(res))
   console.log(res)
   let filepathArr = res.filepath
   filepathArr.forEach(function (file) {
