@@ -45,7 +45,7 @@ body.askDetail{
 .downBtnWrap{
   display: flex;
   height: 0.49rem;
-  position: fixed;
+  position: absolute;
   width: 100%;
   bottom: 0;
   left: 0;
