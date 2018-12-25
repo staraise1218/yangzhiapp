@@ -2,28 +2,28 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-  <link rel="stylesheet" href="__STATIC__/css/common.css">
+  <meta charset="UTF-8">
+  <!-- <link rel="stylesheet" href="__STATIC__/css/common.css">
 
   <script src="__STATIC__/js/js-build/jquery-3.1.1.min.js"></script>
-  <script src="__STATIC__/js/Global.js"></script>
+  <script src="__STATIC__/js/Global.js"></script> -->
 </head>
 
 <body>
-    <script>
-        var userinfo = {$userinfo};
-        console.log(userinfo)
+  <script>
+    var userinfo = {$userinfo};
+    console.log(userinfo)
 
-        localStorage["mUserInfo"] = JSON.stringify(userinfo);
-        localStorage.setItem("mUserInfo", JSON.stringify(userinfo));
-        // alert(JSON.stringify(userinfo))
+    localStorage["mUserInfo"] = JSON.stringify(userinfo);
+    localStorage.setItem("mUserInfo", JSON.stringify(userinfo));
+    // alert(JSON.stringify(userinfo))
 
-        // window.onbeforeunload = function () {
-        //     if (sessionStorage["mUserInfo"]) {
-        //         sessionStorage["mUserInfo"] = null;
-        //     }
-        // }
-    </script>
+    // window.onbeforeunload = function () {
+    //     if (sessionStorage["mUserInfo"]) {
+    //         sessionStorage["mUserInfo"] = null;
+    //     }
+    // }
+  </script>
 </body>
 
 </html>
