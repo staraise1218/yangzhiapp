@@ -36,7 +36,9 @@ var Askd = { //id(ask_id)
       //名字
       $(".container1 .headname").text(info.fullname)
       //问题时间
-      $(".mainDate").text(Global.stampToDate(info.createtime))
+      if(info.createtime&&info.createtime!==""){
+        $(".mainDate").text(Global.stampToDate(info.createtime))
+      }
       //问题title
       $(".askContent>h4").text(info.content)
       //图片
@@ -64,7 +66,9 @@ var Askd = { //id(ask_id)
           if (obj.head_pic && obj.head_pic !== "") {
             head_pic = Global.domain + obj.head_pic
           }
-          let createtime = Global.stampToDate(obj.createtime)
+          if(obj.createtime&&obj.createtime!==""){
+            var createtime = Global.stampToDate(obj.createtime)
+          }
           let $div = $(`
           <div class="askItem">
             <div class="flexCenter flexBetween headpicWrap">

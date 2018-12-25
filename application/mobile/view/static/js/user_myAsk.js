@@ -57,11 +57,9 @@ var Mask = {
       $(".myAskWrap").html("")
     }
     arr.forEach(function (obj) {
-      let head_pic = "__STATIC__/images/tx.png"
-      if (obj.head_pic && obj.head_pic !== "") {
-        head_pic = Global.domain + obj.head_pic
+      if(obj.createtime&&obj.createtime!==""){
+        var createtime = Global.stampToDate(obj.createtime)
       }
-      let createtime = Global.stampToDate(obj.createtime)
       let $div = $(`
         <div class="myAskItem" data-askid="${obj.ask_id}" data-expertid="${obj.expert_id}">
           <div class="flexCenter flexBetween myAskItem_top">

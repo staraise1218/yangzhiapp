@@ -62,10 +62,12 @@ var Sign = { //会议id
       success: function (res) {
         $(".submit").removeClass("eventsDisabled")
         console.log(res)
-        if(res&&Number(res.code)==200){
+        if (res && Number(res.code) == 200) {
           // $(".done").show()
-          Global.messageWin("报名成功")
-          window.history.back(-1)
+          Global.messageWin("报名成功", function () {
+            window.history.back(-1)
+          })
+          // window.history.back(-1)
         }
       },
       error: function (e) {

@@ -74,7 +74,9 @@ var ZaiDetail = {
             if (obj.head_pic && obj.head_pic !== "") {
               head_pic = Global.domain + obj.head_pic
             }
-            let add_time = Global.stampToDate(obj.add_time)
+            if(obj.add_time&&obj.add_time!==""){
+              var add_time = Global.stampToDate(obj.add_time)
+            }
             let $div = $(`
               <div class="askItem">
                 <div class="flexCenter flexBetween headpicWrap">
@@ -146,8 +148,6 @@ var ZaiDetail = {
             user_id: Number(ZaiDetail.mUserInfo.user_id)
           }, function (res) {
             if (res && Number(res.code) == 200) {
-              alert("取消收藏")
-
               $(".isCollect1").hide()
               $(".isCollect0").show()
             }

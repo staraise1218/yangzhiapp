@@ -63,7 +63,7 @@
     .downBtnWrap {
       display: flex;
       height: 0.49rem;
-      position: fixed;
+      position: absolute;
       width: 100%;
       bottom: 0;
       left: 0;
@@ -86,7 +86,7 @@
 
 <body class="zaixianDetail">
   <div class="h100 overhidden">
-    <div class="h100scroll">
+    <div class="h100scroll" style="height:calc(100% - 0.49rem);">
       <div class="container container1" style="padding-bottom: 0.15rem;">
         <div class="flexCenter flexBetween titleWrap">
           <h4 class="title"></h4>
@@ -118,16 +118,15 @@
           </div>
         </div>
       </div>
-
-      <!-- 提问 收藏 -->
-      <div class="downBtnWrap">
-        <div class="flexCenter flexJCenter imgBtn lightBlue gotoSign">
-          <img src="__STATIC__/images/矢量智能对象@2x (2).png" alt="icon">报名
-        </div>
-        <!-- <div class="flexCenter flexJCenter imgBtn darkBlue collection">
+    </div>
+    <!-- 提问 收藏 -->
+    <div class="downBtnWrap">
+      <div class="flexCenter flexJCenter imgBtn lightBlue gotoSign">
+        <img src="__STATIC__/images/矢量智能对象@2x (2).png" alt="icon">报名
+      </div>
+      <!-- <div class="flexCenter flexJCenter imgBtn darkBlue collection">
                   <img src="__STATIC__/images/收藏@2x.png" alt="icon">收藏
                 </div> -->
-      </div>
     </div>
   </div>
 </body>
