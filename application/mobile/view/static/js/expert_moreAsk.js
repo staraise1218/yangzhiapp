@@ -64,7 +64,9 @@ var mAsk = {
       if (obj.head_pic && obj.head_pic !== "") {
         head_pic = Global.domain + obj.head_pic
       }
-      let createtime = Global.stampToDate(obj.createtime)
+      if(obj.createtime&&obj.createtime!==""){
+        var createtime = Global.stampToDate(obj.createtime)
+      }
       let $div = $(`
         <div class="askItem" data-askid="${obj.ask_id}">
           <div class="flexCenter flexBetween headpicWrap">

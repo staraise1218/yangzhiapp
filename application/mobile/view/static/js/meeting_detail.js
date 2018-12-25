@@ -31,7 +31,9 @@ var meDetail = { //会议id
       //标题
       $(".container1 .title").text(info.title)
       //日期
-      $(".createdate").text(Global.stampToDate(info.createtime))
+      if(info.createtime&&info.createtime!==""){
+        $(".createdate").text(Global.stampToDate(info.createtime))
+      }
       //地址
       $(".address").text(info.address)
       //简介说明

@@ -60,7 +60,9 @@ var Jianjie = {
           if (obj.head_pic && obj.head_pic !== "") {
             head_pic = Global.domain + obj.head_pic
           }
-          let createTime = Global.stampToDate(obj.createtime).substr(0, 10)
+          if(obj.createtime&&obj.createtime!==""){
+            var createTime = Global.stampToDate(obj.createtime).substr(0, 10)
+          }
           let $div = $(`
             <div class="askItem" data-askid="${obj.ask_id}">
               <div class="flexCenter flexBetween headpicWrap">
