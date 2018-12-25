@@ -187,6 +187,9 @@ body{
   height: 100vh;
   overflow: hidden;
   position: relative;
+
+  display: inline-block; /* 让body bfc */
+  width: 100%;
 }
 a{
   text-decoration: none;
