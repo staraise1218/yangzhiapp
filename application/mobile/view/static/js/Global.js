@@ -298,16 +298,15 @@ $(function () {
 
 //------------------------------------------------------------------------------
 //提问页面, app上传图片回调
-function askImgCallback(res) {
+function askImgCallback(res) { //目前ios 是数组
   // {
   //   "filepath":[
   //     "...",
   //     "..."
   //   ]
   // }
-  alert(JSON.stringify(res))
   console.log(res)
-  let filepathArr = res.filepath
+  let filepathArr = res
   filepathArr.forEach(function (file) {
     let src = Global.domain + file
     let $div = $(`

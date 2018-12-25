@@ -199,7 +199,7 @@ var Ask = { //需要ask_id  expert_id
       }
       if (Global.isIOS()) {
         // Ask.addPicIOS()
-        uploadImgApp(2,"askImgCallback") //参数1 type:1单图片 2多张图片，类型string；参数2 callback:上传完图片后，调用的h5 js方法的名称，类型string
+        uploadImgApp("2","askImgCallback") //参数1 type:1单图片 2多张图片，类型string；参数2 callback:上传完图片后，调用的h5 js方法的名称，类型string
       } else {
         // Ask.addPic()
         window.Android.uploadImgApp("2","askImgCallback")
