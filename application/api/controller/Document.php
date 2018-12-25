@@ -50,11 +50,20 @@ class Document extends Base {
 
 	public function detail(){
 		$id = I('id');
+		$user_id = I('user_id');
 
 		$info = Db::name('document')
 			->where('id', $id)
 			->where('is_delete', 0)
 			->find();
+
+		// 判断是否收藏
+		$is_collect = Db::name('user_collect')
+			->where('table_id', $id)
+			->where('user_id', $user_id)
+			->where('table_name', 'document')
+			->count();
+		$info['is_collect'] = $is_collect ? 1 : 0;
 
 		response_success($info);
 	}

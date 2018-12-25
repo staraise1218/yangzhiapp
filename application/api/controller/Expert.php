@@ -44,6 +44,7 @@ class Expert extends Base {
     // 专家详情
     public function detail(){
         $expert_id = I('expert_id');
+        $user_id = I('user_id');
 
         // 专家详情
         $info = Db::name('users')->alias('u')
@@ -55,6 +56,14 @@ class Expert extends Base {
 
         if($info) $info['answerCount'] = 0;
         $result['info'] = $info;
+
+        // 判断是否收藏
+        $is_collect = Db::name('user_collect')
+            ->where('table_id', $expert_id)
+            ->where('user_id', $user_id)
+            ->where('table_name', 'document')
+            ->count();
+        $info['is_collect'] = $is_collect ? 1 : 0;
 
         // 专家的问答
         $askList = Db::name('ask')->alias('a')
