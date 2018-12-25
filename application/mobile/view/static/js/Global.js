@@ -305,9 +305,7 @@ function askImgCallback(res) {
   //     "..."
   //   ]
   // }
-  Global.messageWin(res.length,function(){
-    Global.messageWin(res.filepath)
-  })
+  alert(JSON.stringify(res))
   console.log(res)
   let filepathArr = res.filepath
   filepathArr.forEach(function (file) {
