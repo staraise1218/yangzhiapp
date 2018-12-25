@@ -265,16 +265,12 @@ var Global = (function () {
   //global事件----------------------------------
   function init() {
     //阻止ios body 滚动
-    //
-    document.body.ontouchmove = function (e) {
-      e.preventDefault();
-    };
-    //
     if (Global.isIOS()) {
-      //ios下运行
+      document.body.ontouchmove = function (e) {
+        e.preventDefault();
+      };
       iosTrouchFn(document.getElementsByClassName("h100scroll")[0]);
     }
-
     function iosTrouchFn(el) {
       //el需要滑动的元素
       el.addEventListener('touchmove', function (e) {
