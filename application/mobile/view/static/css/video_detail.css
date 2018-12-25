@@ -50,7 +50,7 @@ body.zaixianDetail{
 /* 视频评论 */
 .container2{
   padding-top: 0.14rem;
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
 }
 .title{
   color: rgba(61, 61, 61, 1);

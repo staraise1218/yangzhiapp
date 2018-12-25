@@ -146,8 +146,6 @@ var ZaiDetail = {
             user_id: Number(ZaiDetail.mUserInfo.user_id)
           }, function (res) {
             if (res && Number(res.code) == 200) {
-              alert("取消收藏")
-
               $(".isCollect1").hide()
               $(".isCollect0").show()
             }
