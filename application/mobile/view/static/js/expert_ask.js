@@ -1,5 +1,5 @@
 var iosFileArr = []
-var Ask = { //需要ask_id  expert_id
+var Ask = { //需要ask_id  expert_id   [isAgain]
   mUserInfo: {},
   user_id: "",
   expert_id: "",

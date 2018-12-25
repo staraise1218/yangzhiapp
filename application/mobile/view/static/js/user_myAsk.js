@@ -57,7 +57,7 @@ var Mask = {
       $(".myAskWrap").html("")
     }
     arr.forEach(function (obj) {
-      if(obj.createtime&&obj.createtime!==""){
+      if (obj.createtime && obj.createtime !== "") {
         var createtime = Global.stampToDate(obj.createtime)
       }
       let $div = $(`
@@ -108,7 +108,7 @@ var Mask = {
       event.stopPropagation();
       let ask_id = $(this).closest(".myAskItem").attr("data-askid")
       let expert_id = $(this).closest(".myAskItem").attr("data-expertid")
-      window.location.href = Global.host + "/mobile/expert/ask?ask_id=" + ask_id + "&expert_id=" + expert_id
+      window.location.href = Global.host + "/mobile/expert/ask?ask_id=" + ask_id + "&expert_id=" + expert_id + "&isAgain=1"
     })
     //点击 评价
     $(".myAskWrap").delegate(".goComment", "click", function (event) {
