@@ -85,7 +85,7 @@ var Ask = { //需要ask_id  expert_id   [isAgain]
     $(".submitAsk").addClass("eventsDisabled")
     $.ajax({
       type: "POST",
-      url: Global.host + "/Api/ask/ask",
+      url: Global.host + "/Api/ask/answer",
       data: postData,
       success: function (res) {
         $(".submitAsk").removeClass("eventsDisabled")
