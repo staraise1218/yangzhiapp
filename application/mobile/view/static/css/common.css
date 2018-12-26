@@ -643,6 +643,7 @@ img{
 /* jquery-weui 滚动加载 */
 .isLoading_weui{
   height: 0.6rem;
+  max-height: 0.6rem;
   border: 1px solid transparent;
   overflow: hidden;
 }
