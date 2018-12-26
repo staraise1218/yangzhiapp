@@ -64,8 +64,21 @@ class Video extends Base {
             ->count();
 
         $info['is_collect'] = $count ? 1 : 0;
-        $info['buyed_count'] = 0;
+        
         $info['content'] = $info['content'] ? htmlspecialchars_decode($info['content']) : '';
+        // 购买数
+         $info['buyed_count'] = Db::name('video_order')
+            ->where('video_id', $id)
+            ->where('paystatus', 1)
+            ->count();
+        // 是否购买
+        $buyed = Db::name('video_order')
+            ->where('user_id', $user_id)
+            ->where('video_id', $id)
+            ->where('paystatus', 1)
+            ->count();
+        $info['is_buy'] = $buyed ? 1 : 0;
+
 
 		response_success($info);
 	}
