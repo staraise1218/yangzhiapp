@@ -88,7 +88,7 @@ class Ask extends Base {
         $info = Db::name('ask')->alias('a')
             ->join('users u', 'a.user_id=u.user_id', 'left')
             ->where('id', $id)
-            ->field('u.user_id, u.head_pic, u.fullname, a.expert_id, a.content, a.images, a.createtime')
+            ->field('u.user_id, u.head_pic, u.fullname, a.expert_id, a.title, a.content, a.images, a.createtime')
             ->find();
 
         if($info && $info['images'] != '') $info['images'] = json_decode($info['images']);
