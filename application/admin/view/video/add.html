@@ -99,7 +99,7 @@ html, body {overflow: visible;}
                         </span>
                 </div>
                 <span class="err"></span>
-                <p class="notic">请上传图片格式文件</p>
+                <p class="notic">请上传mp4格式文件</p>
             </dd>
       </dl>
       <dl class="row">
@@ -181,7 +181,7 @@ html, body {overflow: visible;}
 
     function video_call_back(fileurl_tmp)
     {
-        $("#video").val('/public/image/video_icon.png');
+        $("#video").val($fileurl_tmp);
         $("#video_a").attr('href', fileurl_tmp);
         // $("#video_i").attr('onmouseover', "layer.tips('<img src="+fileurl_tmp+">',this,{tips: [1, '#fff']});");
     }
