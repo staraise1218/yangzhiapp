@@ -74,7 +74,7 @@ var ZaiDetail = { //需要id（视频id）
             if (obj.head_pic && obj.head_pic !== "") {
               head_pic = Global.domain + obj.head_pic
             }
-            if(obj.add_time&&obj.add_time!==""){
+            if (obj.add_time && obj.add_time !== "") {
               var add_time = Global.stampToDate(obj.add_time)
             }
             let $div = $(`
@@ -127,7 +127,7 @@ var ZaiDetail = { //需要id（视频id）
         if (res && Number(res.code) == 200) {
           $("#commentInpt").val("")
           ZaiDetail.getComments()
-          document.getElementsByClassName("h100scroll")[0].scrollTop=0
+          document.getElementsByClassName("h100scroll")[0].scrollTop = 0
         }
       },
       error: function (e) {

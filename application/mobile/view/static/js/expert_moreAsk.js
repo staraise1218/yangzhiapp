@@ -108,8 +108,7 @@ var mAsk = {
     $(".askItemWrap").delegate(".askItem", "click", function (event) {
       event.stopPropagation();
       let ask_id = $(this).attr("data-askid")
-      // window.location.href = "../ask/detail.html?ask_id=" + ask_id //测试
-      window.location.href = Global.host + "/mobile/ask/detail?ask_id=" + ask_id
+      window.location.href = Global.host + "/mobile/ask/detail?id=" + ask_id
     })
   },
   init() {
