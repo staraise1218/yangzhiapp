@@ -189,7 +189,7 @@ var Ask = { //需要ask_id  expert_id   [isAgain]
   },
   eventBind() {
     //textarea
-    $("#mTextarea").on("input", function () {
+    $(".mTextarea").on("input", function () {
       let length = this.value.length
       $(".count").text(length)
     });
