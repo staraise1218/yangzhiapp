@@ -64,6 +64,25 @@ class User extends Base {
         response_success($userInfo);
     }
 
+    // 修改头像
+    public function changeHeadPic(){
+        $user_id = I('user_id/d');
+
+        $FileLogic = new FileLogic();
+        $result = $FileLogic->uploadSingleFile('file', $uploadPath);
+        if($result['status'] == '1'){
+            $fullPath = $result['fullPath'];
+
+            /**************** 修改用户表 头像记录 ************/
+            Db::name('users')->update(array('user_id'=>$user_id, 'head_pic'=>$fullPath));
+
+            response_success($resultdata, '上传成功');
+            
+        } else {
+            response_error('', '修改失败');
+        }
+    }
+
     /**
      * [changeInfo 编辑个人资料]
      * @return [type] [description]
