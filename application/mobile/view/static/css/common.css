@@ -219,6 +219,9 @@ img{
 .h100{
   height: 100%;
 }
+.w100{
+  width:100%;
+}
 .h100scroll{ /* 固定在页面下面的div不能放在这个容器中 */
   height: 100%;
   overflow-y: auto;
@@ -380,6 +383,12 @@ img{
   background: url(../images/箭头@2x.png) center center no-repeat;
   background-size: 100%;
 }
+/* 省略三个点 */
+.textOmit{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
 /* 限制行数 */
 .limitLine2{
   display: -webkit-box;
@@ -404,12 +413,6 @@ img{
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
   overflow: hidden;
-}
-/* 省略三个点 */
-.textOmit{
-  overflow: hidden;
-  text-overflow:ellipsis;
-  white-space: nowrap;
 }
 /* 日期 */
 .date{
