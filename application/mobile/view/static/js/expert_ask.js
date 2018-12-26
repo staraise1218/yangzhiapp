@@ -189,17 +189,20 @@ var Ask = { //需要ask_id  expert_id   [isAgain]
   },
   eventBind() {
     //textarea
-    
+    $("#mTextarea").on("input", function () {
+      let length = this.value.length
+      $(".count").text(length)
+    });
     //添加图片
     //点击图片加号
     $(".addpicBtn").click(function () {
-      // if ($(".picWrap").length >= 2) {
-      //   Global.messageWin("最多选择2张图片")
-      //   return
-      // }
+      if ($(".picWrap").length >= 3) {
+        Global.messageWin("最多选择3张图片")
+        return
+      }
       if (Global.isIOS()) {
         // Ask.addPicIOS()
-        uploadImgApp("2", "askImgCallback",3) //参数1 type:1单图片 2多张图片，类型string；参数2 callback:上传完图片后，调用的h5 js方法的名称，类型string ;参数3 限制图片数量 number
+        uploadImgApp("2", "askImgCallback", 3) //参数1 type:1单图片 2多张图片，类型string；参数2 callback:上传完图片后，调用的h5 js方法的名称，类型string ;参数3 限制图片数量 number
       } else {
         // Ask.addPic()
         window.Android.uploadImgApp("2", "askImgCallback")

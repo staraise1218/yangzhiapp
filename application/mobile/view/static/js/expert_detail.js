@@ -39,6 +39,15 @@ var Jianjie = {
       }
       //姓名
       $(".container1 .headname").text(info.fullname)
+      //星评
+      let score = Number(info.comment_score)
+      $(".stars li").each(function (index) {
+        if (index < score) {
+          this.className = "stars1"
+        } else {
+          this.className = "stars0"
+        }
+      })
       //评论数
       if (info.answerCount && Number(info.answerCount) !== 0) {
         $(".commentCountText").text(info.answerCount)
@@ -140,6 +149,8 @@ var Jianjie = {
           }
           console.log(msg)
           Global.messageWin(msg)
+          $(".collect1").show()
+          $(".collect0").hide()
         }
       })
     })

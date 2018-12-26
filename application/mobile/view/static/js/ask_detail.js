@@ -36,7 +36,7 @@ var Askd = { //id(ask_id)
       //名字
       $(".container1 .headname").text(info.fullname)
       //问题时间
-      if(info.createtime&&info.createtime!==""){
+      if (info.createtime && info.createtime !== "") {
         $(".mainDate").text(Global.stampToDate(info.createtime))
       }
       //问题title
@@ -66,7 +66,7 @@ var Askd = { //id(ask_id)
           if (obj.head_pic && obj.head_pic !== "") {
             head_pic = Global.domain + obj.head_pic
           }
-          if(obj.createtime&&obj.createtime!==""){
+          if (obj.createtime && obj.createtime !== "") {
             var createtime = Global.stampToDate(obj.createtime)
           }
           let $div = $(`
