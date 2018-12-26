@@ -39,7 +39,7 @@ var ZhuDetail = { //猪场id pig_id
       }
 
       //分享 剪切板
-      ZhuDetail.initshare()
+      // ZhuDetail.initshare()
     }
   },
   initshare() {
