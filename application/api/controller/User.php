@@ -77,6 +77,7 @@ class User extends Base {
             /**************** 修改用户表 头像记录 ************/
             Db::name('users')->update(array('user_id'=>$user_id, 'head_pic'=>$fullPath));
 
+            $resultdata['head_pic'] = $fullPath;
             response_success($resultdata, '上传成功');
             
         } else {
