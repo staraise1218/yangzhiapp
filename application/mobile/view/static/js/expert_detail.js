@@ -60,7 +60,7 @@ var Jianjie = {
           if (obj.head_pic && obj.head_pic !== "") {
             head_pic = Global.domain + obj.head_pic
           }
-          if(obj.createtime&&obj.createtime!==""){
+          if (obj.createtime && obj.createtime !== "") {
             var createTime = Global.stampToDate(obj.createtime).substr(0, 10)
           }
           let $div = $(`
@@ -83,6 +83,14 @@ var Jianjie = {
       }
       //用户评价？
 
+      //是否收藏
+      if (info.is_collect && Number(info.is_collect) == 1) { //收藏了
+        $(".collect1").show()
+        $(".collect0").hide()
+      } else { //没收藏
+        $(".collect1").hide()
+        $(".collect0").show()
+      }
     }
   },
   eventBind() {
