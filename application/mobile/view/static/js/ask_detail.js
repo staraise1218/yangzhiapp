@@ -31,7 +31,7 @@ var Askd = { //id(ask_id)
       let info = Askd.data.info
       //头像
       if (info.head_pic && info.head_pic !== "") {
-        let head_pic = Global.filterHeadpic(obj.head_pic)
+        let head_pic = Global.filterHeadpic(info.head_pic)
         $(".container1 .headbox>img").attr("src", head_pic)
       }
       //名字

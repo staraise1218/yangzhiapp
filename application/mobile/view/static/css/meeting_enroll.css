@@ -17,11 +17,16 @@ body{
 .signItem:last-child{
   border-bottom: none;
 }
-.signItem>span{
+.signItem .spanLabel{
   color: rgba(61, 61, 61, 1);
-  display: inline-block;
-  width: 0.85rem;
+  /* display: inline-block; */
+  width: 0.88rem;
   /* text-align: right; */
+}
+.signItem .spanLabel .require{
+  color: red;
+  padding-top: 0.03rem;
+  padding-right: 0.02rem;
 }
 .signItem>input{
   flex: 1 0 0;
