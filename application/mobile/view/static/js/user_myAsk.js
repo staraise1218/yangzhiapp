@@ -65,8 +65,8 @@ var Mask = {
       let $div = $(`
         <div class="myAskItem" data-askid="${obj.ask_id}" data-expertid="${obj.expert_id}">
           <div class="flexCenter flexBetween myAskItem_top">
-            <h4>${obj.title}</h4>
-            <div class="flexCenter"><span class="icon_m icon_expert"></span><span class="expertName">${obj.fullname}</span></div>
+            <h4 class="textOmit">${obj.title}</h4>
+            <div class="flexCenter nameWrap"><span class="icon_m icon_expert"></span><span class="expertName">${obj.fullname}</span></div>
           </div>
           <p class="askContent limitLine5">${obj.content}</p>
           <div class="flexCenter flexBetween">
