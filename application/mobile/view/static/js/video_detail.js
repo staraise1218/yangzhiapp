@@ -32,8 +32,12 @@ var ZaiDetail = { //需要id（视频id）
       //视频
       $(".video").attr("src", Global.domain + info.video)
       $(".video").attr("poster", Global.domain + info.thumb)
-      if (Number(info.is_buy) == 1) {
+      if (info.price.toString() == "0") { //免费视频
         $(".videoMask").hide()
+      } else { //收费视频
+        if (Number(info.is_buy) == 1) {
+          $(".videoMask").hide()
+        }
       }
       //视频 end
       //时长
@@ -141,6 +145,7 @@ var ZaiDetail = { //需要id（视频id）
     //video遮罩
     $(".videoMask").click(function (event) {
       event.stopPropagation();
+      Global.messageWin("需购买观看")
       return false;
     })
     //点击收藏
