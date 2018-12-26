@@ -32,6 +32,9 @@ var ZaiDetail = { //需要id（视频id）
       //视频
       $(".video").attr("src", Global.domain + info.video)
       $(".video").attr("poster", Global.domain + info.thumb)
+      if (Number(info.is_buy) == 1) {
+        $(".videoMask").hide()
+      }
       //视频 end
       //时长
       $(".timelong").html(info.timelong)
@@ -70,10 +73,7 @@ var ZaiDetail = { //需要id（视频id）
           $(".container2").show()
           $(".askItemWrap").html("")
           arr.forEach(function (obj) {
-            let head_pic = Global.domain + "/application/mobile/view/static/images/tx.png"
-            if (obj.head_pic && obj.head_pic !== "") {
-              head_pic = Global.domain + obj.head_pic
-            }
+            let head_pic = Global.filterHeadpic(obj.head_pic)
             if (obj.add_time && obj.add_time !== "") {
               var add_time = Global.stampToDate(obj.add_time)
             }
@@ -138,6 +138,11 @@ var ZaiDetail = { //需要id（视频id）
     })
   },
   eventBind() {
+    //video遮罩
+    $(".videoMask").click(function (event) {
+      event.stopPropagation();
+      return false;
+    })
     //点击收藏
     $(".isCollect").click(function () {
       let self = this

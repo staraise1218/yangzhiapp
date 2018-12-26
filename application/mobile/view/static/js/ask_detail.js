@@ -31,7 +31,8 @@ var Askd = { //id(ask_id)
       let info = Askd.data.info
       //头像
       if (info.head_pic && info.head_pic !== "") {
-        $(".container1 .headbox>img").attr("src", Global.domain + info.head_pic)
+        let head_pic = Global.filterHeadpic(obj.head_pic)
+        $(".container1 .headbox>img").attr("src", head_pic)
       }
       //名字
       $(".container1 .headname").html(info.fullname)
@@ -61,10 +62,7 @@ var Askd = { //id(ask_id)
       if (answerList.length > 0) {
         $(".askItemWrap").html("")
         answerList.forEach(function (obj) {
-          let head_pic = Global.domain + "/application/mobile/view/static/images/tx.png"
-          if (obj.head_pic && obj.head_pic !== "") {
-            head_pic = Global.domain + obj.head_pic
-          }
+          let head_pic = Global.filterHeadpic(obj.head_pic)
           if (obj.createtime && obj.createtime !== "") {
             var createtime = Global.stampToDate(obj.createtime)
           }
@@ -86,7 +84,7 @@ var Askd = { //id(ask_id)
         `)
           $(".askItemWrap").append($div)
         })
-      }else{
+      } else {
         $(".noList").show()
       }
       //是否可以评论

@@ -296,6 +296,20 @@ var Global = (function () {
       }, { passive: false }) //passive防止阻止默认事件不生效
     }
   }
+  //处理 头像路径
+  function filterHeadpic(str) {
+    let strtemp = ""
+    if (str && str !== "") {
+      if (str.indexOf("http:") > -1) { //绝对路径
+        strtemp = str
+      } else { //相对路径
+        strtemp = Global.domain + str
+      }
+    } else {
+      strtemp = Global.domain + "/application/mobile/view/static/images/tx.png" //默认头像
+    }
+    return strtemp
+  }
   //--------------------------------------------------------
   return {
     domain,
@@ -314,7 +328,8 @@ var Global = (function () {
     initStarsEvent,
     getMUserInfo,
     isIOS,
-    resizeImg
+    resizeImg,
+    filterHeadpic
   }
 })();
 
