@@ -35,7 +35,8 @@ var Jianjie = {
       let info = Jianjie.info
       //头像
       if (info.head_pic && info.head_pic !== "") {
-        $(".container1 .headbox>img").attr("src", Global.domain + info.head_pic)
+        let head_pic = Global.filterHeadpic(info.head_pic)
+        $(".container1 .headbox>img").attr("src", head_pic)
       }
       //姓名
       $(".container1 .headname").html(info.fullname)
@@ -65,10 +66,7 @@ var Jianjie = {
       if (Jianjie.askList.length > 0) {
         $(".askList").show()
         Jianjie.askList.forEach(function (obj) {
-          let head_pic = Global.domain + "/application/mobile/view/static/images/tx.png"
-          if (obj.head_pic && obj.head_pic !== "") {
-            head_pic = Global.domain + obj.head_pic
-          }
+          let head_pic = Global.filterHeadpic(obj.head_pic)
           if (obj.createtime && obj.createtime !== "") {
             var createTime = Global.stampToDate(obj.createtime).substr(0, 10)
           }
@@ -148,7 +146,7 @@ var Jianjie = {
             msg = res.msg
           }
           console.log(msg)
-          Global.messageWin(msg)
+          // Global.messageWin(msg)
           $(".collect1").show()
           $(".collect0").hide()
         }

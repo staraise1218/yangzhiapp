@@ -62,10 +62,7 @@ var mAsk = {
       $(".askItemWrap").html("")
     }
     arr.forEach(function (obj) {
-      let head_pic = Global.domain + "/application/mobile/view/static/images/tx.png"
-      if (obj.head_pic && obj.head_pic !== "") {
-        head_pic = Global.domain + obj.head_pic
-      }
+      let head_pic = Global.filterHeadpic(obj.head_pic)
       if (obj.createtime && obj.createtime !== "") {
         var createtime = Global.stampToDate(obj.createtime)
       }

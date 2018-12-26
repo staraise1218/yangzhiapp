@@ -20,8 +20,9 @@
 <body class="zaixianDetail">
   <div class="h100scroll" style="height:calc(100% - 0.5rem);">
     <!-- 视频 -->
-    <div style="font-size: 0;">
+    <div class="videoWrap posiRe">
       <video class="video" src="" poster="" controls></video>
+      <div class="videoMask"></div>
     </div>
     <!-- 视频介绍 -->
     <div class="container container1">
@@ -33,7 +34,7 @@
       </div> -->
       </div>
       <div class="flexCenter titleTip">
-        <div class="starsWrap">
+        <!-- <div class="starsWrap">
           <ul class="flexCenter stars" style="">
             <li class="stars0"></li>
             <li class="stars0"></li>
@@ -44,13 +45,14 @@
           <script>
             $(".stars li").width($(".stars").height())
           </script>
-        </div>
+        </div> -->
 
-        <span>评价</span>
-        <span>&nbsp;&middot;&nbsp;</span>
+        <!-- <span>评价</span>
+        <span>&nbsp;&middot;&nbsp;</span> -->
+
         <span>时长<span class="timelong"></span></span>
         <span>&nbsp;&middot;&nbsp;</span>
-        <span class="bought">已购买<span class="boughtCount"></span></span>
+        <span class="bought">已购买<span class="boughtCount">0</span></span>
       </div>
 
       <div class="flexColumn">

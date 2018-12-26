@@ -2,11 +2,28 @@ body.zaixianDetail{
   background-color: rgba(246, 246, 246, 1);
 }
 /* 视频 */
+.videoWrap{
+  width: 100%;
+  height: 2.1rem;
+  font-size: 0;
+}
 .video{
   width: 100%;
   height: 2.1rem;
   background-color: #000;
 }
+.videoMask{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+
+
+
 .videoTitle{
   color: rgba(60, 60, 60, 1);
   font-size: 0.18rem;
