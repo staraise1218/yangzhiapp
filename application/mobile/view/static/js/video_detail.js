@@ -34,16 +34,16 @@ var ZaiDetail = { //需要id（视频id）
       $(".video").attr("poster", Global.domain + info.thumb)
       //视频 end
       //时长
-      $(".timelong").text(info.timelong)
+      $(".timelong").html(info.timelong)
       //标题
-      $(".videoTitle").text(info.title)
+      $(".videoTitle").html(info.title)
       //星评？
       //已购买
-      $(".boughtCount").text(info.buyed_count)
+      $(".boughtCount").html(info.buyed_count)
       //价格
-      $(".priceCount").text(info.price)
+      $(".priceCount").html(info.price)
       //内容
-      $(".articleText1").text(info.content)
+      $(".articleText1").html(info.content)
       //是否收藏
       if (Number(info.is_collect) == 1) {
         $(".isCollect1").show()

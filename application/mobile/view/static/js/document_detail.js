@@ -30,7 +30,7 @@ var ZaiDetail = {
       //图片
       $(".picTextContainer .picTextItem img").attr("src", Global.domain + info.thumb)
       //标题
-      $(".titleTop").text(info.title)
+      $(".titleTop").html(info.title)
       //标签
       $(".tagWrap").html("")
       let tagArr = info.tag.split(",")
@@ -41,9 +41,9 @@ var ZaiDetail = {
       })
       //简介？
       //说明
-      $(".description").text(info.description)
+      $(".description").html(info.description)
       //内容
-      $(".articleContent").text(info.content)
+      $(".articleContent").html(info.content)
       //是否收藏
       if (Number(info.is_collect) == 1) {
         $(".isCollect1").show()

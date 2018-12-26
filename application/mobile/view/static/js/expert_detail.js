@@ -38,7 +38,7 @@ var Jianjie = {
         $(".container1 .headbox>img").attr("src", Global.domain + info.head_pic)
       }
       //姓名
-      $(".container1 .headname").text(info.fullname)
+      $(".container1 .headname").html(info.fullname)
       //星评
       let score = Number(info.comment_score)
       $(".stars li").each(function (index) {
@@ -50,15 +50,15 @@ var Jianjie = {
       })
       //评论数
       if (info.answerCount && Number(info.answerCount) !== 0) {
-        $(".commentCountText").text(info.answerCount)
+        $(".commentCountText").html(info.answerCount)
       }
       //简介1
-      $(".articleText1").text(info.description)
+      $(".articleText1").html(info.description)
       //简介2
       if (info.detail && info.detail !== "") {
-        $(".jianjie2").text(info.detail)
+        $(".jianjie2").html(info.detail)
       } else {
-        $(".jianjie2").text("暂无信息")
+        $(".jianjie2").html("暂无信息")
       }
       //问答列表
       $(".askItemWrap").html("")
