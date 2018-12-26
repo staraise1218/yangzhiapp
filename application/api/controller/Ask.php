@@ -22,7 +22,7 @@ class Ask extends Base {
             ->join('users u', 'a.user_id=u.user_id', 'left')
             ->where('expert_id', $expert_id)
             ->order('id desc')
-            ->field('a.id ask_id, u.head_pic, u.fullname, a.createtime, a.content')
+            ->field('a.id ask_id, a.title, u.fullname, a.createtime, a.content', u.head_pic)
             ->limit(10)
             ->page($page)
             ->select();
@@ -40,12 +40,14 @@ class Ask extends Base {
     public function ask(){
         $user_id = I('user_id');
         $expert_id = I('expert_id');
+        $title = I('title');
         $content = I('content');
         $images = I('images');
 
         $data = array(
             'user_id' => $user_id,
             'expert_id' => $expert_id,
+            'title' => $title,
             'content' => $content,
             'images' => json_encode(json_decode(html_entity_decode($images), true)),
             'createtime' => time(),
