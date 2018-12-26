@@ -23,7 +23,9 @@ var mAsk = {
       return
     }
     mAsk.isLoading = true
-    $(".weui-loadmore").show()
+    if (isScroll) {
+      $(".weui-loadmore").show()
+    }
     $.ajax({
       type: "POST",
       url: Global.host + "/Api/ask/askList",
@@ -64,7 +66,7 @@ var mAsk = {
       if (obj.head_pic && obj.head_pic !== "") {
         head_pic = Global.domain + obj.head_pic
       }
-      if(obj.createtime&&obj.createtime!==""){
+      if (obj.createtime && obj.createtime !== "") {
         var createtime = Global.stampToDate(obj.createtime)
       }
       let $div = $(`

@@ -20,7 +20,9 @@ var Mask = {
       return
     }
     Mask.isLoading = true
-    $(".weui-loadmore").show()
+    if (isScroll) {
+      $(".weui-loadmore").show()
+    }
     $.ajax({
       type: "POST",
       url: Global.host + "/Api/user/myAsk",

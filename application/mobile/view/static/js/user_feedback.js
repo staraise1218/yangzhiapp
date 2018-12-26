@@ -21,11 +21,11 @@ var Ask = {
     }
 
     //上传多图片
-    if(Global.isIOS()){
+    if (Global.isIOS()) {
       Global.mutiUploadIOS(iosFileArr, "ask_images", function (fileRes) {
         callback(fileRes)
       })
-    }else{
+    } else {
       let $inputs = $(".addedPic .picWrap:visible").find("input[type='file']")
       Global.mutiUpload($inputs, "ask_images", function (fileRes) {
         callback(fileRes)
@@ -38,7 +38,7 @@ var Ask = {
       if (fileRes) {
         let imagesArr = fileRes.data.filepath
         // imagesJsonStr = JSON.stringify(imagesArr)
-        imagesJsonStr=imagesArr[0] //路径字符串
+        imagesJsonStr = imagesArr[0] //路径字符串
       }
       let postData = {
         user_id: Number(Ask.mUserInfo.user_id),
@@ -186,17 +186,24 @@ var Ask = {
     console.log(iosFileArr)
   },
   eventBind() {
+    //textarea
+    $(".mTextarea").on("input", function () {
+      let length = this.value.length
+      $(".count").text(length)
+    });
     //添加图片
     //点击图片加号
     $(".addpicBtn").click(function () {
-      if ($(".picWrap:visible").length >= 1) {
+      if ($(".picWrap").length >= 1) {
         Global.messageWin("最多选择1张图片")
         return
       }
       if (Global.isIOS()) {
-        Ask.addPicIOS()
+        // Ask.addPicIOS()
+        uploadImgApp("1", "askImgCallback", 1) //参数1 type:1单图片 2多张图片，类型string；参数2 callback:上传完图片后，调用的h5 js方法的名称，类型string ;参数3 限制图片数量 number
       } else {
-        Ask.addPic()
+        // Ask.addPic()
+        window.Android.uploadImgApp("1", "askImgCallback",1)
       }
     })
     $(".addedPic").delegate("input[type='file']", "change", function () {
