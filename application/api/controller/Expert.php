@@ -55,7 +55,6 @@ class Expert extends Base {
             ->find();
 
         if($info) $info['answerCount'] = 0;
-        $result['info'] = $info;
 
         // 判断是否收藏
         $is_collect = Db::name('user_collect')
@@ -65,6 +64,8 @@ class Expert extends Base {
             ->count();
         $info['is_collect'] = $is_collect ? 1 : 0;
 
+
+        
         // 专家的问答
         $askList = Db::name('ask')->alias('a')
             ->join('users u', 'a.user_id=u.user_id', 'left')
@@ -74,8 +75,14 @@ class Expert extends Base {
             ->limit(2)
             ->select();
 
-        $result['askList'] =$askList;
+        
 
+        // 专家评分
+        $comment_score = Db::name('ask_comment')->where('expert_id', $expert_id)->avg('score');
+        $info['comment_score'] = $comment_score;
+
+        $result['info'] = $info;
+        $result['askList'] =$askList;
         response_success($result);
     }
 }
