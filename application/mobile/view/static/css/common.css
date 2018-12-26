@@ -230,7 +230,13 @@ img{
   left: 0;
   right: 0; */
   -webkit-overflow-scrolling: touch;
-	overflow-scrolling: touch;
+  overflow-scrolling: touch;
+
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  -o-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
 }
 .img100{
   width: 100%;
@@ -652,4 +658,12 @@ img{
 .noList {
   line-height: 0.5rem;
   text-align: center;
+}
+/* 开启3d硬件加速 */
+.gpu3d{
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  -o-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
 }
