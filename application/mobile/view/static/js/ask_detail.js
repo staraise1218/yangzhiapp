@@ -34,13 +34,13 @@ var Askd = { //id(ask_id)
         $(".container1 .headbox>img").attr("src", Global.domain + info.head_pic)
       }
       //名字
-      $(".container1 .headname").text(info.fullname)
+      $(".container1 .headname").html(info.fullname)
       //问题时间
-      if(info.createtime&&info.createtime!==""){
-        $(".mainDate").text(Global.stampToDate(info.createtime))
+      if (info.createtime && info.createtime !== "") {
+        $(".mainDate").html(Global.stampToDate(info.createtime))
       }
       //问题title
-      $(".askContent>h4").text(info.content)
+      $(".askContent>h4").html(info.content)
       //图片
       if (info.images && info.images !== "") {
         $(".container1 .imgWrap").html("")
@@ -59,14 +59,13 @@ var Askd = { //id(ask_id)
       //追问列表
       let answerList = Askd.data.answerList
       if (answerList.length > 0) {
-        $(".container3").show()
         $(".askItemWrap").html("")
         answerList.forEach(function (obj) {
           let head_pic = Global.domain + "/application/mobile/view/static/images/tx.png"
           if (obj.head_pic && obj.head_pic !== "") {
             head_pic = Global.domain + obj.head_pic
           }
-          if(obj.createtime&&obj.createtime!==""){
+          if (obj.createtime && obj.createtime !== "") {
             var createtime = Global.stampToDate(obj.createtime)
           }
           let $div = $(`
@@ -87,6 +86,8 @@ var Askd = { //id(ask_id)
         `)
           $(".askItemWrap").append($div)
         })
+      }else{
+        $(".noList").show()
       }
       //是否可以评论
       if (Number(info.user_id) == Number(Askd.mUserInfo.user_id)) {

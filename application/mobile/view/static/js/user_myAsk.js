@@ -20,7 +20,9 @@ var Mask = {
       return
     }
     Mask.isLoading = true
-    $(".weui-loadmore").show()
+    if (isScroll) {
+      $(".weui-loadmore").show()
+    }
     $.ajax({
       type: "POST",
       url: Global.host + "/Api/user/myAsk",
@@ -100,8 +102,7 @@ var Mask = {
       event.stopPropagation();
       let ask_id = $(this).closest(".myAskItem").attr("data-askid")
       let expert_id = $(this).closest(".myAskItem").attr("data-expertid")
-      // window.location.href="../expert/ask.html?ask_id="+ask_id+"&expert_id="+expert_id //测试
-      window.location.href = Global.host + "/mobile/ask/detail?ask_id=" + ask_id
+      window.location.href = Global.host + "/mobile/ask/detail?id=" + ask_id
     })
     //点击 追问
     $(".myAskWrap").delegate(".goAsk", "click", function (event) {

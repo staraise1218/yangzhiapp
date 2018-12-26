@@ -30,7 +30,7 @@ var ZaiDetail = {
       //图片
       $(".picTextContainer .picTextItem img").attr("src", Global.domain + info.thumb)
       //标题
-      $(".titleTop").text(info.title)
+      $(".titleTop").html(info.title)
       //标签
       $(".tagWrap").html("")
       let tagArr = info.tag.split(",")
@@ -41,9 +41,9 @@ var ZaiDetail = {
       })
       //简介？
       //说明
-      $(".description").text(info.description)
+      $(".description").html(info.description)
       //内容
-      $(".articleContent").text(info.content)
+      $(".articleContent").html(info.content)
       //是否收藏
       if (Number(info.is_collect) == 1) {
         $(".isCollect1").show()
@@ -74,7 +74,7 @@ var ZaiDetail = {
             if (obj.head_pic && obj.head_pic !== "") {
               head_pic = Global.domain + obj.head_pic
             }
-            if(obj.add_time&&obj.add_time!==""){
+            if (obj.add_time && obj.add_time !== "") {
               var add_time = Global.stampToDate(obj.add_time)
             }
             let $div = $(`
@@ -127,7 +127,7 @@ var ZaiDetail = {
         if (res && Number(res.code) == 200) {
           $("#commentInpt").val("")
           ZaiDetail.getComments()
-          document.getElementsByClassName("h100scroll")[0].scrollTop=0
+          document.getElementsByClassName("h100scroll")[0].scrollTop = 0
         }
       },
       error: function (e) {
@@ -141,18 +141,18 @@ var ZaiDetail = {
     $(".isCollect").click(function () {
       let self = this
       if ($(this).hasClass("isCollect1")) { //已收藏》取消收藏
-        // Global.messageWin("已收藏")
-        Global.messageConfirWin("确认取消收藏？", function () {
-          Global.cancelCollect(self, {
-            id: ZaiDetail.id, //收藏的id
-            user_id: Number(ZaiDetail.mUserInfo.user_id)
-          }, function (res) {
-            if (res && Number(res.code) == 200) {
-              $(".isCollect1").hide()
-              $(".isCollect0").show()
-            }
-          })
-        })
+        Global.messageWin("已收藏")
+        // Global.messageConfirWin("确认取消收藏？", function () {
+        //   Global.cancelCollect(self, {
+        //     id: ZaiDetail.id, //收藏的id
+        //     user_id: Number(ZaiDetail.mUserInfo.user_id)
+        //   }, function (res) {
+        //     if (res && Number(res.code) == 200) {
+        //       $(".isCollect1").hide()
+        //       $(".isCollect0").show()
+        //     }
+        //   })
+        // })
       } else { //未收藏》收藏
         Global.collect(this, {
           user_id: Number(ZaiDetail.mUserInfo.user_id),
@@ -174,10 +174,10 @@ var ZaiDetail = {
   },
   init() {
     ZaiDetail.mUserInfo = Global.getMUserInfo()
-    ZaiDetail.mUserInfo.user_id = 1 //测试
+    // ZaiDetail.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
     ZaiDetail.id = option.id ? Number(option.id) : ""
-    ZaiDetail.id = 1 //测试
+    // ZaiDetail.id = 1 //测试
     ZaiDetail.getInfo(function () {
       ZaiDetail.updateDom()
     })

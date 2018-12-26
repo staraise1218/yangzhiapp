@@ -44,6 +44,11 @@ var Com = { //id(ask_id)  expert_id
     })
   },
   eventBind() {
+    //textarea
+    $(".mTextarea").on("input", function () {
+      let length = this.value.length
+      $(".count").text(length)
+    });
     //生成可点击的星评
     Global.initStarsEvent($("ul.stars"), function (idx) {
       $(".starsCount").text(Number(idx) + 1)

@@ -29,17 +29,17 @@ var meDetail = { //会议id
     if (JSON.stringify(meDetail.info) !== "{}") {
       let info = meDetail.info
       //标题
-      $(".container1 .title").text(info.title)
+      $(".container1 .title").html(info.title)
       //日期
       if(info.createtime&&info.createtime!==""){
-        $(".createdate").text(Global.stampToDate(info.createtime))
+        $(".createdate").html(Global.stampToDate(info.createtime))
       }
       //地址
-      $(".address").text(info.address)
+      $(".address").html(info.address)
       //简介说明
-      $(".description").text(info.description)
+      $(".description").html(info.description)
       //内容
-      $(".articleContent").text(info.content)
+      $(".articleContent").html(info.content)
     }
   },
   eventBind() {

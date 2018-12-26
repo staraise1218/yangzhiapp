@@ -26,6 +26,13 @@
       overflow-y: scroll;
     }
 
+    .countWrap {
+      position: absolute;
+      right: 0;
+      bottom: 2px;
+      color: #afafaf;
+    }
+
     .downBtn {
       position: absolute;
       bottom: 0;
@@ -41,7 +48,10 @@
   <div class="h100 overhidden">
     <div class="h100scroll">
       <div class="topWrap paddinglr14">
-        <textarea class="mTextarea" name="" id="" placeholder="填写提问的内容" maxlength="200"></textarea>
+        <div class="posiRe">
+          <textarea class="mTextarea" name="" id="" placeholder="填写提问的内容" maxlength="200"></textarea>
+          <span class="countWrap"><span class="count">0</span>/200</span>
+        </div>
         <!-- 添加图片 -->
         <div class="addpicWrap" style="display: none;">
           <div style="padding-left:0.05rem;">

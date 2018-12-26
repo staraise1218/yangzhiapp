@@ -27,11 +27,11 @@ var ZhuDetail = { //猪场id pig_id
     if (JSON.stringify(ZhuDetail.info) !== "{}") {
       let info = ZhuDetail.info
       //标题
-      $(".container1 .title").text(info.title)
+      $(".container1 .title").html(info.title)
       //简介
-      $(".container1 .articleText").text(info.description)
+      $(".container1 .articleText").html(info.description)
       //详情
-      $(".articleContent").text(info.content)
+      $(".articleContent").html(info.content)
       //图片
       if (info.thumb && info.thumb !== "") {
         $(".pigImg").attr("src", Global.domain + info.thumb)
