@@ -86,27 +86,27 @@ html, body {overflow: visible;}
                 <p class="notic">请上传图片格式文件</p>
             </dd>
         </dl>
-      <dl class="row">
+        <dl class="row">
             <dt class="tit">
                 <label>视频上传</label>
             </dt>
             <dd class="opt">
                 <div class="input-file-show">
-                       <span class="show">
+                        <span class="show">
                             <a id="video_a" target="_blank" class="nyroModal" rel="gal" href="{$info.video}">
-                                <i id="video_i" class="fa fa-file-video-o"></i>
+                                <i id="img_i" class="fa fa-file-video-o" ></i>
                             </a>
                         </span>
                         <span class="type-file-box">
                             <input type="text" id="video" name="video" value="{$info.video}" class="type-file-text">
                             <input type="button" name="button" id="button1" value="选择上传..." class="type-file-button">
-                            <input class="type-file-file" onClick="GetUploadify(1,'','video','video_call_back', 'Flash')" size="30">
+                            <input class="type-file-file" onClick="GetUploadify(1,'','video','video_call_back', 'Flash')" size="30" title="点击前方预览图可查看大图，点击按钮选择文件并提交表单后上传生效">
                         </span>
                 </div>
                 <span class="err"></span>
                 <p class="notic">请上传mp4格式文件</p>
             </dd>
-      </dl>
+        </dl>
       <dl class="row">
         <dt class="tit">描述</dt>
         <dd class="opt">
@@ -187,9 +187,8 @@ html, body {overflow: visible;}
 
     function video_call_back(fileurl_tmp)
     {
-        $("#video").val($fileurl_tmp);
+        $("#video").val(fileurl_tmp);
         $("#video_a").attr('href', fileurl_tmp);
-        // $("#video_i").attr('onmouseover', "layer.tips('<img src="+fileurl_tmp+">',this,{tips: [1, '#fff']});");
     }
     
 </script>
