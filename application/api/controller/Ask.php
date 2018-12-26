@@ -21,8 +21,8 @@ class Ask extends Base {
         $list = Db::name('ask')->alias('a')
             ->join('users u', 'a.user_id=u.user_id', 'left')
             ->where('expert_id', $expert_id)
-            ->order('id desc')
-            ->field('a.id ask_id, a.title, u.fullname, a.createtime, a.content', u.head_pic)
+            ->order('a.id desc')
+            ->field('a.id ask_id, a.title, a.createtime, a.content, u.fullname, u.head_pic')
             ->limit(10)
             ->page($page)
             ->select();
