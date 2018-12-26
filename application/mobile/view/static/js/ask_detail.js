@@ -41,7 +41,9 @@ var Askd = { //id(ask_id)
         $(".mainDate").html(Global.stampToDate(info.createtime))
       }
       //问题title
-      $(".askContent>h4").html(info.content)
+      $(".askContent>h4").html(info.title)
+      //问题content
+      $(".askContent .askContentText").html(info.content)
       //图片
       if (info.images && info.images !== "") {
         $(".container1 .imgWrap").html("")
