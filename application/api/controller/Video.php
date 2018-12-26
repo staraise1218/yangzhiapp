@@ -79,7 +79,6 @@ class Video extends Base {
             ->count();
         $info['is_buy'] = $buyed ? 1 : 0;
 
-
 		response_success($info);
 	}
 
