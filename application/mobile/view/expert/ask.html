@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="__STATIC__/css/weui.css">
   <link rel="stylesheet" href="__STATIC__/js/js-build/jquery-weui-build/dist/css/jquery-weui.min.css">
   <link rel="stylesheet" href="__STATIC__/css/common.css">
+  <link rel="stylesheet" href="__STATIC__/css/expert_ask.css">
 
   <script src="__STATIC__/js/js-build/jquery-3.1.1.min.js"></script>
   <script src="__STATIC__/js/js-build/jquery-weui-build/dist/js/jquery-weui.min.js"></script>
@@ -19,37 +20,20 @@
   <script src="__STATIC__/js/js-build/jquery.form.js"></script>
   <script src="__STATIC__/js/Global.js"></script>
   <script src="__STATIC__/js/expert_ask.js"></script>
-  <style>
-    .topWrap {
-      padding-top: 20px;
-      height: calc(100% - 0.95rem);
-      overflow-y: scroll;
-    }
-
-    .countWrap {
-      position: absolute;
-      right: 0;
-      bottom: 2px;
-      color: #afafaf;
-    }
-
-    .downBtn {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 0.42rem;
-      margin: 0.25rem 0.15rem;
-    }
-  </style>
 </head>
 
 <body class="ask posiRe vh100">
   <div class="h100 overhidden">
     <div class="h100scroll">
+      <div class="topTitle">
+        <div class="posiRe w100">
+          <textarea class="mTextarea1 w100" name="" id="" placeholder="填写问题" maxlength="20"></textarea>
+          <span class="countWrap1"><span class="count1">0</span>/20</span>
+        </div>
+      </div>
       <div class="topWrap paddinglr14">
         <div class="posiRe">
-          <textarea class="mTextarea" name="" id="" placeholder="填写提问的内容" maxlength="200"></textarea>
+          <textarea class="mTextarea" name="" id="" placeholder="详情描述" maxlength="200"></textarea>
           <span class="countWrap"><span class="count">0</span>/200</span>
         </div>
         <!-- 添加图片 -->

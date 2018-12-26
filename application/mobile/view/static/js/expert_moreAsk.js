@@ -69,15 +69,14 @@ var mAsk = {
       let $div = $(`
         <div class="askItem" data-askid="${obj.ask_id}">
           <div class="flexCenter flexBetween headpicWrap">
+            <p class="askTitle textOmit">${obj.title}</p>
             <div class="flexCenterIL headpic">
               <div class="headbox">
                 <img src="${head_pic}" alt="头像">
               </div>
-              <span class="headname">${obj.fullname}</span>
+              <span class="headname textOmit">${obj.fullname}</span>
               <span class="isZhuanjia" style="display:none;"></span>
             </div>
-
-            <span class="date">${createtime}</span>
           </div>
           <p class="articleText">${obj.content}</p>
         </div>

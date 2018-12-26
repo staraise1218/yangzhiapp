@@ -7,8 +7,8 @@ var Ask = { //需要ask_id  expert_id   [isAgain]
 
   //验证一下
   validAsk() {
-    if ($(".mTextarea").val().trim() == "") {
-      Global.messageWin("请输入提问内容")
+    if ($(".mTextarea1").val().trim() == "" || $(".mTextarea").val().trim() == "") {
+      Global.messageWin("提问标题和内容请输入完整")
       return false
     }
     return true
@@ -41,7 +41,9 @@ var Ask = { //需要ask_id  expert_id   [isAgain]
     let postData = {
       user_id: Number(Ask.mUserInfo.user_id),
       expert_id: Ask.expert_id,
-      content: $(".mTextarea").val(),
+
+      title: $(".mTextarea1").val().trim(),
+      content: $(".mTextarea").val().trim(),
       images: JSON.stringify(imagesArr)
     }
     console.log(postData)
@@ -188,6 +190,11 @@ var Ask = { //需要ask_id  expert_id   [isAgain]
     console.log(iosFileArr)
   },
   eventBind() {
+    //textarea1
+    $(".mTextarea1").on("input", function () {
+      let length = this.value.length
+      $(".count1").text(length)
+    });
     //textarea
     $(".mTextarea").on("input", function () {
       let length = this.value.length
