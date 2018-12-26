@@ -253,6 +253,7 @@ var Ask = { //需要ask_id  expert_id   [isAgain]
       Ask.isAgain = true
       $(".submitAsk").text("追问")
     } else { //提问页面
+      $(".topTitle").show()
       $(".addpicWrap").show()
     }
     Ask.ask_id = option.ask_id ? Number(option.ask_id) : ""
