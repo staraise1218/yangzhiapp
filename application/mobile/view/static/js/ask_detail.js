@@ -59,7 +59,6 @@ var Askd = { //id(ask_id)
       //追问列表
       let answerList = Askd.data.answerList
       if (answerList.length > 0) {
-        $(".container3").show()
         $(".askItemWrap").html("")
         answerList.forEach(function (obj) {
           let head_pic = Global.domain + "/application/mobile/view/static/images/tx.png"
@@ -87,6 +86,8 @@ var Askd = { //id(ask_id)
         `)
           $(".askItemWrap").append($div)
         })
+      }else{
+        $(".noList").show()
       }
       //是否可以评论
       if (Number(info.user_id) == Number(Askd.mUserInfo.user_id)) {
