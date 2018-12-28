@@ -1,4 +1,4 @@
-var Jianjie = {
+var Jianjie = { //id (expert_id)
   mUserInfo: {},
   export_id: "",
   info: {},
