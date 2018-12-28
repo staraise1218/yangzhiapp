@@ -60,7 +60,7 @@ var Ask = { //需要ask_id  expert_id   [isAgain]
           // alert("操作成功")
           Global.messageWin("操作成功", function () {
             // window.history.back(-1)
-            window.location.href = Global.host + "/mobile/expert/detail?id=" + Ask.export_id
+            window.location.href = Global.host + "/mobile/expert/detail?id=" + Ask.expert_id
           })
         }
       },
