@@ -69,7 +69,7 @@ class User extends Base {
         $user_id = I('user_id/d');
 
         $FileLogic = new FileLogic();
-        $uploadPath = UPLOAD_PATH.'head_pic/';
+        $uploadPath = UPLOAD_PATH.'head_pic';
         $result = $FileLogic->uploadSingleFile('file', $uploadPath);
         if($result['status'] == '1'){
             $fullPath = $result['fullPath'];
