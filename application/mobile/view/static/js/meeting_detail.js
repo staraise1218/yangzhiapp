@@ -66,6 +66,7 @@ var meDetail = { //会议id
   init() {
     Global.changeTitleG()
     meDetail.mUserInfo = Global.getMUserInfo()
+    alert(JSON.stringify(meDetail.mUserInfo))
     // meDetail.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
     meDetail.id = option.id ? Number(option.id) : ""
