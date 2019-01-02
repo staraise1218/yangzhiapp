@@ -18,6 +18,9 @@ class Pig extends Base {
 	public function index(){
 		$keyword = I('keyword');
 		$cat_id = I('cat_id');
+		$page = I('page', 1);
+
+		if($page <= 0) $page = 1;
 
 		$where['is_delete'] = 0;
 		if($keyword) $where['title'] = array('like', "%$keyword%");
