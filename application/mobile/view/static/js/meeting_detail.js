@@ -65,6 +65,7 @@ var meDetail = { //会议id
   },
   init() {
     Global.changeTitleG()
+    alert("设置标题完成")
     meDetail.mUserInfo = Global.getMUserInfo()
     alert(JSON.stringify(meDetail.mUserInfo))
     // meDetail.mUserInfo.user_id = 1 //测试

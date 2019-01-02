@@ -315,9 +315,12 @@ var Global = (function () {
   function changeTitleG(){
     let titleStr=$("title").text()
     console.log(titleStr)
+    alert(titleStr)
     if(Global.isIOS()){
+      alert("ios bg")
       changeTitle(titleStr) //titleStr 标题， 类型：字符串
     }else{
+      alert("android bg")
       window.Android.changeTitle(titleStr)
     }
   }
