@@ -241,6 +241,7 @@ var Global = (function () {
     let info = {}
     if (localStorage.getItem("mUserInfo") && localStorage.getItem("mUserInfo") !== "" && localStorage.getItem("mUserInfo") !== null && localStorage.getItem("mUserInfo") !== "null") {
       // Global.messageWin(localStorage.getItem("mUserInfo"))
+      alert(localStorage.getItem("mUserInfo"))
       info = JSON.parse(localStorage.getItem("mUserInfo"))
     } else {
       Global.messageWin("无local")
