@@ -103,6 +103,7 @@ var ZhuDetail = { //猪场id pig_id
     })
   },
   init() {
+    Global.changeTitleG()
     ZhuDetail.mUserInfo = Global.getMUserInfo()
     // ZhuDetail.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()

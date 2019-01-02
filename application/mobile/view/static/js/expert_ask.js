@@ -59,7 +59,9 @@ var Ask = { //需要ask_id  expert_id   [isAgain]
         if (res && Number(res.code) == 200) {
           // alert("操作成功")
           Global.messageWin("操作成功", function () {
-            window.history.back(-1)
+            // window.history.back(-1)
+            // alert(Global.host + "/mobile/expert/detail?id=" + Ask.expert_id)
+            window.location.href = Global.host + "/mobile/expert/detail?id=" + Ask.expert_id
           })
         }
       },
@@ -246,6 +248,7 @@ var Ask = { //需要ask_id  expert_id   [isAgain]
     })
   },
   init() {
+    Global.changeTitleG()
     Ask.mUserInfo = Global.getMUserInfo()
     // Ask.mUserInfo.user_id = 1 //测试
     var option = Global.getPageParams()

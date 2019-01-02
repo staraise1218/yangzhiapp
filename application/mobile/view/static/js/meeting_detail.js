@@ -64,6 +64,7 @@ var meDetail = { //会议id
     })
   },
   init() {
+    Global.changeTitleG()
     meDetail.mUserInfo = Global.getMUserInfo()
     // meDetail.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
