@@ -170,6 +170,7 @@ var ZaiDetail = {
     })
   },
   init() {
+    Global.changeTitleG()
     ZaiDetail.mUserInfo = Global.getMUserInfo()
     // ZaiDetail.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()

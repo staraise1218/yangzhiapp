@@ -310,6 +310,16 @@ var Global = (function () {
     }
     return strtemp
   }
+  //让原生改变导航栏标题
+  function changeTitleG(){
+    let titleStr=$("title").text()
+    console.log(titleStr)
+    if(Global.isIOS()){
+      changeTitle(titleStr) //titleStr 标题， 类型：字符串
+    }else{
+      window.Android.changeTitle(titleStr)
+    }
+  }
   //--------------------------------------------------------
   return {
     domain,
@@ -329,7 +339,8 @@ var Global = (function () {
     getMUserInfo,
     isIOS,
     resizeImg,
-    filterHeadpic
+    filterHeadpic,
+    changeTitleG,
   }
 })();
 

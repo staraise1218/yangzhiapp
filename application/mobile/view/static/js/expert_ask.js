@@ -248,6 +248,7 @@ var Ask = { //需要ask_id  expert_id   [isAgain]
     })
   },
   init() {
+    Global.changeTitleG()
     Ask.mUserInfo = Global.getMUserInfo()
     // Ask.mUserInfo.user_id = 1 //测试
     var option = Global.getPageParams()
