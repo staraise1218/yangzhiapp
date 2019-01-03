@@ -155,9 +155,12 @@ var Jianjie = { //id (expert_id)
   },
   init() {
     Global.changeTitleG()
+    Global.messageWin("1")
     Jianjie.mUserInfo = Global.getMUserInfo()
+    Global.messageWin("2")
     // Jianjie.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
+    Global.messageWin("3")
     Jianjie.export_id = option.id ? Number(option.id) : ""
     // Jianjie.export_id = 2 //测试
     Jianjie.getInfo(function () {

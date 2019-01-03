@@ -153,7 +153,7 @@ var Global = (function () {
     })
   }
   function messageWin(msg, callback) {
-    if ($(".msgWrap").length == 0) {
+    // if ($(".msgWrap").length == 0) {
       let $msgDiv = $(`
             <div class="msgWrap">
                 <div class="msgMask"></div>
@@ -176,7 +176,7 @@ var Global = (function () {
         }
       });
       $("body").append($msgDiv);
-    }
+    // }
   }
   function messageConfirWin(msg, callback) {
     if ($(".msgWrap").length == 0) {
