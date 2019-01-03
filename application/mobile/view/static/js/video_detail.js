@@ -184,9 +184,24 @@ var ZaiDetail = { //需要id（视频id）
     $(".submitComment").click(function () {
       ZaiDetail.submitComment()
     })
+
+    //2019.0.1.03
+    //页面跳起
+    if(Global.isIOS()){
+      $("#commentInpt").bind("focus",function(){
+        $("body").css({
+          "position":"relative",
+          "top":"0.64rem",
+          "left":"0"
+        })
+      }).bind("blur",function(){
+        $("body").css({
+          "position":"static"
+        })
+      })
+    }
   },
   init() {
-    Global.changeTitleG()
     ZaiDetail.mUserInfo = Global.getMUserInfo()
     // ZaiDetail.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
@@ -202,3 +217,6 @@ var ZaiDetail = { //需要id（视频id）
 $(function () {
   ZaiDetail.init()
 })
+window.onload=function(){
+  Global.changeTitleG()
+}

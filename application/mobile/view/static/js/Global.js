@@ -241,6 +241,7 @@ var Global = (function () {
     let info = {}
     if (localStorage.getItem("mUserInfo") && localStorage.getItem("mUserInfo") !== "" && localStorage.getItem("mUserInfo") !== null && localStorage.getItem("mUserInfo") !== "null") {
       // Global.messageWin(localStorage.getItem("mUserInfo"))
+      // alert(localStorage.getItem("mUserInfo"))
       info = JSON.parse(localStorage.getItem("mUserInfo"))
     } else {
       Global.messageWin("无local")
@@ -314,9 +315,12 @@ var Global = (function () {
   function changeTitleG(){
     let titleStr=$("title").text()
     console.log(titleStr)
+    // alert(titleStr)
     if(Global.isIOS()){
+      // alert("ios bg")
       changeTitle(titleStr) //titleStr 标题， 类型：字符串
     }else{
+      // alert("android bg")
       window.Android.changeTitle(titleStr)
     }
   }

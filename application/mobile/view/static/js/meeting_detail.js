@@ -31,7 +31,7 @@ var meDetail = { //会议id
       //标题
       $(".container1 .title").html(info.title)
       //日期
-      if(info.createtime&&info.createtime!==""){
+      if (info.createtime && info.createtime !== "") {
         $(".createdate").html(Global.stampToDate(info.createtime))
       }
       //地址
@@ -64,12 +64,9 @@ var meDetail = { //会议id
     })
   },
   init() {
-    Global.changeTitleG()
     meDetail.mUserInfo = Global.getMUserInfo()
-    // meDetail.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
     meDetail.id = option.id ? Number(option.id) : ""
-    // meDetail.id = 1 //测试
     meDetail.getInfo(function () {
       meDetail.updateDom()
     })
@@ -79,3 +76,6 @@ var meDetail = { //会议id
 $(function () {
   meDetail.init()
 })
+window.onload=function(){
+  Global.changeTitleG()
+}

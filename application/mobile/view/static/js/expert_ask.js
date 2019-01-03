@@ -7,10 +7,18 @@ var Ask = { //需要ask_id  expert_id   [isAgain]
 
   //验证一下
   validAsk() {
-    if ($(".mTextarea1").val().trim() == "" || $(".mTextarea").val().trim() == "") {
-      Global.messageWin("提问标题和内容请输入完整")
-      return false
+    if (Ask.isAgain) { //是追问
+      if ($(".mTextarea").val().trim() == "") {
+        Global.messageWin("追问内容请输入完整")
+        return false
+      }
+    } else {
+      if ($(".mTextarea1").val().trim() == "" || $(".mTextarea").val().trim() == "") {
+        Global.messageWin("提问标题和内容请输入完整")
+        return false
+      }
     }
+
     return true
   },
   //提交问题
@@ -248,17 +256,17 @@ var Ask = { //需要ask_id  expert_id   [isAgain]
     })
   },
   init() {
-    Global.changeTitleG()
     Ask.mUserInfo = Global.getMUserInfo()
-    // Ask.mUserInfo.user_id = 1 //测试
     var option = Global.getPageParams()
     if (option.isAgain) { //是追问页面
       Ask.isAgain = true
       $(".submitAsk").text("追问")
+      $("title").text("追问")
     } else { //提问页面
       $(".topTitle").show()
       $(".addpicWrap").show()
     }
+
     Ask.ask_id = option.ask_id ? Number(option.ask_id) : ""
     Ask.expert_id = option.expert_id ? Number(option.expert_id) : ""
     Ask.eventBind()
@@ -267,3 +275,8 @@ var Ask = { //需要ask_id  expert_id   [isAgain]
 $(function () {
   Ask.init()
 })
+window.onload=function(){
+  Global.messageWin("0")
+  Global.changeTitleG()
+  Global.messageWin("1")
+}

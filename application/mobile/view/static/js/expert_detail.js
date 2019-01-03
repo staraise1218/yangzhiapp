@@ -154,12 +154,9 @@ var Jianjie = { //id (expert_id)
     })
   },
   init() {
-    Global.changeTitleG()
     Jianjie.mUserInfo = Global.getMUserInfo()
-    // Jianjie.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
     Jianjie.export_id = option.id ? Number(option.id) : ""
-    // Jianjie.export_id = 2 //测试
     Jianjie.getInfo(function () {
       Jianjie.updateDom()
     })
@@ -169,3 +166,6 @@ var Jianjie = { //id (expert_id)
 $(function () {
   Jianjie.init()
 })
+window.onload=function(){
+  Global.changeTitleG()
+}

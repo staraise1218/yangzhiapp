@@ -83,7 +83,6 @@ var Sign = { //会议id
     })
   },
   init() {
-    Global.changeTitleG()
     Sign.mUserInfo = Global.getMUserInfo()
     // Sign.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
@@ -94,3 +93,6 @@ var Sign = { //会议id
 $(function () {
   Sign.init()
 })
+window.onload=function(){
+  Global.changeTitleG()
+}

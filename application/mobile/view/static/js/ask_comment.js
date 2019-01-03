@@ -59,7 +59,6 @@ var Com = { //id(ask_id)  expert_id
     })
   },
   init() {
-    Global.changeTitleG()
     Com.mUserInfo = Global.getMUserInfo()
     // Com.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
@@ -71,3 +70,6 @@ var Com = { //id(ask_id)  expert_id
 $(function () {
   Com.init()
 })
+window.onload=function(){
+  Global.changeTitleG()
+}

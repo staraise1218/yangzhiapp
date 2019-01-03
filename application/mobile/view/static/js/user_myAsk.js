@@ -66,7 +66,7 @@ var Mask = {
         <div class="myAskItem" data-askid="${obj.ask_id}" data-expertid="${obj.expert_id}">
           <div class="flexCenter flexBetween myAskItem_top">
             <h4 class="textOmit">${obj.title}</h4>
-            <div class="flexCenter nameWrap"><span class="icon_m icon_expert"></span><span class="expertName">${obj.fullname}</span></div>
+            <div class="flexCenter nameWrap"><span class="icon_m icon_expert"></span><span class="expertName textOmit">${obj.fullname}</span></div>
           </div>
           <p class="askContent limitLine5">${obj.content}</p>
           <div class="flexCenter flexBetween">
@@ -120,7 +120,6 @@ var Mask = {
     })
   },
   init() {
-    Global.changeTitleG()
     Mask.mUserInfo = Global.getMUserInfo()
     // Mask.mUserInfo.user_id = 1 //测试
     Mask.getList()
@@ -130,3 +129,6 @@ var Mask = {
 $(function () {
   Mask.init()
 })
+window.onload=function(){
+  Global.changeTitleG()
+}

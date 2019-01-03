@@ -237,7 +237,6 @@ var Ask = {
     })
   },
   init() {
-    Global.changeTitleG()
     Ask.mUserInfo = Global.getMUserInfo()
     // Ask.mUserInfo.user_id = 1 //测试
     var option = Global.getPageParams()
@@ -255,3 +254,6 @@ var Ask = {
 $(function () {
   Ask.init()
 })
+window.onload=function(){
+  Global.changeTitleG()
+}

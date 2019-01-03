@@ -19,6 +19,8 @@
   color: rgba(77, 77, 77, 1);
   font-size: 0.14rem;
   /* font-weight: bold; */
+
+  width: 0.6rem;
 }
 .askContent{
   color: rgba(77, 77, 77, 1);
