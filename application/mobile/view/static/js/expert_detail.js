@@ -154,7 +154,7 @@ var Jianjie = { //id (expert_id)
     })
   },
   init() {
-    Global.changeTitleG()
+    // Global.changeTitleG()
     Jianjie.mUserInfo = Global.getMUserInfo()
     // Jianjie.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()

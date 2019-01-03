@@ -120,7 +120,7 @@ var Mask = {
     })
   },
   init() {
-    Global.changeTitleG()
+    // Global.changeTitleG()
     Mask.mUserInfo = Global.getMUserInfo()
     // Mask.mUserInfo.user_id = 1 //测试
     Mask.getList()

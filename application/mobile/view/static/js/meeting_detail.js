@@ -64,7 +64,7 @@ var meDetail = { //会议id
     })
   },
   init() {
-    Global.changeTitleG()
+    // Global.changeTitleG()
     meDetail.mUserInfo = Global.getMUserInfo()
     let option = Global.getPageParams()
     meDetail.id = option.id ? Number(option.id) : ""
