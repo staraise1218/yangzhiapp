@@ -7,10 +7,18 @@ var Ask = { //需要ask_id  expert_id   [isAgain]
 
   //验证一下
   validAsk() {
-    if ($(".mTextarea1").val().trim() == "" || $(".mTextarea").val().trim() == "") {
-      Global.messageWin("提问标题和内容请输入完整")
-      return false
+    if (Ask.isAgain) { //是追问
+      if ($(".mTextarea").val().trim() == "") {
+        Global.messageWin("追问内容请输入完整")
+        return false
+      }
+    } else {
+      if ($(".mTextarea1").val().trim() == "" || $(".mTextarea").val().trim() == "") {
+        Global.messageWin("提问标题和内容请输入完整")
+        return false
+      }
     }
+
     return true
   },
   //提交问题
