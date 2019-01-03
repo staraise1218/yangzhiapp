@@ -154,6 +154,7 @@ var Jianjie = { //id (expert_id)
     })
   },
   init() {
+    Global.messageWin("0")
     Global.changeTitleG()
     Global.messageWin("1")
     Jianjie.mUserInfo = Global.getMUserInfo()
