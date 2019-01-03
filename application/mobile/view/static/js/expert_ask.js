@@ -256,16 +256,18 @@ var Ask = { //需要ask_id  expert_id   [isAgain]
     })
   },
   init() {
-    // Global.changeTitleG()
     Ask.mUserInfo = Global.getMUserInfo()
     var option = Global.getPageParams()
     if (option.isAgain) { //是追问页面
       Ask.isAgain = true
       $(".submitAsk").text("追问")
+      $("title").text("追问")
     } else { //提问页面
       $(".topTitle").show()
       $(".addpicWrap").show()
     }
+    Global.changeTitleG()
+
     Ask.ask_id = option.ask_id ? Number(option.ask_id) : ""
     Ask.expert_id = option.expert_id ? Number(option.expert_id) : ""
     Ask.eventBind()
