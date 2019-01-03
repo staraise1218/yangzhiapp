@@ -276,7 +276,5 @@ $(function () {
   Ask.init()
 })
 window.onload=function(){
-  Global.messageWin("0")
   Global.changeTitleG()
-  Global.messageWin("1")
 }
