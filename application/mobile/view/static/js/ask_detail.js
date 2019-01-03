@@ -111,7 +111,6 @@ var Askd = { //id(ask_id)
     })
   },
   init() {
-    Global.changeTitleG()
     Askd.mUserInfo = Global.getMUserInfo()
     // Askd.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
@@ -126,3 +125,6 @@ var Askd = { //id(ask_id)
 $(function () {
   Askd.init()
 })
+window.onload=function(){
+  Global.changeTitleG()
+}

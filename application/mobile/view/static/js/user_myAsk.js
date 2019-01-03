@@ -120,7 +120,6 @@ var Mask = {
     })
   },
   init() {
-    Global.changeTitleG()
     Mask.mUserInfo = Global.getMUserInfo()
     // Mask.mUserInfo.user_id = 1 //测试
     Mask.getList()
@@ -130,3 +129,6 @@ var Mask = {
 $(function () {
   Mask.init()
 })
+window.onload=function(){
+  Global.changeTitleG()
+}

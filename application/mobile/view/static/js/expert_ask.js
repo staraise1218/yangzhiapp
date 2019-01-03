@@ -266,7 +266,6 @@ var Ask = { //需要ask_id  expert_id   [isAgain]
       $(".topTitle").show()
       $(".addpicWrap").show()
     }
-    Global.changeTitleG()
 
     Ask.ask_id = option.ask_id ? Number(option.ask_id) : ""
     Ask.expert_id = option.expert_id ? Number(option.expert_id) : ""
@@ -276,3 +275,6 @@ var Ask = { //需要ask_id  expert_id   [isAgain]
 $(function () {
   Ask.init()
 })
+window.onload=function(){
+  Global.changeTitleG()
+}
