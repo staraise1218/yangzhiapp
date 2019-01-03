@@ -417,7 +417,7 @@ class User extends Base {
         $user_id_array = I('get.user_id_array');
         $users = array();
         if (!empty($user_id_array)) {
-            $users = M('users')->field('user_id,nickname')->where(array('user_id' => array('IN', $user_id_array)))->select();
+            $users = M('users')->field('user_id,fullname')->where(array('user_id' => array('IN', $user_id_array)))->select();
         }
         $this->assign('users',$users);
         return $this->fetch();
