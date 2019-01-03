@@ -168,6 +168,20 @@ var ZaiDetail = {
     $(".submitComment").click(function () {
       ZaiDetail.submitComment()
     })
+    //页面跳起
+    if(Global.isIOS()){
+      $("#commentInpt").bind("focus",function(){
+        $("body").css({
+          "position":"relative",
+          "top":"0.64rem",
+          "left":"0"
+        })
+      }).bind("blur",function(){
+        $("body").css({
+          "position":"static",
+        })
+      })
+    }
   },
   init() {
     ZaiDetail.mUserInfo = Global.getMUserInfo()
