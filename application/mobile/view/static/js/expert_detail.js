@@ -154,8 +154,6 @@ var Jianjie = { //id (expert_id)
     })
   },
   init() {
-    Global.messageWin("0")
-    Global.changeTitleG()
     Global.messageWin("1")
     Jianjie.mUserInfo = Global.getMUserInfo()
     Global.messageWin("2")
@@ -168,6 +166,8 @@ var Jianjie = { //id (expert_id)
       Jianjie.updateDom()
     })
     Jianjie.eventBind()
+    Global.changeTitleG()
+    Global.messageWin("0")
   }
 }
 $(function () {
