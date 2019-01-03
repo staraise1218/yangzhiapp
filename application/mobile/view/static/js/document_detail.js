@@ -168,17 +168,18 @@ var ZaiDetail = {
     $(".submitComment").click(function () {
       ZaiDetail.submitComment()
     })
+    //2019.0.1.03
     //页面跳起
     if(Global.isIOS()){
       $("#commentInpt").bind("focus",function(){
         $("body").css({
           "position":"relative",
-          "top":"64px",
+          "top":"0.64rem",
           "left":"0"
         })
       }).bind("blur",function(){
         $("body").css({
-          "position":"static",
+          "position":"static"
         })
       })
     }
