@@ -173,7 +173,7 @@ var ZaiDetail = {
       $("#commentInpt").bind("focus",function(){
         $("body").css({
           "position":"relative",
-          "top":"0.64rem",
+          "top":"64px",
           "left":"0"
         })
       }).bind("blur",function(){
