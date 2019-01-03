@@ -80,7 +80,7 @@ class UsersLogic extends Model
     		$pay_points = tpCache('basic.reg_integral'); // 会员注册赠送积分
     		if($pay_points > 0)
     			accountLog($user_id, 0 , $pay_points , '会员注册赠送积分'); // 记录日志流水
-    		return array('status'=>1,'msg'=>'添加成功');
+    		return array('status'=>1,'msg'=>'添加成功', 'user_id'=>$user_id);
     	}
     }   
 

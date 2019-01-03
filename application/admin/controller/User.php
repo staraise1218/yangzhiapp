@@ -52,6 +52,11 @@ class User extends Base {
     public function detail(){
         $uid = I('get.id');
         $user = D('users')->where(array('user_id'=>$uid))->find();
+        if($user['group_id'] == 2){
+            $expert = M('expert')->where('user_id', $uid)->find();
+            $user['description'] = $expert['description'];
+            $user['detail'] = $expert['detail'];
+        }
         if(!$user)
             exit($this->error('会员不存在'));
         if(IS_POST){
@@ -80,22 +85,48 @@ class User extends Base {
             }            
             
             $row = M('users')->where(array('user_id'=>$uid))->save($_POST);
-            if($row)
-                exit($this->success('修改成功'));
-            exit($this->error('未作内容修改或修改失败'));
+            if($_POST['group_id'] == 2){
+                if(M('expert')->where('user_id', $uid)->count()){
+                    M('expert')->where(array('user_id'=>$uid))->save(array('description'=>$_POST['description'], 'detail'=>$_POST['detail']));
+                } else  {
+                    M('expert')->insert(array(
+                        'user_id'=>$uid,
+                        'description'=>$_POST['description'],
+                        'detail'=>$_POST['detail']
+                    ));
+                }
+            }
+            // if($row || $row2)
+            //     exit($this->success('修改成功'));
+            // exit($this->error('未作内容修改或修改失败'));
+            exit($this->success('修改成功', U('admin/user/index')));
         }
     
  
         $this->assign('user',$user);
         return $this->fetch();
     }
-    
+     
     public function add_user(){
     	if(IS_POST){
     		$data = I('post.');
-			$user_obj = new UsersLogic();
+            $expert_description = $data['description'];
+            $expert_detail = $data['detail'];
+
+            unset($data['description']);
+            unset($data['detail']);
+            $user_obj = new UsersLogic();
 			$res = $user_obj->addUser($data);
+
 			if($res['status'] == 1){
+                if($data['group_id'] == 2){
+                    $expertdata = array(
+                        'user_id' => $res['user_id'],
+                        'description' => $expert_description,
+                        'detail' => $expert_detail,
+                    );
+                    M('expert')->insert($expertdata);
+                }
 				$this->success('添加成功',U('User/index'));exit;
 			}else{
 				$this->error('添加失败,'.$res['msg'],U('User/index'));
