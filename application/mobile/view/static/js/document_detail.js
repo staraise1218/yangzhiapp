@@ -171,7 +171,7 @@ var ZaiDetail = {
   },
   init() {
     // Global.changeTitleG()
-    Global.messageWin("设置标题完成")
+    // Global.messageWin("设置标题完成")
     ZaiDetail.mUserInfo = Global.getMUserInfo()
     // ZaiDetail.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()

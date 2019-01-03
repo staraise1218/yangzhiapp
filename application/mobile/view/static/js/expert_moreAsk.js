@@ -108,7 +108,7 @@ var mAsk = {
     })
   },
   init() {
-    // Global.changeTitleG()
+    Global.changeTitleG()
     mAsk.mUserInfo = Global.getMUserInfo()
     // mAsk.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()

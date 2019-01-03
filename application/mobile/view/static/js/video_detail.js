@@ -186,7 +186,7 @@ var ZaiDetail = { //需要id（视频id）
     })
   },
   init() {
-    // Global.changeTitleG()
+    Global.changeTitleG()
     ZaiDetail.mUserInfo = Global.getMUserInfo()
     // ZaiDetail.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()

@@ -59,7 +59,7 @@ var Com = { //id(ask_id)  expert_id
     })
   },
   init() {
-    // Global.changeTitleG()
+    Global.changeTitleG()
     Com.mUserInfo = Global.getMUserInfo()
     // Com.mUserInfo.user_id = 1 //测试
     let option = Global.getPageParams()
