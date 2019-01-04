@@ -159,7 +159,7 @@ class User extends Base {
             ->join('document d', 'uc.table_id=d.id', 'left')
             ->where('uc.user_id', $user_id)
             ->where('uc.table_name', 'document')
-            ->field('d.id, d.title, d.thumb, d.tag, d.description')
+            ->field('d.id document_id, d.title, d.thumb, d.tag, d.description, uc.id')
             ->page($page)
             ->limit(10)
             ->select();
@@ -178,7 +178,7 @@ class User extends Base {
             ->join('video v', 'uc.table_id=v.id', 'left')
             ->where('uc.user_id', $user_id)
             ->where('uc.table_name', 'video')
-            ->field('v.id, v.title, v.thumb, v.tag, v.description')
+            ->field('v.id video_id, v.title, v.thumb, v.tag, v.description, uc.id')
             ->page($page)
             ->limit(10)
             ->select();
@@ -198,7 +198,7 @@ class User extends Base {
             ->join('expert e', 'uc.table_id=e.user_id', 'left')
             ->where('uc.user_id', $user_id)
             ->where('uc.table_name', 'expert')
-            ->field('u.user_id, fullname, head_pic, description')
+            ->field('u.user_id expert_id, fullname, head_pic, description, uc.id')
             ->page($page)
             ->limit(10)
             ->select();
