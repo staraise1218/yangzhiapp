@@ -42,6 +42,9 @@ html, body {overflow: visible;}
             <foreach name="categoryList" item="cat">
             <option value="{$cat.id}">{$cat.name}</option>
             </foreach>
+        </select>   
+        <select class="small form-control" name="sub_cat_id" id="sub_cat_id">
+            
         </select>        
           <span class="err" id="err_cat_id"></span>
         </dd>
@@ -143,6 +146,31 @@ html, body {overflow: visible;}
         $("#img_a").attr('href', fileurl_tmp);
         $("#img_i").attr('onmouseover', "layer.tips('<img src="+fileurl_tmp+">',this,{tips: [1, '#fff']});");
     }
+
+    $(function(){
+        $('select[name=cat_id]').change(function(){
+            var cat_id = $(this).val();
+            if(cat_id == 0){
+                $('select[name=sub_cat_id]').html('');
+                return false;
+            }
+            $.ajax({
+              url: "{:U('admin/pig/ajaxGetSubCategory')}",
+              type: 'post',
+              dataType: 'json',
+              data:{parent_id:cat_id},
+              success: function(data){
+                var html = '<option value="0">选择二级分类</option>';
+                $.each(data.list, function(){
+
+                    html += '<option value="'+this.id+'">'+this.name+'</option>';
+                })
+
+                $('select[name=sub_cat_id]').html(html);
+              }
+            })
+        })      
+    })
     
 </script>
 </body>

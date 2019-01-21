@@ -116,6 +116,28 @@ class User extends Base {
         }
     }
 
+    // 我购买的文档
+    public function myDocument(){
+        $user_id = I('user_id');
+        $page = I('page', 1);
+
+        $list = Db::name('document_order')->alias('do')
+            ->join('document d', 'do.document_id=d.id', 'left')
+            ->where('do.user_id', $user_id)
+            ->where('paystatus', 1)
+            ->field('d.title, d.description, d.thumb, d.tag')
+            ->page($page)
+            ->limit(10)
+            ->select();
+
+        if(is_array($list) && !empty($list)){
+            foreach ($list as &$item) {
+                if($item['tag']) $item['tag'] = explode(',', rtrim($item['tag'] , ','));
+            }
+        }
+        response_success($list);
+    }
+
     // 我购买的视频
     public function myVideo(){
         $user_id = I('user_id');
@@ -126,6 +148,28 @@ class User extends Base {
             ->where('vo.user_id', $user_id)
             ->where('paystatus', 1)
             ->field('v.title, v.description, v.thumb, v.tag')
+            ->page($page)
+            ->limit(10)
+            ->select();
+
+        if(is_array($list) && !empty($list)){
+            foreach ($list as &$item) {
+                if($item['tag']) $item['tag'] = explode(',', rtrim($item['tag'] , ','));
+            }
+        }
+        response_success($list);
+    }
+
+    // 我购买的产品与服务
+    public function myProduct(){
+        $user_id = I('user_id');
+        $page = I('page', 1);
+
+        $list = Db::name('product_order')->alias('po')
+            ->join('product p', 'po.product_id=p.id', 'left')
+            ->where('po.user_id', $user_id)
+            ->where('paystatus', 1)
+            ->field('p.title, p.description, p.thumb, p.tag')
             ->page($page)
             ->limit(10)
             ->select();

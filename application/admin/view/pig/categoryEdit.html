@@ -57,7 +57,7 @@ html, body {overflow: visible;}
             success: function (data) {
                 if (data.status === 1) {
                     layer.msg(data.msg, {icon: 1,time: 1000}, function() {
-                        location.href = "{:U('Admin/pig/categoryList')}";
+                        location.href = "{:U('Admin/pig/categoryList', array('parent_id'=>$info.parent_id))}";
                     });
                 } else if(data.status === 0) {
                     layer.msg(data.msg, {icon: 2,time: 5000});

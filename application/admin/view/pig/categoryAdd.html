@@ -19,7 +19,8 @@ html, body {overflow: visible;}
       </div>
     </div>
   </div>
-  <form class="form-horizontal" action="{:U('pig/categoryAdd')}" id="add_post" method="post">    
+  <form class="form-horizontal" action="{:U('pig/categoryAdd')}" id="add_post" method="post">
+    <input type="hidden" name="parent_id" value="{$parent_id}">
     <div class="ncap-form-default">
       <dl class="row">
         <dt class="tit">
@@ -55,7 +56,7 @@ html, body {overflow: visible;}
             success: function (data) {
                 if (data.status === 1) {
                     layer.msg(data.msg, {icon: 1,time: 1000}, function() {
-                        location.href = "{:U('Admin/pig/categoryList')}";
+                        location.href = "{:U('Admin/pig/categoryList', array('parent_id'=>$parent_id))}";
                     });
                 } else if(data.status === 0) {
                     layer.msg(data.msg, {icon: 2,time: 5000});

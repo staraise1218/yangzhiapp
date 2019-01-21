@@ -51,6 +51,7 @@ class Pig extends Base {
 
          // 获取分类
         $categoryList = M('pig_category')
+            ->where('parent_id', 0)
             ->order('id desc')
             ->select();
 
@@ -74,13 +75,24 @@ class Pig extends Base {
         $id = I('id');
         $info = M('pig')->where('id', $id)->find();
 
-        // 获取分类
+        // 获取一级分类
         $categoryList = M('pig_category')
+            ->where('parent_id', 0)
             ->order('id desc')
-            ->select();
+            ->select(); 
+        // 获取二级级分类
+        if($info['cat_id']){
+            $subcategoryList = M('pig_category')
+                ->where('parent_id', $info['cat_id'])
+                ->order('id desc')
+                ->select();
+            } else {
+                $subcategoryList = array();
+            }
 
         $this->assign('info', $info);
         $this->assign('categoryList', $categoryList);
+        $this->assign('subcategoryList', $subcategoryList);
         return $this->fetch();
     }
 
@@ -95,18 +107,24 @@ class Pig extends Base {
     }
     
     public function categoryList(){
-        $list = M('pig_category')->order('id desc')
+        $parent_id = I('parent_id', 0);
+        $list = M('pig_category')
+            ->where('parent_id', $parent_id)
+            ->order('id desc')
             ->paginate(20, false, ['page'=>$page, 'path'=>U('admin/pig/categoryList')]);
 
 
         $this->assign('list',$list);// 赋值数据集
         
+        $this->assign('parent_id', $parent_id);
         return $this->fetch();
     }
 
     public function categoryAdd(){
         if($this->request->isPost()){
+
             $data = I('post.');
+
             if(trim($data['name']) == '') $this->ajaxReturn(['status' => 0, 'msg' => '参数错误', 'result' => ['name' =>'分类名称不能为空']]);
 
             if(M('pig_category')->insert($data)){
@@ -116,6 +134,8 @@ class Pig extends Base {
             }
         }
 
+        $parent_id = I('parent_id', 0);
+        $this->assign('parent_id', $parent_id);
         return $this->fetch();
     }
 
@@ -152,5 +172,16 @@ class Pig extends Base {
         } else {
             $this->ajaxReturn(['status' => -1, 'msg' => '操作失败']);
         }
+    }
+
+    public function ajaxGetSubCategory(){
+        $parent_id = I('parent_id');
+        $list = M('pig_category')
+            ->where('parent_id', $parent_id)
+            ->order('id desc')
+            ->select();
+
+        $this->ajaxReturn(['status' => 1, 'msg' => '操作成功', 'list'=>$list]);
+
     }
 }

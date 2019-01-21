@@ -16,7 +16,7 @@ return	array(
 						array('name' => '管理员日志', 'act'=>'log', 'op'=>'Admin'),
 				)),
 	)),
-	'module'=>array('name'=>'系统','child'=>array(
+	'module'=>array('name'=>'模块','child'=>array(
 
 				array('name' => '会员','child'=>array(
 						array('name'=>'会员列表','act'=>'index','op'=>'User'),
@@ -46,6 +46,10 @@ return	array(
 				array('name' => '在线资讯','child'=>array(
 						array('name' => '文档管理', 'act'=>'index', 'op'=>'document'),
 						array('name' => '视频管理', 'act'=>'index', 'op'=>'video'),
+						array('name' => '产品与服务', 'act'=>'index', 'op'=>'product'),
+						array('name' => '文档订单', 'act'=>'index', 'op'=>'documentOrder'),
+						array('name' => '视频订单', 'act'=>'index', 'op'=>'videoOrder'),
+						array('name' => '产品订单', 'act'=>'index', 'op'=>'productOrder'),
 				)),
 				array('name' => '合作伙伴','child'=>array(
 						array('name' => '合作伙伴', 'act'=>'index', 'op'=>'partner'),

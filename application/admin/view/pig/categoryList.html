@@ -52,10 +52,17 @@
     <div class="tDiv">
       <div class="tDiv2">
           <div class="fbutton"> 
-        	<a href="{:U('Admin/pig/categoryAdd')}"><div class="add" title="新增分类"><span><i class="fa fa-plus"></i>新增分类</span></div></a> 
+        	<a href="{:U('Admin/pig/categoryAdd', array('parent_id'=>$parent_id))}"><div class="add" title="新增分类"><span><i class="fa fa-plus"></i>新增分类</span></div></a> 
+          </div>
+
+          <div class="fbutton">
+            <div class="up" title="返回上级">
+              <span onclick="return_top_level();"><i class="fa fa-level-up"></i>返回上级</span>
+            </div>
           </div>
           <!-- <div class="fbutton"><div class="del" title="将选定行数据批量删除"><span><i class="fa fa-trash"></i>批量删除</span></div></div>-->
       </div>
+
       <div style="clear:both"></div>
     </div>
     <div class="bDiv" style="height: auto;">
@@ -71,7 +78,16 @@
                   <div style="text-align: left; width: 240px;">{$vo.name}</div>
                 </td>
                 <td align="center" class="handle">
-                  <div style="text-align: center; width: 170px; max-width:170px;"> 
+                  <div style="text-align: center; width: 170px; max-width:170px;">
+                    <if condition="$parent_id eq 0">
+                   <span class="btn">
+                      <em><i class="fa fa-cog"></i>设置 <i class="arrow"></i></em>
+                      <ul>
+                        <li><a href="{:U('Admin/pig/categoryAdd',array('parent_id'=>$vo['id']))}">新增下级</a></li>
+                        <li><a href="{:U('Admin/pig/categoryList',array('parent_id'=>$vo['id']))}">查看下级</a></li>
+                    </ul>
+                  </span>
+                  </if>
                     <a href="{:U('pig/categoryEdit',array('id'=>$vo['id']))}" class="btn blue"><i class="fa fa-pencil-square-o"></i>编辑</a> 
                     <a class="btn red"  href="javascript:void(0)" data-url="{:U('pig/delCat')}" data-id="{$vo.id}" onClick="delfun(this)"><i class="fa fa-trash-o"></i>删除</a>
                   </div>
@@ -96,6 +112,12 @@
 		$('.fa-refresh').click(function(){
 			location.href = location.href;
 		});
+
+    // 返回上级
+  function return_top_level()
+  {
+    window.location.href = "{:U('admin/pig/categoryList',array('parent_id'=>0))}";
+  }
 		
 
 

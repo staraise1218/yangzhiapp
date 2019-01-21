@@ -5,7 +5,7 @@ namespace app\admin\controller;
 use think\Page;
 use think\Paginator;
 
-class Document extends Base {
+class Product extends Base {
 
     public function index(){
         $page = I('page', 1);
@@ -14,10 +14,10 @@ class Document extends Base {
         $keywords = trim(I('keywords'));
         $keywords && $where.=" and title like '%$keywords%' ";
        
-        $list = M('document')
+        $list = M('product')
             ->where($where)
             ->order('id desc')
-            ->paginate(20, false, ['page'=>$page, 'path'=>U('admin/document/index')]);
+            ->paginate(20, false, ['page'=>$page, 'path'=>U('admin/product/index')]);
 
 
         $this->assign('list',$list);// 赋值数据集
@@ -31,7 +31,7 @@ class Document extends Base {
             if(trim($data['title']) == '') $this->ajaxReturn(['status' => 0, 'msg' => '参数错误', 'result' => ['title' =>'标题不能为空']]);
 
             $data['createtime'] = time();
-            if(M('document')->insert($data)){
+            if(M('product')->insert($data)){
                 $this->ajaxReturn(['status' => 1, 'msg' => '操作成功']);
             } else {
                 $this->ajaxReturn(['status' => -1, 'msg' => '操作失败']);
@@ -49,14 +49,14 @@ class Document extends Base {
 
             $id = $data['id'];
 
-            if(M('document')->where('id', $id)->save($data)){
+            if(M('product')->where('id', $id)->save($data)){
                 $this->ajaxReturn(['status' => 1, 'msg' => '操作成功']);
             } else {
                 $this->ajaxReturn(['status' => -1, 'msg' => '操作失败']);
             }
         }
         $id = I('id');
-        $info = M('document')->where('id', $id)->find();
+        $info = M('product')->where('id', $id)->find();
 
         $this->assign('info', $info);
         $this->assign('categoryList', $categoryList);
@@ -66,25 +66,10 @@ class Document extends Base {
     public function del(){
         $id = I('id');
 
-        if(false !== M('document')->where('id', $id)->update(array('is_delete'=>1))){
+        if(false !== M('product')->where('id', $id)->update(array('is_delete'=>1))){
             $this->ajaxReturn(['status' => 1, 'msg' => '操作成功']);
         } else {
             $this->ajaxReturn(['status' => 0, 'msg' => '操作失败']);
         }
-    }
-
-    // 文档订单
-    public function orderList(){
-        $page = I('page', 1);
-
-        $list = M('document_order')->alias('do')
-            ->join('document d', 'do.document_id=d.id')
-            ->join('users u', 'do.user_id=u.user_id')
-            ->order('do.id desc')
-            ->paginate(20, false, ['page'=>$page, 'path'=>U('admin/document/orderList')]);
-
-        $this->assign('list',$list);
-        
-        return $this->fetch();
     }
 }

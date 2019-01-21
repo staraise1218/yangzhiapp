@@ -104,6 +104,42 @@ class Document extends Base {
         response_success($comments);
     }
 
+    public function submitOrder(){
+        $document_id = I('document_id');
+        $user_id = I('user_id');
+
+        // 检测数据是否存在
+        $document = Db::name('document')
+            ->where('id', $document_id)
+            ->find();
+        if(empty($document)) response_error('', '数据不存在');
+
+        // 检测是否已购买
+        $count = Db::name('document_order')
+            ->where('user_id', $user_id)
+            ->where('document_id', $document_id)
+            ->count();
+        if($count) response_error('', '您已购买');
+
+        $order_sn = $this->generateOrderSn();
+        $data = array(
+            'document_id' => $document_id,
+            'price' => $document['price'],
+            'user_id' => $user_id,
+            'order_sn' => $order_sn,
+            'createtime' => time(),
+        );
+
+        if(Db::name('document_order')->insert($data)){
+            $resultData = array(
+                'order_sn' => $order_sn,
+            );
+            response_success($resultData, '下单成功');
+        } else {
+            response_error('', '下单失败');
+        }
+    }
+
     /**
      * 生成目录树结构
      */

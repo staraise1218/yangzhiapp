@@ -15,11 +15,11 @@ html, body {overflow: visible;}
   <div class="fixed-bar">
     <div class="item-title"><a class="back" href="javascript:history.back();" title="返回列表"><i class="fa fa-arrow-circle-o-left"></i></a>
       <div class="subject">
-        <h3>猪场风云管理 - 修改</h3>
+        <h3>在线文档 - 修改</h3>
       </div>
     </div>
   </div>
-  <form class="form-horizontal" action="{:U('pig/edit')}" id="add_post" method="post">    
+  <form class="form-horizontal" action="{:U('product/edit')}" id="add_post" method="post">    
     <div class="ncap-form-default">
       <dl class="row">
         <dt class="tit">
@@ -34,24 +34,15 @@ html, body {overflow: visible;}
       </dl> 
       <dl class="row">
         <dt class="tit">
-          <label for="cat_id"><em>*</em>所属分类</label>
+          <label>标签</label>
         </dt>
         <dd class="opt">
-        <select class="small form-control" name="cat_id" id="cat_id">
-            <option value="0">选择分类</option>
-            <foreach name="categoryList" item="cat">
-            <option value="{$cat.id}" <if condition="$cat.id eq $info.cat_id">selected</if>>{$cat.name}</option>
-            </foreach>
-        </select>  
-        <select class="small form-control" name="sub_cat_id" id="sub_cat_id">
-            <option value="0">选择分类</option>
-            <foreach name="subcategoryList" item="cat">
-            <option value="{$cat.id}" <if condition="$cat.id eq $info.sub_cat_id">selected</if>>{$cat.name}</option>
-            </foreach>
-        </select>        
-          <span class="err" id="err_cat_id"></span>
+          <input type="text" value="{$info.tag}" name="tag" class="input-txt" value="{$info.tag}">
+          <span class="err" id="err_title"></span>
+          <p class="notic"></p>
         </dd>
-      </dl>    
+        
+      </dl> 
         <dl class="row">
             <dt class="tit">
                 <label>图片上传</label>
@@ -118,7 +109,7 @@ html, body {overflow: visible;}
         $('span.err').hide();
         $.ajax({
             type: "POST",
-            url: "{:U('pig/edit')}",
+            url: "{:U('product/edit')}",
             data: $('#add_post').serialize(),
             dataType: "json",
             error: function () {
@@ -127,7 +118,7 @@ html, body {overflow: visible;}
             success: function (data) {
                 if (data.status === 1) {
                     layer.msg(data.msg, {icon: 1,time: 1000}, function() {
-                        location.href = "{:U('Admin/pig/index')}";
+                        location.href = "{:U('Admin/product/index')}";
                     });
                 } else if(data.status === 0) {
                     layer.msg(data.msg, {icon: 2,time: 5000});
@@ -143,33 +134,6 @@ html, body {overflow: visible;}
         });
     }
 
-
-
-
-    $(function(){
-        $('select[name=cat_id]').change(function(){
-            var cat_id = $(this).val();
-            if(cat_id == 0){
-                $('select[name=sub_cat_id]').html('');
-                return false;
-            }
-            $.ajax({
-              url: "{:U('admin/pig/ajaxGetSubCategory')}",
-              type: 'post',
-              dataType: 'json',
-              data:{parent_id:cat_id},
-              success: function(data){
-                var html = '<option value="0">选择二级分类</option>';
-                $.each(data.list, function(){
-
-                    html += '<option value="'+this.id+'">'+this.name+'</option>';
-                })
-
-                $('select[name=sub_cat_id]').html(html);
-              }
-            })
-        })      
-    })
 
     function img_call_back(fileurl_tmp)
     {

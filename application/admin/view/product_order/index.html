@@ -6,7 +6,7 @@
   <div class="fixed-bar">
     <div class="item-title">
       <div class="subject">
-        <h3>在线文档</h3>
+        <h3>产品订单管理</h3>
       </div>
     </div>
   </div>
@@ -25,7 +25,7 @@
         <h5>(共{$list->count()}条记录)</h5>
       </div>
       <div title="刷新数据" class="pReload"><i class="fa fa-refresh"></i></div>
-	  <form class="navbar-form form-inline" action="{:U('Admin/video/index')}" method="post">      
+	  <form class="navbar-form form-inline" action="{:U('Admin/document/index')}" method="post">      
       <div class="sDiv">
         <div class="sDiv2">
           
@@ -44,13 +44,22 @@
                 <div style="width: 24px;"><i class="ico-check"></i></div>
               </th>
               <th align="left" abbr="article_title" axis="col3" class="">
-                <div style="text-align: left; width: 240px;" class="">标题</div>
-              </th>
+                <div style="text-align: left; width: 120px;" class="">姓名</div>
+              </th>  
               <th align="left" abbr="article_title" axis="col3" class="">
-                <div style="text-align: left; width: 30px;" class="">推荐</div>
+                <div style="text-align: left; width: 120px;" class="">手机号</div>
+              </th>  
+              <th align="left" abbr="article_title" axis="col3" class="">
+                <div style="text-align: left; width: 240px;" class="">标题</div>
+              </th>  
+              <th align="center" abbr="article_time" axis="col6" class="">
+                <div style="text-align: center; width: 120px;" class="">订单号</div>
               </th>
               <th align="center" abbr="article_time" axis="col6" class="">
-                <div style="text-align: center; width: 160px;" class="">发布时间</div>
+                <div style="text-align: center; width: 120px;" class="">支付状态</div>
+              </th>
+              <th align="center" abbr="article_time" axis="col6" class="">
+                <div style="text-align: center; width: 120px;" class="">下单时间</div>
               </th>
               <th align="center" axis="col1" class="handle">
                 <div style="text-align: center; width: 150px;">操作</div>
@@ -66,7 +75,7 @@
     <div class="tDiv">
       <div class="tDiv2">
           <div class="fbutton"> 
-        	<a href="{:U('Admin/video/add')}"><div class="add" title="新增数据"><span><i class="fa fa-plus"></i>新增数据</span></div></a> 
+        	<!-- <a href="{:U('Admin/document/add')}"><div class="add" title="新增数据"><span><i class="fa fa-plus"></i>新增数据</span></div></a>  -->
           </div>
           <!-- <div class="fbutton"><div class="del" title="将选定行数据批量删除"><span><i class="fa fa-trash"></i>批量删除</span></div></div>-->
       </div>
@@ -80,26 +89,34 @@
               <tr>
                 <td class="sign">
                   <div style="width: 24px;"><i class="ico-check"></i></div>
-                </td>
+                </td>  
+                <td align="left" class="">
+                  <div style="text-align: left; width: 120px;">{$vo.fullname}</div>
+                </td> 
+                <td align="left" class="">
+                  <div style="text-align: left; width: 120px;">{$vo.mobile}</div>
+                </td>    
                 <td align="left" class="">
                   <div style="text-align: left; width: 240px;">{$vo.title|getSubstr=0,33}</div>
-                </td>             
-                <td align="center" axis="col0">
-                  <div style="text-align: center; width: 30px;">
-                    <if condition='$vo[is_recommend] eq 1'>
-                      <span class="yes" onClick="changeTableVal('video','id','{$vo.id}','is_recommend',this)" ><i class="fa fa-check-circle"></i>是</span>
-                      <else />
-                      <span class="no" onClick="changeTableVal('video','id','{$vo.id}','is_recommend',this)" ><i class="fa fa-ban"></i>否</span>
-                    </if>
-                  </div>
-                </td> 
+                </td>  
+                <td align="left" class="">
+                  <div style="text-align: left; width: 120px;">{$vo.order_sn}</div>
+                </td>  
+                <td align="left" class="">
+                  <div style="text-align: left; width: 120px;">
+                  <select name="paystatus" data-id="{$vo.order_id}">
+                      <option value="0" <if condition="$vo.paystatus eq 0">selected='selected'</if>>未支付</option>
+                      <option value="1" <if condition="$vo.paystatus eq 1">selected='selected'</if>>已支付</option>
+                  </select>
+                </div>
+                </td>   
                 <td align="center" class="">
-                  <div style="text-align: center; width: 160px;">{:date('Y-m-d H:i:s', $vo.createtime)}</div>
-                </td>
+                  <div style="text-align: center; width: 120px;">{:date('Y-m-d H:i:s', $vo.createtime)}</div>
+                </td> 
                 <td align="center" class="handle">
                   <div style="text-align: center; width: 170px; max-width:170px;"> 
-                    <a href="{:U('video/edit',array('id'=>$vo['id']))}" class="btn blue"><i class="fa fa-pencil-square-o"></i>编辑</a> 
-                    <a class="btn red"  href="javascript:void(0)" data-url="{:U('video/del')}" data-id="{$vo.id}" onClick="delfun(this)"><i class="fa fa-trash-o"></i>删除</a>
+                    <!-- <a href="{:U('document/edit',array('id'=>$vo['id']))}" class="btn blue"><i class="fa fa-pencil-square-o"></i>查看</a>  -->
+                    <!-- <a class="btn red"  href="javascript:void(0)" data-url="{:U('document/del')}" data-id="{$vo.id}" onClick="delfun(this)"><i class="fa fa-trash-o"></i>删除</a> -->
                   </div>
                 </td>
                 <td align="" class="" style="width: 100%;">
@@ -153,6 +170,20 @@
         layer.closeAll();
       });
     }
+
+    // 修支付状态
+    $('select[name=paystatus]').change(function(){
+        var id = $(this).attr('data-id');
+        var paystatus = $(this).val();
+
+        $.ajax({
+            url: "index.php/admin/documentOrder/changepaytatus/id/"+id+"/paystatus/"+paystatus,
+            type: 'get',
+            success:function(data){
+                layer.msg('操作成功');
+            }
+        })
+    })
 </script>
 </body>
 </html>
