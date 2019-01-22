@@ -139,21 +139,4 @@ class Document extends Base {
             response_error('', '下单失败');
         }
     }
-
-    /**
-     * 生成目录树结构
-     */
-    private function _tree($data){
-
-        $tree = array();
-        foreach ($data as $item) {
-               if(isset($data[$item['parent_id']])){
-                  $data[$item['parent_id']]['sub'][] = &$data[$item['comment_id']];
-               } else {
-                  $tree[] = &$data[$item['comment_id']];
-               }
-        }
-
-        return $tree;
-    }
 }

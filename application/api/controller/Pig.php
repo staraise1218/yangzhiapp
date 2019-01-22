@@ -38,13 +38,21 @@ class Pig extends Base {
 	}
 
 	public function category(){
-		$list = Db::name('category')
-			->where('type', 'pig')
-			->field('id, title')
+		$list = Db::name('pig_category')
+			->field('id, name, parent_id')
 			->order('id desc')
 			->select();
 
-		response_success($list);
+		$data = array();
+		if(is_array($list) && !empty($list)){
+			foreach ($list as $item) {
+				$data[$item['id']] = $item;
+			}
+		}
+
+		$data = $this->_tree($data);
+
+		response_success($data);
 	}
 
 	public function detail(){
@@ -60,5 +68,22 @@ class Pig extends Base {
 
 		response_success($info);
 	}
+
+    /**
+     * 生成目录树结构
+     */
+    private function _tree($data){
+
+        $tree = array();
+        foreach ($data as $item) {
+               if(isset($data[$item['parent_id']])){
+                  $data[$item['parent_id']]['sub'][] = &$data[$item['id']];
+               } else {
+                  $tree[] = &$data[$item['id']];
+               }
+        }
+
+        return $tree;
+    }
 
 }
