@@ -18,6 +18,7 @@ class Pig extends Base {
 	public function index(){
 		$keyword = I('keyword');
 		$cat_id = I('cat_id');
+		$sub_cat_id = I('sub_cat_id');
 		$page = I('page', 1);
 
 		if($page <= 0) $page = 1;
@@ -25,6 +26,7 @@ class Pig extends Base {
 		$where['is_delete'] = 0;
 		if($keyword) $where['title'] = array('like', "%$keyword%");
 		if($cat_id) $where['cat_id'] = $cat_id;
+		if($sub_cat_id) $where['sub_cat_id'] = $sub_cat_id;
 
 		$list = Db::name('pig')
 			->where($where)
