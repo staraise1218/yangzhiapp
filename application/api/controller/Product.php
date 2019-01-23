@@ -47,6 +47,15 @@ class Product extends Base {
 
 		$info['content'] = $info['content'] ? htmlspecialchars_decode($info['content']) : '';
 
+        // 是否购买
+        $buyed = Db::name('product_order')
+            ->where('user_id', $user_id)
+            ->where('product_id', $id)
+            ->where('paystatus', 1)
+            ->count();
+        $info['is_buy'] = $buyed ? 1 : 0;
+        if($info['price'] == 0) $info['is_buy'] = 1;
+
 		response_success($info);
 	}
 

@@ -66,6 +66,15 @@ class Document extends Base {
 		$info['is_collect'] = $is_collect ? 1 : 0;
 		$info['content'] = $info['content'] ? htmlspecialchars_decode($info['content']) : '';
 
+        // 是否购买
+        $buyed = Db::name('document_order')
+            ->where('user_id', $user_id)
+            ->where('document_id', $id)
+            ->where('paystatus', 1)
+            ->count();
+        $info['is_buy'] = $buyed ? 1 : 0;
+        if($info['price'] == 0) $info['is_buy'] = 1;
+
 		response_success($info);
 	}
 

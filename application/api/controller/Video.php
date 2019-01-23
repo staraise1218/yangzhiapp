@@ -79,6 +79,7 @@ class Video extends Base {
             ->where('paystatus', 1)
             ->count();
         $info['is_buy'] = $buyed ? 1 : 0;
+        if($info['price'] == 0) $info['is_buy'] = 1;
 
 		response_success($info);
 	}
