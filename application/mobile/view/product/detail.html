@@ -14,7 +14,7 @@
 
   <script src="__STATIC__/js/js-build/jquery-3.1.1.min.js"></script>
   <script src="__STATIC__/js/Global.js"></script>
-  <!-- <script src="__STATIC__/js/document_detail.js"></script> -->
+  <script src="__STATIC__/js/product_detail.js"></script>
   <style>
     .picTextItem{
       padding: 0.15rem 0;
@@ -42,6 +42,13 @@
     }
 
     /* ======================================= */
+    .tagWrap{
+      margin-top: 0.1rem;
+    }
+    .wordTip{
+      margin-left: 0;
+      margin-right: 0.05rem;
+    }
     .buyBtn{
       display: block;
       width: 3.4rem;
@@ -60,16 +67,14 @@
       <!-- 图文 -->
       <div class="container picTextContainer">
         <div class="flexCenter picTextItem">
-          <img src="__STATIC__/images/timg.jpg" alt="图片">
-          <div>
+          <img class="thumbImg" src="__STATIC__/images/timg.jpg" alt="图片">
+          <div style="justify-content: flex-start;">
             <div class="flexCenter flexBetween">
-              <h5 class="titleTop">标题标题</h5>
+              <h5 class="titleTop" data-myname="title"></h5>
             </div>
             <div class="flexCenter tagWrap">
-              <span class="wordTip wordTip1">效果不错</span>
-              <span class="wordTip wordTip2">效果完美</span>
             </div>
-            <p class="text description">简介简介介简介简介简介介介简介简介简介简介简介简介简介简介简介介简介简介简介简介简介简介简介简介简介介简介简介简介简介简介简介简介简介简介介简介简介简介简介简介简介简介简介简介介简介简介简介简介简介简介简介简介简介介简介简介简介简介简介简介简介简介简介介简介简介简介简介简介简介简介简介简介介简介简介简介简介简介简介简介简介简介介简介简介简介简介简介简介简介简介简介介简介简介简介简介简介简介简介简介简介介简介简介简介简介简介简介简介简介简简介简介简介简介简介简介简介简介简介简介简介简介简介简</p>
+            <!-- <p class="text description" data-myname=""></p> -->
           </div>
         </div>
       </div>
@@ -77,19 +82,19 @@
       <!-- 文档说明 文档详情 -->
       <div class="container">
         <div class="flexCenter flexBetween titleWrap">
-          <h4 class="title">文档说明</h4>
+          <h4 class="title">说明</h4>
         </div>
         <div class="askItemWrap">
           <div class="askItem">
-            <p class="articleText description">说明说明明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说</p>
+            <p class="articleText description" data-myname="description"></p>
           </div>
         </div>
         <div class="flexCenter flexBetween titleWrap">
-          <h4 class="title">文档详情</h4>
+          <h4 class="title">详情</h4>
         </div>
         <div class="askItemWrap">
           <div class="askItem">
-            <p class="articleText articleContent">详情详详详详详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详</p>
+            <p class="articleText articleContent" data-myname="content"></p>
           </div>
         </div>
       </div>

@@ -321,6 +321,12 @@ var Global = (function () {
     //   window.Android.changeTitle(titleStr)
     // }
   }
+  function disableEle(ele){
+    $(ele).addClass("eventsDisabled")
+  }
+  function ableEle(ele){
+    $(ele).removeClass("eventsDisabled")
+  }
   //--------------------------------------------------------
   return {
     domain,
@@ -342,6 +348,8 @@ var Global = (function () {
     resizeImg,
     filterHeadpic,
     changeTitleG,
+    disableEle, //让元素不可点击
+    ableEle //让元素可点击
   }
 })();
 
