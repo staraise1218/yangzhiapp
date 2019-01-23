@@ -85,4 +85,13 @@ class Product extends Base {
             response_error('', '下单失败');
         }
     }
+
+    public function generateOrderSn(){
+        $order_sn = date('YmdHis').mt_rand(1000, 9999);
+
+        $count = Db::name('video_order')->where('order_sn', $order_sn)->count();
+        if($count) $this->generateOrderSn();
+
+        return $order_sn;
+    }
 }
