@@ -44,7 +44,7 @@ class Product extends Base {
 			->where('id', $id)
 			->where('is_delete', 0)
 			->find();
-p($info);
+
 		$info['content'] = $info['content'] ? htmlspecialchars_decode($info['content']) : '';
 
 		response_success($info);
