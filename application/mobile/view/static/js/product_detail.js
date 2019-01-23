@@ -47,6 +47,13 @@ var Pro={
         $(this).text(value)
       }
     })
+
+    //是否已购买
+    if(info.is_buy&&Number(info.is_buy)==1){ //已购买
+      $(".buyBtn").text("已购买")
+    }else{
+      $(".buyBtn").text("购买")
+    }
   },
   buy(){
     Global.messageConfirWin("确认购买？",function(){
@@ -63,10 +70,14 @@ var Pro={
         success: function (res) {
           Global.ableEle($(".buyBtn")[0])
           console.log(res)
-          if(res&&res.code==200){
-            console.log("购买成功")
-            Global.messageWin("下单成功")
-          }
+          // if(res&&res.code==200){
+          //   console.log("购买成功")
+          //   Global.messageWin("下单成功")
+          // }
+          console.log("购买成功")
+          Global.messageWin("下单成功")
+
+          $(".buyBtn").text("已购买")
         },
         error: function (e) {
           Global.ableEle($(".buyBtn")[0])
@@ -78,7 +89,12 @@ var Pro={
   eventsBind(){
     //点击购买
     $(".buyBtn").click(function(){
-      Pro.buy()
+      let text=$(this).text()
+      if(text=="已购买"){
+
+      }else{
+        Pro.buy()
+      }
     })
   },
   init(){

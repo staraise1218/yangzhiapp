@@ -44,6 +44,15 @@ var ZaiDetail = {
       $(".description").html(info.description)
       //内容
       $(".articleContent").html(info.content)
+      //2019.01.23
+      //是否已购买
+      if(info.is_buy&&Number(info.is_buy)==1){
+        $(".isBuy0").hide()
+        $(".isBuy1").show()
+      }else{
+        $(".isBuy0").show()
+        $(".isBuy1").hide()
+      }
       //是否收藏
       if (Number(info.is_collect) == 1) {
         $(".isCollect1").show()
@@ -133,7 +142,50 @@ var ZaiDetail = {
       }
     })
   },
+  buy(){
+    Global.messageConfirWin("确认购买？",function(){
+      let postData = {
+        document_id:ZaiDetail.id,
+        user_id:Number(ZaiDetail.mUserInfo.user_id)
+      }
+      console.log(postData)
+      $(".isBuy").addClass("eventsDisabled")
+      $.ajax({
+        type: "POST",
+        url: Global.host + "/Api/document/submitOrder",
+        data: postData,
+        success: function (res) {
+          $(".isBuy").removeClass("eventsDisabled")
+          console.log(res)
+          // if(res&&res.code==200){
+          //   console.log("购买成功")
+          //   Global.messageWin("下单成功")
+
+          //   $(".isBuy0").hide()
+          //   $(".isBuy1").show()
+          // }
+          console.log("购买成功")
+          Global.messageWin(res.msg)
+
+          $(".isBuy0").hide()
+          $(".isBuy1").show()
+        },
+        error: function (e) {
+          $(".isBuy").removeClass("eventsDisabled")
+          console.log(e)
+        }
+      })
+    })
+  },
   eventBind() {
+    //点击购买
+    $(".isBuy").click(function(){
+      if($(this).hasClass("isBuy1")){ //已经购买了
+        Global.messageWin("您已购买")
+      }else{
+        ZaiDetail.buy()
+      }
+    })
     //点击收藏
     $(".isCollect").click(function () {
       let self = this
