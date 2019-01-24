@@ -260,9 +260,20 @@ class User extends Base {
         $user_id = I('user_id');
         $page = I('page', 1);
 
+        $user = Db::name('users')
+            ->where('user_id', $user_id)
+            ->field('group_id')
+            ->find();
+        if($user['group_id'] == 1){
+            $where['a.user_id'] = $user_id;
+        } else {
+            $where['a.expert_id'] = $user_id;
+        }
+
+
         $list = Db::name('ask')->alias('a')
             ->join('users u', 'a.expert_id=u.user_id')
-            ->where('a.user_id', $user_id)
+            ->where($where)
             ->field('a.user_id ask_id, a.expert_id, a.title, a.content, a.createtime, u.fullname')
             ->page($page)
             ->limit(10)
