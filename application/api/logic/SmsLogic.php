@@ -80,7 +80,7 @@ class SmsLogic {
         $smsLogid = Db::name('sms_log')->insertGetId($data);
 
         // 执行短信网关发送 12269890032
-        $result = $this->sendSms($mobile, $code);
+        $result = $this->sendSms($mobile, $code, $scene);
 
         if($result->Code == 'OK'){
             Db::name('sms_log')->where("id=$smsLogid")->update(array('status'=>'1'));
@@ -95,8 +95,7 @@ class SmsLogic {
      * 发送短信
      * @return stdClass
      */
-    public static function sendSms($mobile, $code) {
-        return (object)array('Code'=>'OK');
+    public static function sendSms($mobile, $code, $scene) {
         
         // 初始化SendSmsRequest实例用于设置发送短信的参数
         $request = new SendSmsRequest();
@@ -108,10 +107,13 @@ class SmsLogic {
         $request->setPhoneNumbers($mobile);
 
         // 必填，设置签名名称，应严格按"签名名称"填写，请参考: https://dysms.console.aliyun.com/dysms.htm#/develop/sign
-        $request->setSignName("遇见好时光");
+        $request->setSignName("科泰农方");
 
         // 必填，设置模板CODE，应严格按"模板CODE"填写, 请参考: https://dysms.console.aliyun.com/dysms.htm#/develop/template
-        $request->setTemplateCode("SMS_141965192");
+        if($scene == 1) $templateCode = 'SMS_169955209';
+        if($scene == 2) $templateCode = 'SMS_169955208';
+
+        $request->setTemplateCode($templateCode);
 
         // 可选，设置模板参数, 假如模板中存在变量需要替换则为必填项
         $request->setTemplateParam(json_encode(array(  // 短信模板中字段的值
@@ -127,7 +129,6 @@ class SmsLogic {
 
         // 发起访问请求
         $acsResponse = static::getAcsClient()->getAcsResponse($request);
-
         return $acsResponse;
     }
 
@@ -176,9 +177,9 @@ class SmsLogic {
         $domain = "dysmsapi.aliyuncs.com";
 
         // TODO 此处需要替换成开发者自己的AK (https://ak-console.aliyun.com/)
-        $accessKeyId = "LTAIoEgoBushEbTG"; // AccessKeyId
+        $accessKeyId = "LTAIS2IVDSHFDflB"; // AccessKeyId
 
-        $accessKeySecret = "6vw9idElHspORFkKANuMh6IPQbqlis"; // AccessKeySecret
+        $accessKeySecret = "697jxWvm7MBZEZmoKP7mny0eemDWZd"; // AccessKeySecret
 
         // 暂时不支持多Region
         $region = "cn-hangzhou";

@@ -270,11 +270,10 @@ class User extends Base {
             $where['a.expert_id'] = $user_id;
         }
 
-
         $list = Db::name('ask')->alias('a')
             ->join('users u', 'a.expert_id=u.user_id')
             ->where($where)
-            ->field('a.user_id ask_id, a.expert_id, a.title, a.content, a.createtime, u.fullname')
+            ->field('a.id ask_id, a.expert_id, a.title, a.content, a.createtime, u.fullname')
             ->page($page)
             ->limit(10)
             ->order('a.id desc')
